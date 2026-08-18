@@ -67,7 +67,7 @@ All text fields support either:
 | **Branding** | `branding.logo.alt` & `href` | **[REQUIRED]** | Logo alt text (supports `{ en, id }`) and link |
 | **Branding** | `branding.logo.useContainer` | [CONFIG] | `false` for horizontal logos, `true` for icon boxes |
 | **Branding** | `branding.theme.defaultMode` | [CONFIG] | `"system"`, `"dark"`, or `"light"` |
-| **Header Links** | `headerLinks` | **[REQUIRED]** | Top-right links (supports `{ en, id }` label) |
+| **Header Links** | `headerLinks.enabled` & `items` | [OPTIONAL] | Toggle and configure top-right links (e.g. GitHub repo) |
 | **Content** | `content.headline` | **[REQUIRED]** | Main heading (supports `{ en, id }` or string) |
 | **Content** | `content.description` | **[REQUIRED]** | Main description (supports `{ en, id }` or string) |
 | **Content** | `content.cta` | [OPTIONAL] | CTA button (`enabled`, `text: { en, id }`, `href`) |

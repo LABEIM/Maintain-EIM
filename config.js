@@ -15,7 +15,7 @@
  * -------------------------------------------------------------------------
  * 1. [REQUIRED] Update `meta.title` and `meta.description` with project name.
  * 2. [REQUIRED] Update `branding.logo` (logo image URLs, alt text, homepage link).
- * 3. [REQUIRED] Update `headerLinks` (e.g., link to your project's GitHub repo).
+ * 3. [OPTIONAL] Update or enable/disable `headerLinks` (e.g., project GitHub repository link).
  * 4. [REQUIRED] Update `content.headline` and `content.description`.
  * 5. [OPTIONAL] Configure `i18n` (default language, switcher visibility).
  * 6. [OPTIONAL] Enable `content.cta` (call-to-action button).
@@ -106,15 +106,21 @@ const CONFIG = {
     // ---------------------------------------------------------------------
     // 4. Header Action Links (Top-Right Controls)
     // ---------------------------------------------------------------------
-    // [REQUIRED] Update links to match your project repository or docs
-    headerLinks: [
-        {
-            label: "GitHub",
-            href: "https://github.com/LABEIM", // Update to your project repo e.g. "https://github.com/LABEIM/project-name"
-            icon: "fa-brands fa-github",
-            external: true
-        }
-    ],
+    headerLinks: {
+        // [CONFIG] Show (true) or hide (false) header action links (e.g., set false for private repos)
+        enabled: true,
+
+        // [OPTIONAL] Update links to match your project repository or docs
+        items: [
+            {
+                enabled: true, // [OPTIONAL] Individual link toggle
+                label: "GitHub",
+                href: "https://github.com/LABEIM", // Update to your project repo e.g. "https://github.com/LABEIM/project-name"
+                icon: "fa-brands fa-github",
+                external: true
+            }
+        ]
+    },
 
     // ---------------------------------------------------------------------
     // 5. Hero / Main Content

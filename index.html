@@ -245,11 +245,23 @@
             }
 
             // 3. Header Action Links
-            if (config.headerLinks && Array.isArray(config.headerLinks)) {
-                const headerLinksContainer = document.getElementById('header-links');
-                if (headerLinksContainer) {
-                    headerLinksContainer.innerHTML = '';
-                    config.headerLinks.forEach(link => {
+            const headerLinksContainer = document.getElementById('header-links');
+            if (headerLinksContainer) {
+                headerLinksContainer.innerHTML = '';
+                const headerConfig = config.headerLinks;
+                let isEnabled = true;
+                let linksList = [];
+
+                if (Array.isArray(headerConfig)) {
+                    linksList = headerConfig;
+                } else if (headerConfig && typeof headerConfig === 'object') {
+                    isEnabled = headerConfig.enabled !== false;
+                    linksList = Array.isArray(headerConfig.items) ? headerConfig.items : [];
+                }
+
+                if (isEnabled && linksList.length > 0) {
+                    linksList.forEach(link => {
+                        if (link.enabled === false) return;
                         const a = document.createElement('a');
                         a.href = link.href || '#';
                         if (link.external !== false) {
