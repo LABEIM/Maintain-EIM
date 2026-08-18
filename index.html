@@ -194,6 +194,9 @@
         }
 
         function updateLogoTheme(isDark) {
+            if (isDark === undefined) {
+                isDark = document.documentElement.classList.contains('dark');
+            }
             const config = window.CONFIG;
             if (!config || !config.branding || !config.branding.logo) return;
             const logo = config.branding.logo;
@@ -396,7 +399,7 @@
                     }
 
                     if (logoImg) {
-                        if (logo.src) logoImg.src = logo.src;
+                        updateLogoTheme();
                         if (resolvedAlt) logoImg.alt = resolvedAlt;
                     }
                 }
