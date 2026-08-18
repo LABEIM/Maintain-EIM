@@ -1,15 +1,17 @@
-# Coming Soon Web Template
+# Coming Soon & Maintenance Web Template
 
-A modern, responsive, configurable, and lightweight Coming Soon web template tailored for Enterprise Infrastructure Management (EIM) Research Laboratory projects and new web initiatives.
+A modern, responsive, configurable, and lightweight web template tailored for Enterprise Infrastructure Management (EIM) Research Laboratory projects, pre-launch initiatives, and scheduled maintenance pages.
 
-This template provides zero-build static hosting, centralized zero-code configuration via `config.js`, bilingual support (English & Indonesian) with instant language toggle, light and dark mode support, and automated CI/CD deployment to Cloudflare Pages via the [LABEIM Shared CI/CD](https://github.com/LABEIM/shared-ci-cd) workflow.
+This template provides zero-build static hosting, centralized zero-code configuration via `config.js`, bilingual support (English & Indonesian) with instant language toggle, light and dark mode support, optional live countdown / ETA timer, and automated CI/CD deployment to Cloudflare Pages via the [LABEIM Shared CI/CD](https://github.com/LABEIM/shared-ci-cd) workflow.
 
 ---
 
 ## Features
 
+- **Dual-Purpose Architecture:** Perfect for pre-launch **Coming Soon** landing pages (HTTP 200) and temporary **Scheduled Maintenance** pages (HTTP 503).
+- **Optional Countdown / ETA Indicator:** Built-in live ticking countdown timer with localized units (Days, Hours, Minutes, Seconds) and completion fallback message.
 - **Bilingual & Multi-Language (i18n):** Native support for English (`EN`) and Indonesian (`ID`) with a sleek language toggle switch, automated browser language detection, and `localStorage` persistence.
-- **Centralized Configuration:** Customize logo, navigation, SEO meta tags, hero headline, description, footer, and social links in `config.js` without touching HTML code.
+- **Centralized Configuration:** Customize logo, navigation, SEO meta tags, hero headline, description, countdown, CTA, footer, and social links in `config.js` without touching HTML code.
 - **Zero-Build Static Architecture:** Pure HTML5 and Tailwind CSS (via CDN) with no compilation step required.
 - **Theme Switching:** Dark and light mode toggle with `localStorage` persistence and automatic system preference detection.
 - **Fully Responsive:** Layout optimized for mobile, tablet, and desktop viewports.

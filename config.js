@@ -1,6 +1,6 @@
 /**
  * =========================================================================
- * Coming Soon Web Template - Configuration
+ * Coming Soon / Maintenance Web Template - Configuration
  * =========================================================================
  *
  * Customize all settings, texts, links, logos, and branding for your project here.
@@ -16,10 +16,11 @@
  * 1. [REQUIRED] Update `meta.title` and `meta.description` with project name.
  * 2. [REQUIRED] Update `branding.logo` (logo image URLs, alt text, homepage link).
  * 3. [OPTIONAL] Update or enable/disable `headerLinks` (e.g., project GitHub repository link).
- * 4. [REQUIRED] Update `content.headline` and `content.description`.
- * 5. [OPTIONAL] Configure `i18n` (default language, switcher visibility).
- * 6. [OPTIONAL] Enable `content.cta` (call-to-action button).
- * 7. [OPTIONAL] Update `footer` contact email (`Hubungi Kami`) and social links.
+ * 4. [REQUIRED] Update `content.headline` and `content.description` (for Coming Soon or Maintenance).
+ * 5. [OPTIONAL] Enable `content.countdown` (countdown timer / estimated launch or downtime ETA).
+ * 6. [OPTIONAL] Configure `i18n` (default language, switcher visibility).
+ * 7. [OPTIONAL] Enable `content.cta` (call-to-action button).
+ * 8. [OPTIONAL] Update `footer` contact email (`Hubungi Kami`) and social links.
  * =========================================================================
  */
 
@@ -136,6 +137,26 @@ const CONFIG = {
         description: {
             en: "Coming Soon Web Template for EIM Lab research.",
             id: "Template Web Segera Hadir untuk riset EIM Lab."
+        },
+
+        // [OPTIONAL] Countdown / Estimated Time Indicator (for launch date or maintenance downtime ETA)
+        countdown: {
+            enabled: false,                      // Set to true to show the countdown timer
+            targetDate: "2026-09-01T00:00:00+07:00", // Target date in ISO-8601 format (YYYY-MM-DDTHH:mm:ss+HH:mm)
+            label: {
+                en: "Estimated Launch",
+                id: "Estimasi Peluncuran"
+            },
+            labels: {
+                days: { en: "Days", id: "Hari" },
+                hours: { en: "Hours", id: "Jam" },
+                minutes: { en: "Minutes", id: "Menit" },
+                seconds: { en: "Seconds", id: "Detik" }
+            },
+            expiredText: {
+                en: "We are currently putting on the finishing touches. Live very soon!",
+                id: "Kami sedang melakukan tahap penyelesaian. Segera hadir!"
+            }
         },
 
         // [OPTIONAL] Call-to-Action button below description

@@ -21,7 +21,7 @@ jobs:
     uses: LABEIM/shared-ci-cd/.github/workflows/deploy-app.yml@main
     with:
       enable_cloudflare: true
-      cloudflare_project_name: 'comingsoon-eim'
+      cloudflare_project_name: 'maintenance-eim'
       enable_lighthouse: true
       lighthouse_routes: |
         /

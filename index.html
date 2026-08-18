@@ -110,6 +110,33 @@
                 </p>
             </div>
 
+            <!-- Optional Countdown / Estimated Time Indicator -->
+            <div id="hero-countdown-container" class="hidden space-y-3 pt-1">
+                <p id="countdown-label" class="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500"></p>
+                <div id="countdown-timer-grid" class="flex items-center justify-center gap-2 sm:gap-3 select-none">
+                    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm min-w-[64px] sm:min-w-[76px]">
+                        <span id="countdown-days" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums tracking-tight">00</span>
+                        <span id="countdown-days-label" class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">Days</span>
+                    </div>
+                    <span class="text-slate-300 dark:text-slate-700 font-bold text-lg -mt-3 select-none">:</span>
+                    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm min-w-[64px] sm:min-w-[76px]">
+                        <span id="countdown-hours" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums tracking-tight">00</span>
+                        <span id="countdown-hours-label" class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">Hours</span>
+                    </div>
+                    <span class="text-slate-300 dark:text-slate-700 font-bold text-lg -mt-3 select-none">:</span>
+                    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm min-w-[64px] sm:min-w-[76px]">
+                        <span id="countdown-minutes" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums tracking-tight">00</span>
+                        <span id="countdown-minutes-label" class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">Minutes</span>
+                    </div>
+                    <span class="text-slate-300 dark:text-slate-700 font-bold text-lg -mt-3 select-none">:</span>
+                    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm min-w-[64px] sm:min-w-[76px]">
+                        <span id="countdown-seconds" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums tracking-tight">00</span>
+                        <span id="countdown-seconds-label" class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">Seconds</span>
+                    </div>
+                </div>
+                <p id="countdown-expired-text" class="hidden text-sm font-medium text-slate-600 dark:text-slate-300 max-w-md mx-auto py-2"></p>
+            </div>
+
             <!-- Optional CTA Button -->
             <div id="hero-cta-container" class="hidden pt-2">
                 <a id="hero-cta-button" href="#"
@@ -183,6 +210,109 @@
 
         // Current active language state
         let currentLanguage = 'en';
+        let countdownIntervalId = null;
+
+        function updateCountdownUI(lang = currentLanguage) {
+            const config = window.CONFIG;
+            const countdown = config && config.content && config.content.countdown;
+            const container = document.getElementById('hero-countdown-container');
+            if (!container) return;
+
+            if (!countdown || !countdown.enabled || !countdown.targetDate) {
+                container.classList.add('hidden');
+                if (countdownIntervalId) {
+                    clearInterval(countdownIntervalId);
+                    countdownIntervalId = null;
+                }
+                return;
+            }
+
+            container.classList.remove('hidden');
+
+            // 1. Countdown Label
+            const labelEl = document.getElementById('countdown-label');
+            const labelText = resolveI18n(countdown.label, lang);
+            if (labelEl) {
+                if (labelText) {
+                    labelEl.textContent = labelText;
+                    labelEl.classList.remove('hidden');
+                } else {
+                    labelEl.classList.add('hidden');
+                }
+            }
+
+            // 2. Unit labels
+            const daysLabel = (countdown.labels && resolveI18n(countdown.labels.days, lang)) || (lang === 'id' ? 'Hari' : 'Days');
+            const hoursLabel = (countdown.labels && resolveI18n(countdown.labels.hours, lang)) || (lang === 'id' ? 'Jam' : 'Hours');
+            const minsLabel = (countdown.labels && resolveI18n(countdown.labels.minutes, lang)) || (lang === 'id' ? 'Menit' : 'Minutes');
+            const secsLabel = (countdown.labels && resolveI18n(countdown.labels.seconds, lang)) || (lang === 'id' ? 'Detik' : 'Seconds');
+
+            const daysLabelEl = document.getElementById('countdown-days-label');
+            const hoursLabelEl = document.getElementById('countdown-hours-label');
+            const minsLabelEl = document.getElementById('countdown-minutes-label');
+            const secsLabelEl = document.getElementById('countdown-seconds-label');
+
+            if (daysLabelEl) daysLabelEl.textContent = daysLabel;
+            if (hoursLabelEl) hoursLabelEl.textContent = hoursLabel;
+            if (minsLabelEl) minsLabelEl.textContent = minsLabel;
+            if (secsLabelEl) secsLabelEl.textContent = secsLabel;
+
+            const gridEl = document.getElementById('countdown-timer-grid');
+            const expiredEl = document.getElementById('countdown-expired-text');
+            const targetTime = new Date(countdown.targetDate).getTime();
+
+            function tick() {
+                const now = new Date().getTime();
+                const distance = targetTime - now;
+
+                if (isNaN(targetTime) || distance <= 0) {
+                    const expiredMsg = resolveI18n(countdown.expiredText, lang);
+                    if (expiredMsg && expiredEl) {
+                        expiredEl.textContent = expiredMsg;
+                        expiredEl.classList.remove('hidden');
+                        if (gridEl) gridEl.classList.add('hidden');
+                    } else {
+                        if (gridEl) gridEl.classList.remove('hidden');
+                        if (expiredEl) expiredEl.classList.add('hidden');
+                        const d = document.getElementById('countdown-days');
+                        const h = document.getElementById('countdown-hours');
+                        const m = document.getElementById('countdown-minutes');
+                        const s = document.getElementById('countdown-seconds');
+                        if (d) d.textContent = '00';
+                        if (h) h.textContent = '00';
+                        if (m) m.textContent = '00';
+                        if (s) s.textContent = '00';
+                    }
+                    if (countdownIntervalId) {
+                        clearInterval(countdownIntervalId);
+                        countdownIntervalId = null;
+                    }
+                    return;
+                }
+
+                if (gridEl) gridEl.classList.remove('hidden');
+                if (expiredEl) expiredEl.classList.add('hidden');
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                const d = document.getElementById('countdown-days');
+                const h = document.getElementById('countdown-hours');
+                const m = document.getElementById('countdown-minutes');
+                const s = document.getElementById('countdown-seconds');
+
+                if (d) d.textContent = String(days).padStart(2, '0');
+                if (h) h.textContent = String(hours).padStart(2, '0');
+                if (m) m.textContent = String(minutes).padStart(2, '0');
+                if (s) s.textContent = String(seconds).padStart(2, '0');
+            }
+
+            tick();
+            if (countdownIntervalId) clearInterval(countdownIntervalId);
+            countdownIntervalId = setInterval(tick, 1000);
+        }
 
         // Apply Configuration Function with dynamic i18n
         function applySiteConfig(lang = currentLanguage) {
@@ -297,6 +427,9 @@
                     const descEl = document.getElementById('hero-description');
                     if (descEl) descEl.textContent = descText;
                 }
+
+                // Countdown / Estimated Time Indicator
+                updateCountdownUI(lang);
 
                 // Call to Action
                 const cta = config.content.cta;

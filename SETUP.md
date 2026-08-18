@@ -70,6 +70,7 @@ All text fields support either:
 | **Header Links** | `headerLinks.enabled` & `items` | [OPTIONAL] | Toggle and configure top-right links (e.g. GitHub repo) |
 | **Content** | `content.headline` | **[REQUIRED]** | Main heading (supports `{ en, id }` or string) |
 | **Content** | `content.description` | **[REQUIRED]** | Main description (supports `{ en, id }` or string) |
+| **Content** | `content.countdown` | [OPTIONAL] | Live countdown timer / target ETA (`enabled`, `targetDate`, `label`, `labels`, `expiredText`) |
 | **Content** | `content.cta` | [OPTIONAL] | CTA button (`enabled`, `text: { en, id }`, `href`) |
 | **Footer** | `footer.copyright` & `address` | [OPTIONAL] | Copyright & address (supports `{ en, id }`) |
 | **Footer** | `footer.quickLinks` | [OPTIONAL] | Quick text links (supports `{ en, id }` label) |
@@ -144,3 +145,127 @@ For domains registered or managed in Cloudflare Registrar / DNS, configuration i
 To route both apex (`example.com`) and `www` (`www.example.com`) to the deployment:
 1. Add `www.example.com` as a second custom domain in the **Custom domains** tab, or
 2. Go to **Websites** > select `example.com` > **Rules** > **Redirect Rules** to create a 301 redirect from `www.example.com` to `https://example.com`.
+
+---
+
+## 7. Using as a Maintenance Page & HTTP 503 Best Practices
+
+This template can also be used as a **Scheduled Maintenance Page** for existing applications and services.
+
+### Coming Soon vs Maintenance Page
+
+| Scenario | HTTP Status | Purpose / Search Engine Impact |
+| :--- | :--- | :--- |
+| **Coming Soon (Pre-Launch)** | `200 OK` | Tells search engines (Googlebot) to index the domain, build early domain authority, and show preview snippets. |
+| **Maintenance Mode (Downtime)** | `503 Service Unavailable` | Informs search crawlers and bots that downtime is **temporary**, preventing them from de-indexing live URLs or ranking the maintenance page over your real app content. |
+
+---
+
+### Nginx Server Configuration (HTTP 503)
+
+To temporarily put a service into maintenance mode on an Nginx reverse proxy using this template:
+
+```nginx
+server {
+    listen 80;
+    listen 443 ssl http2;
+    server_name app.eimlab.org;
+
+    # Define root containing index.html and config.js
+    root /var/www/comingsoon-eim;
+
+    # Send 503 Service Temporarily Unavailable
+    error_page 503 /index.html;
+
+    # Static assets (JS, CSS, images) should return 200 OK so the page renders
+    location ~* \.(js|css|png|jpg|jpeg|svg|ico|woff2?)$ {
+        try_files $uri =404;
+        expires 1h;
+        add_header Cache-Control "public, no-transform";
+    }
+
+    # All HTML requests trigger 503 status
+    location / {
+        return 503;
+    }
+
+    location = /index.html {
+        internal;
+        # Tell crawlers to retry in 1 hour (3600 seconds)
+        add_header Retry-After 3600 always;
+        add_header Cache-Control "no-store, no-cache, must-revalidate" always;
+    }
+}
+```
+
+---
+
+### Central Cloudflare Maintenance Router (Multi-Site Setup)
+
+If you have multiple lab websites on Cloudflare (e.g. `portal.eimlab.org`, `iot.eimlab.org`, `docs.eimlab.org`), use a single central Cloudflare Worker to act as the maintenance switchboard.
+
+#### Step 1: Deploy this Template to Cloudflare Pages
+1. Deploy this repository to Cloudflare Pages (e.g., `comingsoon-eim.pages.dev`).
+2. Verify the page is accessible at `https://comingsoon-eim.pages.dev/`.
+
+#### Step 2: Create the Central Router Worker in Cloudflare
+1. Go to **Cloudflare Dashboard** > **Compute (Workers & Pages)** > **Create Worker**.
+2. Name it `eim-maintenance-router`.
+3. Paste the following Worker code:
+
+```javascript
+export default {
+    async fetch(request, env) {
+        const url = new URL(request.url);
+        const subdomain = url.hostname.split(".")[0].toLowerCase(); // e.g. "portal"
+        const rawSites = (env.MAINTENANCE_SITES || "").toLowerCase();
+        const activeList = rawSites.split(",").map(s => s.trim()).filter(Boolean);
+
+        // Check if all sites, this subdomain, or the exact hostname is under maintenance
+        const isUnderMaintenance =
+            activeList.includes("all") ||
+            activeList.includes(subdomain) ||
+            activeList.includes(url.hostname.toLowerCase());
+
+        if (isUnderMaintenance) {
+            const templateUrl = env.TEMPLATE_URL || "https://comingsoon-eim.pages.dev/";
+            const response = await fetch(templateUrl);
+
+            return new Response(response.body, {
+                status: 503,
+                statusText: "Service Unavailable",
+                headers: {
+                    "Content-Type": "text/html; charset=utf-8",
+                    "Retry-After": "3600",
+                    "Cache-Control": "no-store, no-cache, must-revalidate"
+                }
+            });
+        }
+
+        // Normal traffic -> pass through to live application
+        return fetch(request);
+    }
+};
+```
+
+#### Step 3: Configure Variables and Routes
+1. **Environment Variables** (in Worker > **Settings** > **Variables and Secrets**):
+   - `TEMPLATE_URL`: `https://comingsoon-eim.pages.dev/`
+   - `MAINTENANCE_SITES`: `""` *(leave empty when all sites are running normally)*
+2. **Route Binding** (in Worker > **Settings** > **Domains & Routes** > **Add Route**):
+   - Route: `*.eimlab.org/*` (or individual subdomains)
+   - Zone: `eimlab.org`
+
+#### Step 4: How to Toggle Maintenance
+- **To put `portal` and `iot` into maintenance:** Set `MAINTENANCE_SITES` = `portal, iot` and click **Save and Deploy**.
+- **To put ALL sites into maintenance:** Set `MAINTENANCE_SITES` = `all` and click **Save and Deploy**.
+- **To return to normal live apps:** Set `MAINTENANCE_SITES` = `""` (empty) and click **Save and Deploy**.
+
+---
+
+### Switching via Shared CI/CD Workflow
+
+For production applications using the `LABEIM/shared-ci-cd` pipeline:
+
+1. **Option A (Dedicated Maintenance Repo):** Keep a standalone `app-maintenance` Pages project deployed and toggle the custom domain or Cloudflare routing rule during major upgrades.
+2. **Option B (Workflow Dispatch):** Trigger a manual GitHub Actions `workflow_dispatch` with a parameter `maintenance_mode: true` to publish this template folder to Cloudflare Pages during scheduled maintenance windows, then redeploy the main branch when maintenance completes.
