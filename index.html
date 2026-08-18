@@ -82,7 +82,7 @@
 
             <!-- Language Switcher (EN / ID) -->
             <div id="language-switcher"
-                class="hidden items-center bg-slate-100 dark:bg-slate-800/80 p-0.5 rounded-lg text-xs font-semibold border border-slate-200/60 dark:border-slate-700/60 transition-colors">
+                class="hidden items-center bg-slate-100 dark:bg-slate-800/80 p-0.5 sm:p-1 rounded-lg border border-slate-200/80 dark:border-slate-700/80 gap-0.5 sm:gap-1 text-xs transition-colors">
             </div>
 
             <!-- Light / Dark Mode Toggle Button -->
@@ -403,10 +403,10 @@
             buttons.forEach(btn => {
                 const btnLang = btn.getAttribute('data-lang');
                 if (btnLang === activeLang) {
-                    btn.className = 'lang-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-xs transition-all duration-150 cursor-default';
+                    btn.className = 'lang-btn px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-xs font-bold bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm border border-slate-200/90 dark:border-slate-600 transition-all duration-150 cursor-default';
                     btn.setAttribute('aria-pressed', 'true');
                 } else {
-                    btn.className = 'lang-btn px-2.5 py-1 rounded-md text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-150 cursor-pointer';
+                    btn.className = 'lang-btn px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-700/50 transition-all duration-150 cursor-pointer';
                     btn.setAttribute('aria-pressed', 'false');
                 }
             });
@@ -439,7 +439,11 @@
                 if (isEnabled && showSwitcher) {
                     switcher.classList.remove('hidden');
                     switcher.classList.add('flex');
-                    switcher.innerHTML = '';
+                    switcher.innerHTML = `
+                        <span class="pl-1 pr-0.5 text-slate-400 dark:text-slate-500 flex items-center select-none" aria-hidden="true">
+                            <i class="fa-solid fa-globe text-xs"></i>
+                        </span>
+                    `;
 
                     const languages = (i18nConfig && Array.isArray(i18nConfig.languages) && i18nConfig.languages.length > 0)
                         ? i18nConfig.languages
@@ -451,6 +455,7 @@
                     languages.forEach(langObj => {
                         const btn = document.createElement('button');
                         btn.type = 'button';
+                        btn.className = 'lang-btn';
                         btn.setAttribute('data-lang', langObj.code);
                         btn.setAttribute('title', langObj.title || langObj.label);
                         btn.setAttribute('aria-label', `Switch language to ${langObj.title || langObj.label}`);
