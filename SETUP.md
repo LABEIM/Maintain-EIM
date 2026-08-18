@@ -40,76 +40,38 @@ jobs:
 
 ---
 
-## 3. Customize Content (index.html)
+## 3. Customize Content (config.js)
 
-Open [index.html](file:///index.html) to update site content:
+All content, logos, branding, links, and text are managed in [config.js](file:///config.js). **You do not need to modify [index.html](file:///index.html)!**
 
-### A. Title and Meta Tags
-Update the page title and metadata in the `<head>` section:
-```html
-<title>Project Name — Coming Soon</title>
-```
+Open [config.js](file:///config.js) and follow the checklist:
 
-### B. Header Logo and Links
-Update the link destination, logo image source, and alternative text:
-```html
-<a href="https://example.com" class="group flex items-center" aria-label="Project Home">
-    <img id="lab-logo" src="https://example.com/assets/logo.png" alt="Project Logo"
-        class="w-full h-full object-contain" onerror="handleLogoError(this)">
-</a>
-```
+### New Project Setup Checklist
 
-### C. Main Heading and Description
-Update headline and subtext:
-```html
-<div class="space-y-4">
-    <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-        Something new is coming soon.
-    </h1>
-    <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-md mx-auto">
-        A new web experience is currently under development. Stay tuned for updates.
-    </p>
-</div>
-```
-
-### D. Footer and Contact Information
-Update the footer section:
-- **Copyright and location:** Adjust laboratory / organization name and address text.
-- **Navigation links:** Update URLs for the main website and contact email (`mailto:...`).
-- **Social media icons:** Update profile links for GitHub, Instagram, LinkedIn, or add required platforms.
+| Section | Field | Status | Description |
+| :--- | :--- | :--- | :--- |
+| **Meta & SEO** | `meta.title` | **[REQUIRED]** | Browser tab title (e.g., `Project — Coming Soon`) |
+| **Meta & SEO** | `meta.description` | **[REQUIRED]** | Google search / social share description |
+| **Meta & SEO** | `meta.favicon` | [OPTIONAL] | Tab favicon URL or path |
+| **Branding** | `branding.logo.src` | **[REQUIRED]** | Main logo image URL or relative path |
+| **Branding** | `branding.logo.srcDark` / `srcLight` | [OPTIONAL] | Separate logos for dark & light mode |
+| **Branding** | `branding.logo.alt` & `href` | **[REQUIRED]** | Logo alt text and target website link |
+| **Branding** | `branding.logo.useContainer` | [CONFIG] | `false` for horizontal logos, `true` for icon boxes |
+| **Branding** | `branding.theme.defaultMode` | [CONFIG] | `"system"`, `"dark"`, or `"light"` |
+| **Header Links** | `headerLinks` | **[REQUIRED]** | Top-right links (e.g. project GitHub repository) |
+| **Content** | `content.headline` | **[REQUIRED]** | Main heading text |
+| **Content** | `content.description` | **[REQUIRED]** | Main description text |
+| **Content** | `content.badge` | [OPTIONAL] | Announcement pill above title (`enabled: true/false`) |
+| **Content** | `content.cta` | [OPTIONAL] | Call to Action button (`enabled: true/false`) |
+| **Footer** | `footer.copyright` & `address` | [OPTIONAL] | Copyright line and physical location text |
+| **Footer** | `footer.quickLinks` | [OPTIONAL] | Quick text links (e.g. "Hubungi Kami") |
+| **Footer** | `footer.socialLinks` | [OPTIONAL] | Social media icon links at bottom |
 
 ---
 
-## 4. Customize Styles and Branding
+## 4. Local Development and Testing
 
-Brand colors and typography are configured in the `<script>` tag inside `<head>` in [index.html](file:///index.html):
-
-```javascript
-tailwind.config = {
-    darkMode: 'class',
-    theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-            },
-            colors: {
-                brand: {
-                    50: '#f8fafc',
-                    100: '#f1f5f9',
-                    600: '#2563eb', // Primary brand accent color
-                    900: '#0f172a',
-                }
-            }
-        }
-    }
-}
-```
-
----
-
-## 5. Local Development and Testing
-
-Static preview options:
+Preview the landing page locally:
 
 ### Option A: VS Code Live Server
 Right-click [index.html](file:///index.html) and select **Open with Live Server**.
@@ -126,17 +88,17 @@ npx serve .
 ```
 
 ### Option D: Direct Browser
-Open [index.html](file:///index.html) directly in any web browser.
+Open [index.html](file:///index.html) directly in any web browser (`file:///...`).
 
 ---
 
-## 6. Deploy Changes
+## 5. Deploy Changes
 
 Commit and push changes to the `main` branch:
 
 ```bash
 git add .
-git commit -m "feat: configure coming soon landing page"
+git commit -m "feat: customize coming soon template config"
 git push origin main
 ```
 
@@ -144,7 +106,7 @@ The GitHub Actions workflow deploys the static files to Cloudflare Pages and exe
 
 ---
 
-## 7. Connect Custom Domain in Cloudflare
+## 6. Connect Custom Domain in Cloudflare
 
 For domains registered or managed in Cloudflare Registrar / DNS, configuration is automated:
 

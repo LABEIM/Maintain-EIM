@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EIM Lab — Coming Soon</title>
+    <title id="meta-title">EIM Lab — Coming Soon</title>
+    <meta id="meta-description" name="description" content="Enterprise Infrastructure Management Research Laboratory - New web experience coming soon.">
+    <link id="meta-favicon" rel="icon" type="image/png" href="https://eimlab.org/assets/logo.png">
+
+    <!-- Load Site Configuration -->
+    <script src="config.js"></script>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -60,30 +65,26 @@
 
     <!-- Simple Header -->
     <header class="w-full max-w-5xl mx-auto px-6 py-8 flex items-center justify-between">
-        <!-- Logo Only -->
-        <a href="https://eimlab.org" class="group flex items-center" aria-label="EIM Lab Home">
-            <div
-                class="w-10 h-10 rounded-xl bg-slate-900 dark:bg-slate-800 flex items-center justify-center p-2 text-white shadow-sm transition-transform duration-200 group-hover:scale-105 border border-slate-800 dark:border-slate-700">
-                <!-- EIM Lab Asset Logo (Fallback to styled SVG logo if missing) -->
-                <img id="lab-logo" src="https://eimlab.org/assets/logo.png" alt="EIM Lab Logo"
-                    class="w-full h-full object-contain" onerror="handleLogoError(this)">
+        <!-- Logo Link -->
+        <a id="header-logo-link" href="https://eimlab.org" class="group flex items-center" aria-label="Home">
+            <div id="logo-container"
+                class="flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
+                <img id="lab-logo" src="https://eimlab.org/assets/logo.png" alt="Logo"
+                    class="h-9 w-auto max-w-[200px] object-contain" onerror="handleLogoError(this)">
             </div>
         </a>
 
-        <!-- Header Controls -->
+        <!-- Header Controls & Links -->
         <div class="flex items-center space-x-3">
+            <!-- Dynamic Header Links -->
+            <div id="header-links" class="flex items-center space-x-2"></div>
+
             <!-- Light / Dark Mode Toggle Button -->
             <button id="theme-toggle" type="button" aria-label="Toggle theme"
                 class="p-2 w-9 h-9 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors flex items-center justify-center">
                 <i id="theme-toggle-dark-icon" class="fa-solid fa-moon text-sm hidden"></i>
                 <i id="theme-toggle-light-icon" class="fa-solid fa-sun text-sm hidden"></i>
             </button>
-
-            <a href="https://github.com/LABEIM" target="_blank" rel="noopener noreferrer"
-                class="text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center space-x-1.5 px-2 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60">
-                <i class="fa-brands fa-github text-sm"></i>
-                <span class="hidden sm:inline">GitHub</span>
-            </a>
         </div>
     </header>
 
@@ -91,16 +92,32 @@
     <main class="flex-grow flex items-center justify-center px-6 py-12">
         <div class="max-w-xl w-full text-center space-y-8">
 
+            <!-- Optional Status / Announcement Badge -->
+            <div id="hero-badge-container" class="hidden">
+                <span id="hero-badge"
+                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-sm transition-transform hover:scale-105">
+                </span>
+            </div>
+
             <!-- Title & Description -->
             <div class="space-y-4">
-                <h1
+                <h1 id="hero-headline"
                     class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
                     Something new is coming soon.
                 </h1>
-                <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-md mx-auto">
-                    We are currently crafting a new web experience for EIM Lab research and tools. Stay tuned for
-                    updates.
+                <p id="hero-description"
+                    class="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-md mx-auto">
+                    We are currently crafting a new web experience for EIM Lab research and tools. Stay tuned for updates.
                 </p>
+            </div>
+
+            <!-- Optional CTA Button -->
+            <div id="hero-cta-container" class="hidden pt-2">
+                <a id="hero-cta-button" href="#"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm text-white bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white shadow-sm hover:shadow transition-all duration-200">
+                    <span id="hero-cta-text">Get in Touch</span>
+                    <i id="hero-cta-icon" class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
             </div>
 
         </div>
@@ -111,85 +128,303 @@
         class="w-full max-w-3xl mx-auto px-6 py-10 text-center text-xs text-slate-500 dark:text-slate-400 border-t border-slate-200/60 dark:border-slate-800/80 space-y-4">
         <!-- Copyright & Location -->
         <div class="space-y-1 leading-relaxed">
-            <p class="font-medium text-slate-700 dark:text-slate-300">Copyright © 2026 Enterprise Infrastructure
-                Management Research Laboratory.</p>
-            <p class="text-slate-400 dark:text-slate-500 max-w-lg mx-auto">Gedung TULT Lantai 8, Ruang TULT.08.09,
-                Telkom University, Bandung, Indonesia</p>
+            <p id="footer-copyright" class="font-medium text-slate-700 dark:text-slate-300">
+                Copyright © 2026 Enterprise Infrastructure Management Research Laboratory.
+            </p>
+            <p id="footer-address" class="text-slate-400 dark:text-slate-500 max-w-lg mx-auto">
+                Gedung TULT Lantai 8, Ruang TULT.08.09, Telkom University, Bandung, Indonesia
+            </p>
         </div>
 
         <!-- Quick Links -->
-        <div class="pt-1 text-slate-400 dark:text-slate-500">
-            <a href="https://eimlab.org"
-                class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors">Website Lab</a>
-            <span class="mx-2 text-slate-300 dark:text-slate-700">|</span>
-            <a href="mailto:contact@eimlab.org"
-                class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors">Hubungi Kami</a>
-        </div>
+        <div id="footer-quick-links" class="pt-1 text-slate-400 dark:text-slate-500"></div>
 
         <!-- Social & Contact Links -->
-        <div class="flex items-center justify-center space-x-5 text-slate-400 dark:text-slate-500 pt-1">
-            <a href="https://github.com/LABEIM" target="_blank" rel="noopener noreferrer" title="GitHub Organization"
-                class="hover:text-slate-800 dark:hover:text-slate-200 transition-colors text-base">
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram"
-                class="hover:text-slate-800 dark:hover:text-slate-200 transition-colors text-base">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn"
-                class="hover:text-slate-800 dark:hover:text-slate-200 transition-colors text-base">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-        </div>
+        <div id="footer-social-links" class="flex items-center justify-center space-x-5 text-slate-400 dark:text-slate-500 pt-1"></div>
     </footer>
 
     <script>
-        // Fallback for logo asset from https://eimlab.org/assets/
+        // Fallback for logo asset
         function handleLogoError(img) {
             img.onerror = null;
-            // High-quality SVG fallback if target image isn't available yet
-            img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>';
+            const fallback = (window.CONFIG && window.CONFIG.branding && window.CONFIG.branding.logo && window.CONFIG.branding.logo.fallbackSvg)
+                || '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>';
+            img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(fallback);
         }
 
-        // Theme Toggle Script
+        function updateLogoTheme(isDark) {
+            const config = window.CONFIG;
+            if (!config || !config.branding || !config.branding.logo) return;
+            const logo = config.branding.logo;
+            const logoImg = document.getElementById('lab-logo');
+            if (!logoImg) return;
+
+            if (isDark && logo.srcDark) {
+                logoImg.src = logo.srcDark;
+            } else if (!isDark && logo.srcLight) {
+                logoImg.src = logo.srcLight;
+            } else if (logo.src) {
+                logoImg.src = logo.src;
+            }
+        }
+
+        // Apply Configuration Function
+        function applySiteConfig() {
+            const config = window.CONFIG;
+            if (!config) return;
+
+            // 1. Meta & SEO
+            if (config.meta) {
+                if (config.meta.title) {
+                    document.title = config.meta.title;
+                    const metaTitle = document.getElementById('meta-title');
+                    if (metaTitle) metaTitle.textContent = config.meta.title;
+                }
+                if (config.meta.description) {
+                    const metaDesc = document.getElementById('meta-description');
+                    if (metaDesc) metaDesc.setAttribute('content', config.meta.description);
+                }
+                if (config.meta.favicon) {
+                    const metaFavicon = document.getElementById('meta-favicon');
+                    if (metaFavicon) metaFavicon.setAttribute('href', config.meta.favicon);
+                }
+            }
+
+            // 2. Branding & Logo
+            if (config.branding) {
+                const logo = config.branding.logo;
+                if (logo) {
+                    const logoLink = document.getElementById('header-logo-link');
+                    if (logoLink) {
+                        if (logo.href) logoLink.href = logo.href;
+                        if (logo.alt) logoLink.setAttribute('aria-label', logo.alt);
+                    }
+                    const logoContainer = document.getElementById('logo-container');
+                    const logoImg = document.getElementById('lab-logo');
+
+                    if (logo.useContainer) {
+                        if (logoContainer) {
+                            logoContainer.className = 'w-10 h-10 rounded-xl bg-slate-900 dark:bg-slate-800 flex items-center justify-center p-2 text-white shadow-sm transition-transform duration-200 group-hover:scale-105 border border-slate-800 dark:border-slate-700';
+                        }
+                        if (logoImg) {
+                            logoImg.className = 'w-full h-full object-contain';
+                        }
+                    } else {
+                        if (logoContainer) {
+                            logoContainer.className = 'flex items-center justify-center transition-transform duration-200 group-hover:scale-105';
+                        }
+                        if (logoImg) {
+                            logoImg.className = 'h-9 w-auto max-w-[200px] object-contain';
+                        }
+                    }
+
+                    if (logoImg) {
+                        if (logo.src) logoImg.src = logo.src;
+                        if (logo.alt) logoImg.alt = logo.alt;
+                    }
+                }
+            }
+
+            // 3. Header Action Links
+            if (config.headerLinks && Array.isArray(config.headerLinks)) {
+                const headerLinksContainer = document.getElementById('header-links');
+                if (headerLinksContainer) {
+                    headerLinksContainer.innerHTML = '';
+                    config.headerLinks.forEach(link => {
+                        const a = document.createElement('a');
+                        a.href = link.href || '#';
+                        if (link.external !== false) {
+                            a.target = '_blank';
+                            a.rel = 'noopener noreferrer';
+                        }
+                        a.className = 'text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center space-x-1.5 px-2 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60';
+                        
+                        let innerHtml = '';
+                        if (link.icon) {
+                            innerHtml += `<i class="${link.icon} text-sm"></i>`;
+                        }
+                        if (link.label) {
+                            innerHtml += `<span class="hidden sm:inline">${link.label}</span>`;
+                        }
+                        a.innerHTML = innerHtml;
+                        headerLinksContainer.appendChild(a);
+                    });
+                }
+            }
+
+            // 4. Hero Content
+            if (config.content) {
+                // Badge
+                const badge = config.content.badge;
+                const badgeContainer = document.getElementById('hero-badge-container');
+                const badgeEl = document.getElementById('hero-badge');
+                if (badge && badge.enabled && badge.text) {
+                    badgeContainer.classList.remove('hidden');
+                    let iconHtml = badge.icon ? `<i class="${badge.icon} text-xs text-brand-600 dark:text-brand-400"></i>` : '';
+                    badgeEl.innerHTML = `${iconHtml}<span>${badge.text}</span>`;
+                } else if (badgeContainer) {
+                    badgeContainer.classList.add('hidden');
+                }
+
+                // Headline & Description
+                if (config.content.headline) {
+                    const headlineEl = document.getElementById('hero-headline');
+                    if (headlineEl) headlineEl.textContent = config.content.headline;
+                }
+                if (config.content.description) {
+                    const descEl = document.getElementById('hero-description');
+                    if (descEl) descEl.textContent = config.content.description;
+                }
+
+                // Call to Action
+                const cta = config.content.cta;
+                const ctaContainer = document.getElementById('hero-cta-container');
+                const ctaButton = document.getElementById('hero-cta-button');
+                const ctaText = document.getElementById('hero-cta-text');
+                const ctaIcon = document.getElementById('hero-cta-icon');
+
+                if (cta && cta.enabled && cta.href) {
+                    ctaContainer.classList.remove('hidden');
+                    ctaButton.href = cta.href;
+                    if (cta.external) {
+                        ctaButton.target = '_blank';
+                        ctaButton.rel = 'noopener noreferrer';
+                    }
+                    if (cta.text) ctaText.textContent = cta.text;
+                    if (cta.icon) {
+                        ctaIcon.className = `${cta.icon} text-xs`;
+                        ctaIcon.classList.remove('hidden');
+                    } else {
+                        ctaIcon.classList.add('hidden');
+                    }
+                } else if (ctaContainer) {
+                    ctaContainer.classList.add('hidden');
+                }
+            }
+
+            // 5. Footer Information
+            if (config.footer) {
+                if (config.footer.copyright) {
+                    const copyrightEl = document.getElementById('footer-copyright');
+                    if (copyrightEl) copyrightEl.textContent = config.footer.copyright;
+                }
+                if (config.footer.address) {
+                    const addressEl = document.getElementById('footer-address');
+                    if (addressEl) addressEl.textContent = config.footer.address;
+                }
+
+                // Quick Links
+                if (config.footer.quickLinks && Array.isArray(config.footer.quickLinks)) {
+                    const quickLinksContainer = document.getElementById('footer-quick-links');
+                    if (quickLinksContainer) {
+                        quickLinksContainer.innerHTML = '';
+                        config.footer.quickLinks.forEach((link, index) => {
+                            if (index > 0) {
+                                const sep = document.createElement('span');
+                                sep.className = 'mx-2 text-slate-300 dark:text-slate-700';
+                                sep.textContent = '|';
+                                quickLinksContainer.appendChild(sep);
+                            }
+                            const a = document.createElement('a');
+                            a.href = link.href || '#';
+                            a.textContent = link.label || '';
+                            a.className = 'hover:text-slate-700 dark:hover:text-slate-200 transition-colors';
+                            if (link.external) {
+                                a.target = '_blank';
+                                a.rel = 'noopener noreferrer';
+                            }
+                            quickLinksContainer.appendChild(a);
+                        });
+                    }
+                }
+
+                // Social Links
+                if (config.footer.socialLinks && Array.isArray(config.footer.socialLinks)) {
+                    const socialContainer = document.getElementById('footer-social-links');
+                    if (socialContainer) {
+                        socialContainer.innerHTML = '';
+                        config.footer.socialLinks.forEach(item => {
+                            const a = document.createElement('a');
+                            a.href = item.url || '#';
+                            a.target = '_blank';
+                            a.rel = 'noopener noreferrer';
+                            a.title = item.platform || 'Social Link';
+                            a.className = 'hover:text-slate-800 dark:hover:text-slate-200 transition-colors text-base';
+                            a.innerHTML = `<i class="${item.icon || 'fa-solid fa-link'}"></i>`;
+                            socialContainer.appendChild(a);
+                        });
+                    }
+                }
+            }
+        }
+
+        // Initialize Theme Toggle
         const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-        // Check initial theme preference (localStorage or system setting)
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            themeToggleLightIcon.classList.remove('hidden');
-        } else {
-            document.documentElement.classList.remove('dark');
-            themeToggleDarkIcon.classList.remove('hidden');
-        }
-
         const themeToggleBtn = document.getElementById('theme-toggle');
 
-        themeToggleBtn.addEventListener('click', function () {
-            // Toggle icons inside button
-            themeToggleDarkIcon.classList.toggle('hidden');
-            themeToggleLightIcon.classList.toggle('hidden');
+        function initTheme() {
+            const config = window.CONFIG;
+            const defaultMode = (config && config.branding && config.branding.theme && config.branding.theme.defaultMode) || 'system';
+            const showToggle = (config && config.branding && config.branding.theme && config.branding.theme.showThemeToggle !== undefined) ? config.branding.theme.showThemeToggle : true;
 
-            // Toggle theme and update localStorage
-            if (localStorage.getItem('color-theme')) {
-                if (localStorage.getItem('color-theme') === 'light') {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                }
+            if (!showToggle && themeToggleBtn) {
+                themeToggleBtn.classList.add('hidden');
+            }
+
+            const storedTheme = localStorage.getItem('color-theme');
+            let isDark = false;
+
+            if (storedTheme === 'dark') {
+                isDark = true;
+            } else if (storedTheme === 'light') {
+                isDark = false;
             } else {
+                if (defaultMode === 'dark') {
+                    isDark = true;
+                } else if (defaultMode === 'light') {
+                    isDark = false;
+                } else {
+                    isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                }
+            }
+
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                themeToggleLightIcon.classList.remove('hidden');
+                themeToggleDarkIcon.classList.add('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleLightIcon.classList.add('hidden');
+            }
+
+            updateLogoTheme(isDark);
+        }
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', function () {
+                themeToggleDarkIcon.classList.toggle('hidden');
+                themeToggleLightIcon.classList.toggle('hidden');
+
+                let isDark = false;
                 if (document.documentElement.classList.contains('dark')) {
                     document.documentElement.classList.remove('dark');
                     localStorage.setItem('color-theme', 'light');
+                    isDark = false;
                 } else {
                     document.documentElement.classList.add('dark');
                     localStorage.setItem('color-theme', 'dark');
+                    isDark = true;
                 }
-            }
-        });
+
+                updateLogoTheme(isDark);
+            });
+        }
+
+        // Run configuration and theme setup
+        applySiteConfig();
+        initTheme();
     </script>
 </body>
 
