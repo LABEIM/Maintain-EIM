@@ -144,7 +144,7 @@ const CONFIG = {
 
         // [OPTIONAL] Countdown / Estimated Time Indicator (for launch date or maintenance downtime ETA)
         countdown: {
-            enabled: false,                      // Set to true to show the countdown timer
+            enabled: true,                      // Set to true to show the countdown timer
             targetDate: "2026-09-01T00:00:00+07:00", // Target date in ISO-8601 format (YYYY-MM-DDTHH:mm:ss+HH:mm)
             label: {
                 en: "Estimated Launch",
@@ -164,7 +164,7 @@ const CONFIG = {
 
         // [OPTIONAL] Call-to-Action button below description
         cta: {
-            enabled: false,                      // Set to true to show the CTA button
+            enabled: true,                      // Set to true to show the CTA button
             text: {
                 en: "Get in Touch",
                 id: "Hubungi Kami"
