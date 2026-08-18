@@ -169,7 +169,7 @@ const CONFIG = {
                 en: "Get in Touch",
                 id: "Hubungi Kami"
             },
-            href: "mailto:laboratoriumeim@gmail.com", // Target link (mailto:, URL, etc.)
+            href: "mailto:lab@eimlab.org", // Target link (mailto:, URL, etc.)
             icon: "fa-solid fa-arrow-right",     // Button icon
             external: false                      // Open in new tab (true/false)
         }
@@ -206,7 +206,7 @@ const CONFIG = {
                     en: "Contact Us",
                     id: "Hubungi Kami"
                 },
-                href: "mailto:laboratoriumeim@gmail.com", // Update with project contact email
+                href: "mailto:lab@eimlab.org", // Update with project contact email
                 external: false
             }
         ],
