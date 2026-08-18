@@ -34,11 +34,16 @@ This template provides zero-build static hosting, centralized zero-code configur
 │   └── workflows/
 │       └── ci-cd.yml      # CI/CD pipeline using LABEIM shared workflows
 ├── .gitignore             # Standard OS, IDE, and log file ignore rules
-├── LICENSE                # MIT License
-├── README.md              # Project overview
+├── LICENSE                # MIT License (for this template repository)
+├── README.md              # Project overview (for this template repository)
 ├── SETUP.md               # Setup and customization guide
 ├── config.js              # Central configuration file (customize content & languages here)
-└── index.html             # Main Coming Soon / Maintenance landing page
+├── index.html             # Main Coming Soon / Maintenance landing page
+└── templates/             # Starter templates for new projects
+    ├── LICENSE.ALL-RIGHTS-RESERVED # Proprietary / Internal license template
+    ├── LICENSE.MIT        # Open Source MIT license template
+    ├── README.md          # Templates guide & license selection instructions
+    └── README.template.md # Standardized project README template
 ```
 
 ---
@@ -52,8 +57,9 @@ For the complete step-by-step setup guide for new projects, see [SETUP.md](file:
 1. Select **Use this template** on GitHub to create a new repository.
 2. Update `cloudflare_project_name` in [.github/workflows/ci-cd.yml](file:///home/arukast/Projects/comingsoon-eim/.github/workflows/ci-cd.yml).
 3. Customize title, logo, languages, headings, links, and footer in [config.js](file:///home/arukast/Projects/comingsoon-eim/config.js).
-4. Push to `main` to trigger automated deployment to Cloudflare Pages.
-5. Connect custom domain in Cloudflare (see [SETUP.md](file:///home/arukast/Projects/comingsoon-eim/SETUP.md#6-connect-custom-domain-in-cloudflare)).
+4. Apply the project README & choose a License (MIT or All Rights Reserved) from [`templates/`](file:///home/arukast/Projects/comingsoon-eim/templates/).
+5. Push to `main` to trigger automated deployment to Cloudflare Pages.
+6. Connect custom domain in Cloudflare (see [SETUP.md](file:///home/arukast/Projects/comingsoon-eim/SETUP.md#7-connect-custom-domain-in-cloudflare)).
 
 ---
 

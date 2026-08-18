@@ -79,7 +79,44 @@ All text fields support either:
 
 ---
 
-## 4. Local Development and Testing
+## 4. Setup Project README and License
+
+When creating a new project from this template, update the root `README.md` and `LICENSE` files using the standardized templates provided in the [`templates/`](templates/) folder.
+
+### Step 1: Copy & Customize README Template
+
+```bash
+cp templates/README.template.md README.md
+```
+
+Open `README.md` and fill in:
+1. **Title & Description:** Project name, description, live domain, and organization badge.
+2. **Badges:** Update the CI/CD and repository badge links.
+3. **License Section:** Choose either **Option A (MIT)** or **Option B (All Rights Reserved)** to match your project license.
+
+---
+
+### Step 2: Choose and Apply Project License
+
+Our laboratory uses two standard licensing models depending on project type:
+
+#### Option A: MIT License (Open Source Projects)
+For open-source projects, public templates, and reusable tools:
+```bash
+cp templates/LICENSE.MIT LICENSE
+```
+*Edit `LICENSE` to update `[YEAR]` with the current year.*
+
+#### Option B: All Rights Reserved (Proprietary / Internal Projects)
+For proprietary lab applications, internal portals, and confidential research initiatives:
+```bash
+cp templates/LICENSE.ALL-RIGHTS-RESERVED LICENSE
+```
+*Edit `LICENSE` to update `[YEAR]` with the current year.*
+
+---
+
+## 5. Local Development and Testing
 
 Preview the landing page locally:
 
@@ -102,7 +139,7 @@ Open [index.html](file:///index.html) directly in any web browser (`file:///...`
 
 ---
 
-## 5. Deploy Changes
+## 6. Deploy Changes
 
 Commit and push changes to the `main` branch:
 
@@ -116,7 +153,7 @@ The GitHub Actions workflow deploys the static files to Cloudflare Pages and exe
 
 ---
 
-## 6. Connect Custom Domain in Cloudflare
+## 7. Connect Custom Domain in Cloudflare
 
 For domains registered or managed in Cloudflare Registrar / DNS, configuration is automated:
 
@@ -149,7 +186,7 @@ To route both apex (`example.com`) and `www` (`www.example.com`) to the deployme
 
 ---
 
-## 7. Using as a Maintenance Page & HTTP 503 Best Practices
+## 8. Using as a Maintenance Page & HTTP 503 Best Practices
 
 This template can also be used as a **Scheduled Maintenance Page** for existing applications and services.
 
