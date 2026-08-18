@@ -345,10 +345,13 @@
                         socialContainer.innerHTML = '';
                         config.footer.socialLinks.forEach(item => {
                             const a = document.createElement('a');
-                            a.href = item.url || '#';
-                            a.target = '_blank';
-                            a.rel = 'noopener noreferrer';
+                            a.href = item.href || item.url || '#';
+                            if (item.external !== false) {
+                                a.target = '_blank';
+                                a.rel = 'noopener noreferrer';
+                            }
                             a.title = item.platform || 'Social Link';
+                            a.setAttribute('aria-label', item.platform || 'Social Link');
                             a.className = 'hover:text-slate-800 dark:hover:text-slate-200 transition-colors text-base';
                             a.innerHTML = `<i class="${item.icon || 'fa-solid fa-link'}"></i>`;
                             socialContainer.appendChild(a);
