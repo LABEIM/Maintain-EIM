@@ -6,6 +6,10 @@
  * Customize all settings, texts, links, logos, and branding for your project here.
  * You DO NOT need to edit index.html or CSS!
  *
+ * All text fields support either:
+ * - Bilingual Object: { en: "English text", id: "Teks Bahasa Indonesia" }
+ * - Plain String: "Text in single language" (used for all languages)
+ *
  * -------------------------------------------------------------------------
  * NEW PROJECT SETUP CHECKLIST:
  * -------------------------------------------------------------------------
@@ -13,28 +17,55 @@
  * 2. [REQUIRED] Update `branding.logo` (logo image URLs, alt text, homepage link).
  * 3. [REQUIRED] Update `headerLinks` (e.g., link to your project's GitHub repo).
  * 4. [REQUIRED] Update `content.headline` and `content.description`.
- * 5. [OPTIONAL] Enable `content.badge` (announcement tag) or `content.cta` (button).
- * 6. [OPTIONAL] Update `footer` contact email (`Hubungi Kami`) and social links.
+ * 5. [OPTIONAL] Configure `i18n` (default language, switcher visibility).
+ * 6. [OPTIONAL] Enable `content.cta` (call-to-action button).
+ * 7. [OPTIONAL] Update `footer` contact email (`Hubungi Kami`) and social links.
  * =========================================================================
  */
 
 const CONFIG = {
     // ---------------------------------------------------------------------
-    // 1. Meta & SEO Settings
+    // 1. Language & Internationalization (i18n) Settings
+    // ---------------------------------------------------------------------
+    i18n: {
+        // [CONFIG] Enable (true) or disable (false) multi-language support
+        enabled: true,
+
+        // [CONFIG] Default language for first-time visitors: "en" | "id" | "system"
+        defaultLanguage: "system",
+
+        // [CONFIG] Show (true) or hide (false) the EN/ID language switcher in header
+        showSwitcher: true,
+
+        // [CONFIG] Supported language definitions
+        languages: [
+            { code: "en", label: "EN", title: "English" },
+            { code: "id", label: "ID", title: "Bahasa Indonesia" }
+        ]
+    },
+
+    // ---------------------------------------------------------------------
+    // 2. Meta & SEO Settings
     // ---------------------------------------------------------------------
     meta: {
         // [REQUIRED] Browser tab title (e.g., "Project Name — Coming Soon")
-        title: "EIM Lab — Coming Soon Template",
+        title: {
+            en: "EIM Lab — Coming Soon Template",
+            id: "EIM Lab — Template Segera Hadir"
+        },
 
         // [REQUIRED] Search engine description shown on Google / preview cards
-        description: "Enterprise Infrastructure Management Research Laboratory - New web experience coming soon template.",
+        description: {
+            en: "Enterprise Infrastructure Management Research Laboratory - New web experience coming soon template.",
+            id: "Laboratorium Riset Enterprise Infrastructure Management - Template pengalaman web baru segera hadir."
+        },
 
         // [OPTIONAL] Browser tab icon (URL or relative path like "assets/favicon.png")
         favicon: "https://eimlab.org/assets/brand/eim-favicon.png",
     },
 
     // ---------------------------------------------------------------------
-    // 2. Branding & Logo Settings
+    // 3. Branding & Logo Settings
     // ---------------------------------------------------------------------
     branding: {
         logo: {
@@ -48,7 +79,10 @@ const CONFIG = {
             srcLight: "https://eimlab.org/assets/brand/eim-logo-horizontal.png",
 
             // [REQUIRED] Accessible description for screen readers and SEO
-            alt: "EIM Lab Logo",
+            alt: {
+                en: "EIM Lab Logo",
+                id: "Logo EIM Lab"
+            },
 
             // [REQUIRED] URL when user clicks the logo (e.g. "https://eimlab.org")
             href: "https://eimlab.org",
@@ -70,7 +104,7 @@ const CONFIG = {
     },
 
     // ---------------------------------------------------------------------
-    // 3. Header Action Links (Top-Right Controls)
+    // 4. Header Action Links (Top-Right Controls)
     // ---------------------------------------------------------------------
     // [REQUIRED] Update links to match your project repository or docs
     headerLinks: [
@@ -83,26 +117,28 @@ const CONFIG = {
     ],
 
     // ---------------------------------------------------------------------
-    // 4. Hero / Main Content
+    // 5. Hero / Main Content
     // ---------------------------------------------------------------------
     content: {
-        // [OPTIONAL] Status or announcement pill badge above main title
-        badge: {
-            enabled: false,             // Set to true to show the badge
-            text: "Under Development",  // Badge text
-            icon: "fa-solid fa-sparkles"// FontAwesome icon class
+        // [REQUIRED] Main headline
+        headline: {
+            en: "Something new is coming soon.",
+            id: "Sesuatu yang baru akan segera hadir."
         },
 
-        // [REQUIRED] Main headline
-        headline: "Something new is coming soon.",
-
         // [REQUIRED] Subheading description
-        description: "Coming Soon Web Template for EIM Lab research.",
+        description: {
+            en: "Coming Soon Web Template for EIM Lab research.",
+            id: "Template Web Segera Hadir untuk riset EIM Lab."
+        },
 
         // [OPTIONAL] Call-to-Action button below description
         cta: {
             enabled: false,                      // Set to true to show the CTA button
-            text: "Get in Touch",                // Button text
+            text: {
+                en: "Get in Touch",
+                id: "Hubungi Kami"
+            },
             href: "mailto:laboratoriumeim@gmail.com", // Target link (mailto:, URL, etc.)
             icon: "fa-solid fa-arrow-right",     // Button icon
             external: false                      // Open in new tab (true/false)
@@ -110,24 +146,36 @@ const CONFIG = {
     },
 
     // ---------------------------------------------------------------------
-    // 5. Footer Information
+    // 6. Footer Information
     // ---------------------------------------------------------------------
     footer: {
         // [OPTIONAL] Copyright notice
-        copyright: "Copyright © 2026 Enterprise Infrastructure Management Research Laboratory.",
+        copyright: {
+            en: "Copyright © 2026 Enterprise Infrastructure Management Research Laboratory.",
+            id: "Hak Cipta © 2026 Enterprise Infrastructure Management Research Laboratory."
+        },
 
         // [OPTIONAL] Physical address / laboratory location
-        address: "Gedung TULT Lantai 8, Ruang TULT.08.09, Telkom University, Bandung, Indonesia",
+        address: {
+            en: "TULT Building 8th Floor, Room TULT.08.09, Telkom University, Bandung, Indonesia",
+            id: "Gedung TULT Lantai 8, Ruang TULT.08.09, Telkom University, Bandung, Indonesia"
+        },
 
         // [OPTIONAL] Quick navigation links (separated by |)
         quickLinks: [
             {
-                label: "Website Lab",
+                label: {
+                    en: "Lab Website",
+                    id: "Website Lab"
+                },
                 href: "https://eimlab.org",
                 external: true
             },
             {
-                label: "Hubungi Kami",
+                label: {
+                    en: "Contact Us",
+                    id: "Hubungi Kami"
+                },
                 href: "mailto:laboratoriumeim@gmail.com", // Update with project contact email
                 external: false
             }

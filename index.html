@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="meta-title">EIM Lab — Coming Soon</title>
-    <meta id="meta-description" name="description" content="Enterprise Infrastructure Management Research Laboratory - New web experience coming soon.">
+    <meta id="meta-description" name="description"
+        content="Enterprise Infrastructure Management Research Laboratory - New web experience coming soon.">
     <link id="meta-favicon" rel="icon" type="image/png" href="https://eimlab.org/assets/logo.png">
 
     <!-- Load Site Configuration -->
@@ -75,9 +76,14 @@
         </a>
 
         <!-- Header Controls & Links -->
-        <div class="flex items-center space-x-3">
+        <div class="flex items-center space-x-2 sm:space-x-3">
             <!-- Dynamic Header Links -->
             <div id="header-links" class="flex items-center space-x-2"></div>
+
+            <!-- Language Switcher (EN / ID) -->
+            <div id="language-switcher"
+                class="hidden items-center bg-slate-100 dark:bg-slate-800/80 p-0.5 rounded-lg text-xs font-semibold border border-slate-200/60 dark:border-slate-700/60 transition-colors">
+            </div>
 
             <!-- Light / Dark Mode Toggle Button -->
             <button id="theme-toggle" type="button" aria-label="Toggle theme"
@@ -92,13 +98,6 @@
     <main class="flex-grow flex items-center justify-center px-6 py-12">
         <div class="max-w-xl w-full text-center space-y-8">
 
-            <!-- Optional Status / Announcement Badge -->
-            <div id="hero-badge-container" class="hidden">
-                <span id="hero-badge"
-                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-sm transition-transform hover:scale-105">
-                </span>
-            </div>
-
             <!-- Title & Description -->
             <div class="space-y-4">
                 <h1 id="hero-headline"
@@ -107,7 +106,7 @@
                 </h1>
                 <p id="hero-description"
                     class="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-md mx-auto">
-                    We are currently crafting a new web experience for EIM Lab research and tools. Stay tuned for updates.
+                    We are currently crafting a new web experience for EIM Lab research. Stay tuned for updates.
                 </p>
             </div>
 
@@ -140,7 +139,8 @@
         <div id="footer-quick-links" class="pt-1 text-slate-400 dark:text-slate-500"></div>
 
         <!-- Social & Contact Links -->
-        <div id="footer-social-links" class="flex items-center justify-center space-x-5 text-slate-400 dark:text-slate-500 pt-1"></div>
+        <div id="footer-social-links"
+            class="flex items-center justify-center space-x-5 text-slate-400 dark:text-slate-500 pt-1"></div>
     </footer>
 
     <script>
@@ -168,21 +168,39 @@
             }
         }
 
-        // Apply Configuration Function
-        function applySiteConfig() {
+        // Helper to resolve localized or plain string value
+        function resolveI18n(val, lang) {
+            if (val === null || val === undefined) return '';
+            if (typeof val === 'object' && !Array.isArray(val)) {
+                if (val[lang] !== undefined) return val[lang];
+                if (val.en !== undefined) return val.en;
+                if (val.id !== undefined) return val.id;
+                const firstKey = Object.keys(val)[0];
+                return firstKey ? val[firstKey] : '';
+            }
+            return String(val);
+        }
+
+        // Current active language state
+        let currentLanguage = 'en';
+
+        // Apply Configuration Function with dynamic i18n
+        function applySiteConfig(lang = currentLanguage) {
             const config = window.CONFIG;
             if (!config) return;
 
             // 1. Meta & SEO
             if (config.meta) {
-                if (config.meta.title) {
-                    document.title = config.meta.title;
+                const resolvedTitle = resolveI18n(config.meta.title, lang);
+                if (resolvedTitle) {
+                    document.title = resolvedTitle;
                     const metaTitle = document.getElementById('meta-title');
-                    if (metaTitle) metaTitle.textContent = config.meta.title;
+                    if (metaTitle) metaTitle.textContent = resolvedTitle;
                 }
-                if (config.meta.description) {
+                const resolvedDesc = resolveI18n(config.meta.description, lang);
+                if (resolvedDesc) {
                     const metaDesc = document.getElementById('meta-description');
-                    if (metaDesc) metaDesc.setAttribute('content', config.meta.description);
+                    if (metaDesc) metaDesc.setAttribute('content', resolvedDesc);
                 }
                 if (config.meta.favicon) {
                     const metaFavicon = document.getElementById('meta-favicon');
@@ -194,10 +212,11 @@
             if (config.branding) {
                 const logo = config.branding.logo;
                 if (logo) {
+                    const resolvedAlt = resolveI18n(logo.alt, lang);
                     const logoLink = document.getElementById('header-logo-link');
                     if (logoLink) {
                         if (logo.href) logoLink.href = logo.href;
-                        if (logo.alt) logoLink.setAttribute('aria-label', logo.alt);
+                        if (resolvedAlt) logoLink.setAttribute('aria-label', resolvedAlt);
                     }
                     const logoContainer = document.getElementById('logo-container');
                     const logoImg = document.getElementById('lab-logo');
@@ -220,7 +239,7 @@
 
                     if (logoImg) {
                         if (logo.src) logoImg.src = logo.src;
-                        if (logo.alt) logoImg.alt = logo.alt;
+                        if (resolvedAlt) logoImg.alt = resolvedAlt;
                     }
                 }
             }
@@ -238,13 +257,14 @@
                             a.rel = 'noopener noreferrer';
                         }
                         a.className = 'text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center space-x-1.5 px-2 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60';
-                        
+
                         let innerHtml = '';
                         if (link.icon) {
                             innerHtml += `<i class="${link.icon} text-sm"></i>`;
                         }
-                        if (link.label) {
-                            innerHtml += `<span class="hidden sm:inline">${link.label}</span>`;
+                        const linkText = resolveI18n(link.label, lang);
+                        if (linkText) {
+                            innerHtml += `<span class="hidden sm:inline">${linkText}</span>`;
                         }
                         a.innerHTML = innerHtml;
                         headerLinksContainer.appendChild(a);
@@ -254,26 +274,16 @@
 
             // 4. Hero Content
             if (config.content) {
-                // Badge
-                const badge = config.content.badge;
-                const badgeContainer = document.getElementById('hero-badge-container');
-                const badgeEl = document.getElementById('hero-badge');
-                if (badge && badge.enabled && badge.text) {
-                    badgeContainer.classList.remove('hidden');
-                    let iconHtml = badge.icon ? `<i class="${badge.icon} text-xs text-brand-600 dark:text-brand-400"></i>` : '';
-                    badgeEl.innerHTML = `${iconHtml}<span>${badge.text}</span>`;
-                } else if (badgeContainer) {
-                    badgeContainer.classList.add('hidden');
-                }
-
                 // Headline & Description
-                if (config.content.headline) {
+                const headlineText = resolveI18n(config.content.headline, lang);
+                if (headlineText) {
                     const headlineEl = document.getElementById('hero-headline');
-                    if (headlineEl) headlineEl.textContent = config.content.headline;
+                    if (headlineEl) headlineEl.textContent = headlineText;
                 }
-                if (config.content.description) {
+                const descText = resolveI18n(config.content.description, lang);
+                if (descText) {
                     const descEl = document.getElementById('hero-description');
-                    if (descEl) descEl.textContent = config.content.description;
+                    if (descEl) descEl.textContent = descText;
                 }
 
                 // Call to Action
@@ -282,6 +292,7 @@
                 const ctaButton = document.getElementById('hero-cta-button');
                 const ctaText = document.getElementById('hero-cta-text');
                 const ctaIcon = document.getElementById('hero-cta-icon');
+                const ctaLabel = resolveI18n(cta && cta.text, lang);
 
                 if (cta && cta.enabled && cta.href) {
                     ctaContainer.classList.remove('hidden');
@@ -290,7 +301,7 @@
                         ctaButton.target = '_blank';
                         ctaButton.rel = 'noopener noreferrer';
                     }
-                    if (cta.text) ctaText.textContent = cta.text;
+                    if (ctaLabel) ctaText.textContent = ctaLabel;
                     if (cta.icon) {
                         ctaIcon.className = `${cta.icon} text-xs`;
                         ctaIcon.classList.remove('hidden');
@@ -304,13 +315,15 @@
 
             // 5. Footer Information
             if (config.footer) {
-                if (config.footer.copyright) {
+                const copyrightText = resolveI18n(config.footer.copyright, lang);
+                if (copyrightText) {
                     const copyrightEl = document.getElementById('footer-copyright');
-                    if (copyrightEl) copyrightEl.textContent = config.footer.copyright;
+                    if (copyrightEl) copyrightEl.textContent = copyrightText;
                 }
-                if (config.footer.address) {
+                const addressText = resolveI18n(config.footer.address, lang);
+                if (addressText) {
                     const addressEl = document.getElementById('footer-address');
-                    if (addressEl) addressEl.textContent = config.footer.address;
+                    if (addressEl) addressEl.textContent = addressText;
                 }
 
                 // Quick Links
@@ -327,7 +340,7 @@
                             }
                             const a = document.createElement('a');
                             a.href = link.href || '#';
-                            a.textContent = link.label || '';
+                            a.textContent = resolveI18n(link.label, lang) || '';
                             a.className = 'hover:text-slate-700 dark:hover:text-slate-200 transition-colors';
                             if (link.external) {
                                 a.target = '_blank';
@@ -350,13 +363,94 @@
                                 a.target = '_blank';
                                 a.rel = 'noopener noreferrer';
                             }
-                            a.title = item.platform || 'Social Link';
-                            a.setAttribute('aria-label', item.platform || 'Social Link');
+                            const platformTitle = item.platform || 'Social Link';
+                            a.title = platformTitle;
+                            a.setAttribute('aria-label', platformTitle);
                             a.className = 'hover:text-slate-800 dark:hover:text-slate-200 transition-colors text-base';
                             a.innerHTML = `<i class="${item.icon || 'fa-solid fa-link'}"></i>`;
                             socialContainer.appendChild(a);
                         });
                     }
+                }
+            }
+        }
+
+        // Language Switcher Handlers
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            document.documentElement.lang = lang;
+            localStorage.setItem('preferred-lang', lang);
+            updateLanguageSwitcherUI(lang);
+            applySiteConfig(lang);
+        }
+
+        function updateLanguageSwitcherUI(activeLang) {
+            const switcher = document.getElementById('language-switcher');
+            if (!switcher) return;
+            const buttons = switcher.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => {
+                const btnLang = btn.getAttribute('data-lang');
+                if (btnLang === activeLang) {
+                    btn.className = 'lang-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-xs transition-all duration-150 cursor-default';
+                    btn.setAttribute('aria-pressed', 'true');
+                } else {
+                    btn.className = 'lang-btn px-2.5 py-1 rounded-md text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-150 cursor-pointer';
+                    btn.setAttribute('aria-pressed', 'false');
+                }
+            });
+        }
+
+        function initI18n() {
+            const config = window.CONFIG;
+            const i18nConfig = config && config.i18n;
+            const isEnabled = i18nConfig ? i18nConfig.enabled !== false : true;
+            const showSwitcher = i18nConfig ? i18nConfig.showSwitcher !== false : true;
+            const switcher = document.getElementById('language-switcher');
+
+            // Determine initial language
+            const storedLang = localStorage.getItem('preferred-lang');
+            const defaultLang = (i18nConfig && i18nConfig.defaultLanguage) || 'en';
+
+            if (storedLang) {
+                currentLanguage = storedLang;
+            } else if (defaultLang === 'system') {
+                const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+                currentLanguage = browserLang.startsWith('id') ? 'id' : 'en';
+            } else {
+                currentLanguage = defaultLang;
+            }
+
+            document.documentElement.lang = currentLanguage;
+
+            // Render language switcher buttons
+            if (switcher) {
+                if (isEnabled && showSwitcher) {
+                    switcher.classList.remove('hidden');
+                    switcher.classList.add('flex');
+                    switcher.innerHTML = '';
+
+                    const languages = (i18nConfig && Array.isArray(i18nConfig.languages) && i18nConfig.languages.length > 0)
+                        ? i18nConfig.languages
+                        : [
+                            { code: 'en', label: 'EN', title: 'English' },
+                            { code: 'id', label: 'ID', title: 'Bahasa Indonesia' }
+                        ];
+
+                    languages.forEach(langObj => {
+                        const btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.setAttribute('data-lang', langObj.code);
+                        btn.setAttribute('title', langObj.title || langObj.label);
+                        btn.setAttribute('aria-label', `Switch language to ${langObj.title || langObj.label}`);
+                        btn.textContent = langObj.label;
+                        btn.addEventListener('click', () => setLanguage(langObj.code));
+                        switcher.appendChild(btn);
+                    });
+
+                    updateLanguageSwitcherUI(currentLanguage);
+                } else {
+                    switcher.classList.add('hidden');
+                    switcher.classList.remove('flex');
                 }
             }
         }
@@ -425,8 +519,9 @@
             });
         }
 
-        // Run configuration and theme setup
-        applySiteConfig();
+        // Initialize i18n, site config, and theme setup
+        initI18n();
+        applySiteConfig(currentLanguage);
         initTheme();
     </script>
 </body>

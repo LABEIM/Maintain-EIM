@@ -42,29 +42,37 @@ jobs:
 
 ## 3. Customize Content (config.js)
 
-All content, logos, branding, links, and text are managed in [config.js](file:///config.js). **You do not need to modify [index.html](file:///index.html)!**
+All content, logos, branding, links, languages, and text are managed in [config.js](file:///config.js). **You do not need to modify [index.html](file:///index.html)!**
 
 Open [config.js](file:///config.js) and follow the checklist:
+
+### Bilingual & Plain String Formats
+
+All text fields support either:
+1. **Bilingual Object:** `{ en: "English content", id: "Konten Bahasa Indonesia" }`
+2. **Plain String:** `"Universal content"`
 
 ### New Project Setup Checklist
 
 | Section | Field | Status | Description |
 | :--- | :--- | :--- | :--- |
-| **Meta & SEO** | `meta.title` | **[REQUIRED]** | Browser tab title (e.g., `Project — Coming Soon`) |
-| **Meta & SEO** | `meta.description` | **[REQUIRED]** | Google search / social share description |
+| **i18n** | `i18n.enabled` | [CONFIG] | `true` or `false` to toggle multi-language switching |
+| **i18n** | `i18n.defaultLanguage` | [CONFIG] | `"en"`, `"id"`, or `"system"` |
+| **i18n** | `i18n.showSwitcher` | [CONFIG] | `true` or `false` to show language toggle in header |
+| **Meta & SEO** | `meta.title` | **[REQUIRED]** | Browser tab title (supports `{ en, id }` or string) |
+| **Meta & SEO** | `meta.description` | **[REQUIRED]** | Google search / preview text (supports `{ en, id }` or string) |
 | **Meta & SEO** | `meta.favicon` | [OPTIONAL] | Tab favicon URL or path |
 | **Branding** | `branding.logo.src` | **[REQUIRED]** | Main logo image URL or relative path |
 | **Branding** | `branding.logo.srcDark` / `srcLight` | [OPTIONAL] | Separate logos for dark & light mode |
-| **Branding** | `branding.logo.alt` & `href` | **[REQUIRED]** | Logo alt text and target website link |
+| **Branding** | `branding.logo.alt` & `href` | **[REQUIRED]** | Logo alt text (supports `{ en, id }`) and link |
 | **Branding** | `branding.logo.useContainer` | [CONFIG] | `false` for horizontal logos, `true` for icon boxes |
 | **Branding** | `branding.theme.defaultMode` | [CONFIG] | `"system"`, `"dark"`, or `"light"` |
-| **Header Links** | `headerLinks` | **[REQUIRED]** | Top-right links (e.g. project GitHub repository) |
-| **Content** | `content.headline` | **[REQUIRED]** | Main heading text |
-| **Content** | `content.description` | **[REQUIRED]** | Main description text |
-| **Content** | `content.badge` | [OPTIONAL] | Announcement pill above title (`enabled: true/false`) |
-| **Content** | `content.cta` | [OPTIONAL] | Call to Action button (`enabled: true/false`) |
-| **Footer** | `footer.copyright` & `address` | [OPTIONAL] | Copyright line and physical location text |
-| **Footer** | `footer.quickLinks` | [OPTIONAL] | Quick text links (e.g. "Hubungi Kami") |
+| **Header Links** | `headerLinks` | **[REQUIRED]** | Top-right links (supports `{ en, id }` label) |
+| **Content** | `content.headline` | **[REQUIRED]** | Main heading (supports `{ en, id }` or string) |
+| **Content** | `content.description` | **[REQUIRED]** | Main description (supports `{ en, id }` or string) |
+| **Content** | `content.cta` | [OPTIONAL] | CTA button (`enabled`, `text: { en, id }`, `href`) |
+| **Footer** | `footer.copyright` & `address` | [OPTIONAL] | Copyright & address (supports `{ en, id }`) |
+| **Footer** | `footer.quickLinks` | [OPTIONAL] | Quick text links (supports `{ en, id }` label) |
 | **Footer** | `footer.socialLinks` | [OPTIONAL] | Social media icon links at bottom |
 
 ---
