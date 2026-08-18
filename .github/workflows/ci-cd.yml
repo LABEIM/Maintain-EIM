@@ -21,7 +21,8 @@ jobs:
     uses: LABEIM/shared-ci-cd/.github/workflows/deploy-app.yml@main
     with:
       enable_cloudflare: true
-      cloudflare_project_name: 'maintenance-eim'
+      # [REQUIRED] Update with target Cloudflare Pages project name (e.g., 'project-comingsoon')
+      cloudflare_project_name: 'comingsoon-eim'
       enable_lighthouse: true
       lighthouse_routes: |
         /

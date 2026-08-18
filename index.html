@@ -9,6 +9,20 @@
         content="Enterprise Infrastructure Management Research Laboratory - New web experience coming soon.">
     <link id="meta-favicon" rel="icon" type="image/png" href="https://eimlab.org/assets/logo.png">
 
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta id="meta-og-title" property="og:title" content="EIM Lab — Coming Soon">
+    <meta id="meta-og-description" property="og:description"
+        content="Enterprise Infrastructure Management Research Laboratory - New web experience coming soon.">
+    <meta id="meta-og-image" property="og:image" content="https://eimlab.org/assets/brand/eim-logo-horizontal.png">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta id="meta-twitter-title" name="twitter:title" content="EIM Lab — Coming Soon">
+    <meta id="meta-twitter-description" name="twitter:description"
+        content="Enterprise Infrastructure Management Research Laboratory - New web experience coming soon.">
+    <meta id="meta-twitter-image" name="twitter:image" content="https://eimlab.org/assets/brand/eim-logo-horizontal.png">
+
     <!-- Load Site Configuration -->
     <script src="config.js"></script>
 
@@ -326,15 +340,29 @@
                     document.title = resolvedTitle;
                     const metaTitle = document.getElementById('meta-title');
                     if (metaTitle) metaTitle.textContent = resolvedTitle;
+                    const ogTitle = document.getElementById('meta-og-title');
+                    if (ogTitle) ogTitle.setAttribute('content', resolvedTitle);
+                    const twTitle = document.getElementById('meta-twitter-title');
+                    if (twTitle) twTitle.setAttribute('content', resolvedTitle);
                 }
                 const resolvedDesc = resolveI18n(config.meta.description, lang);
                 if (resolvedDesc) {
                     const metaDesc = document.getElementById('meta-description');
                     if (metaDesc) metaDesc.setAttribute('content', resolvedDesc);
+                    const ogDesc = document.getElementById('meta-og-description');
+                    if (ogDesc) ogDesc.setAttribute('content', resolvedDesc);
+                    const twDesc = document.getElementById('meta-twitter-description');
+                    if (twDesc) twDesc.setAttribute('content', resolvedDesc);
                 }
                 if (config.meta.favicon) {
                     const metaFavicon = document.getElementById('meta-favicon');
                     if (metaFavicon) metaFavicon.setAttribute('href', config.meta.favicon);
+                }
+                if (config.meta.ogImage) {
+                    const ogImg = document.getElementById('meta-og-image');
+                    if (ogImg) ogImg.setAttribute('content', config.meta.ogImage);
+                    const twImg = document.getElementById('meta-twitter-image');
+                    if (twImg) twImg.setAttribute('content', config.meta.ogImage);
                 }
             }
 

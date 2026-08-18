@@ -63,6 +63,9 @@ const CONFIG = {
 
         // [OPTIONAL] Browser tab icon (URL or relative path like "assets/favicon.png")
         favicon: "https://eimlab.org/assets/brand/eim-favicon.png",
+
+        // [OPTIONAL] Social media link preview image (Open Graph & Twitter card)
+        ogImage: "https://eimlab.org/assets/brand/eim-logo-horizontal.png",
     },
 
     // ---------------------------------------------------------------------

@@ -62,6 +62,7 @@ All text fields support either:
 | **Meta & SEO** | `meta.title` | **[REQUIRED]** | Browser tab title (supports `{ en, id }` or string) |
 | **Meta & SEO** | `meta.description` | **[REQUIRED]** | Google search / preview text (supports `{ en, id }` or string) |
 | **Meta & SEO** | `meta.favicon` | [OPTIONAL] | Tab favicon URL or path |
+| **Meta & SEO** | `meta.ogImage` | [OPTIONAL] | Social media preview card image URL or path |
 | **Branding** | `branding.logo.src` | **[REQUIRED]** | Main logo image URL or relative path |
 | **Branding** | `branding.logo.srcDark` / `srcLight` | [OPTIONAL] | Separate logos for dark & light mode |
 | **Branding** | `branding.logo.alt` & `href` | **[REQUIRED]** | Logo alt text (supports `{ en, id }`) and link |

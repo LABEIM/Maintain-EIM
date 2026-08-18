@@ -1,8 +1,14 @@
 # Coming Soon & Maintenance Web Template
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![GitHub Template](https://img.shields.io/badge/GitHub-Template_Repository-2ea44f.svg)](https://github.com/LABEIM/ComingSoon-Web-Template/generate)
+[![CI/CD](https://github.com/LABEIM/ComingSoon-Web-Template/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/LABEIM/ComingSoon-Web-Template/actions)
+
 A modern, responsive, configurable, and lightweight web template tailored for Enterprise Infrastructure Management (EIM) Research Laboratory projects, pre-launch initiatives, and scheduled maintenance pages.
 
-This template provides zero-build static hosting, centralized zero-code configuration via `config.js`, bilingual support (English & Indonesian) with instant language toggle, light and dark mode support, optional live countdown / ETA timer, and automated CI/CD deployment to Cloudflare Pages via the [LABEIM Shared CI/CD](https://github.com/LABEIM/shared-ci-cd) workflow.
+This template provides zero-build static hosting, centralized zero-code configuration via [config.js](file:///config.js), bilingual support (English & Indonesian) with instant language toggle, light and dark mode support, optional live countdown / ETA timer, and automated CI/CD deployment to Cloudflare Pages via the [LABEIM Shared CI/CD](https://github.com/LABEIM/shared-ci-cd) workflow.
+
+[**Use this template**](https://github.com/LABEIM/ComingSoon-Web-Template/generate) · [**Setup Guide**](SETUP.md) · [**EIM Lab**](https://eimlab.org)
 
 ---
 
@@ -27,10 +33,12 @@ This template provides zero-build static hosting, centralized zero-code configur
 ├── .github/
 │   └── workflows/
 │       └── ci-cd.yml      # CI/CD pipeline using LABEIM shared workflows
-├── config.js              # Central configuration file (customize content & languages here)
-├── index.html             # Main Coming Soon landing page
+├── .gitignore             # Standard OS, IDE, and log file ignore rules
+├── LICENSE                # MIT License
+├── README.md              # Project overview
 ├── SETUP.md               # Setup and customization guide
-└── README.md              # Project overview
+├── config.js              # Central configuration file (customize content & languages here)
+└── index.html             # Main Coming Soon / Maintenance landing page
 ```
 
 ---
