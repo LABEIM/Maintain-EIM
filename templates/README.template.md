@@ -28,36 +28,6 @@
 
 ---
 
-## Configuration & Content
-
-All content, logos, branding, links, languages, and text are managed in [`config.js`](file:///config.js). **You do not need to modify [`index.html`](file:///index.html)!**
-
-1. Open `config.js` in your editor.
-2. Customize the relevant sections (supports bilingual `{ en, id }` objects or plain strings):
-   - **`meta`**: Page title, description, favicon, and OpenGraph social preview image.
-   - **`branding`**: Logo, site title, and dark/light theme defaults.
-   - **`content`**: Main hero headline, description text, live countdown timer, and CTA button.
-   - **`footer`**: Copyright info, lab address, quick links, and social links.
-3. Commit and push to `main` — Cloudflare Pages will automatically build and deploy!
-
----
-
-## Local Development
-
-Preview the landing page locally:
-
-```bash
-# Python 3
-python3 -m http.server 8000
-
-# Node.js
-npx serve .
-```
-
-Or open [`index.html`](file:///index.html) directly in any modern browser.
-
----
-
 ## License & Ownership
 
 <!-- ========================================================================= -->

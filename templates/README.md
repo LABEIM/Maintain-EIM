@@ -8,9 +8,9 @@ This directory provides standardized templates for new repositories generated fr
 
 | File | Purpose | When to Use |
 | :--- | :--- | :--- |
-| [`README.template.md`](file:///templates/README.template.md) | Standardized project README | Base README template for every new project / landing page. |
-| [`LICENSE.MIT`](file:///templates/LICENSE.MIT) | Open Source MIT License | For open-source tools, public templates, and reusable libraries. |
-| [`LICENSE.ALL-RIGHTS-RESERVED`](file:///templates/LICENSE.ALL-RIGHTS-RESERVED) | Proprietary / Internal License | For proprietary lab web apps, internal services, and confidential research portals. |
+| [`README.template.md`](README.template.md) | Standardized project README | Base README template for every new project / landing page. |
+| [`LICENSE.MIT`](LICENSE.MIT) | Open Source MIT License | For open-source tools, public templates, and reusable libraries. |
+| [`LICENSE.ALL-RIGHTS-RESERVED`](LICENSE.ALL-RIGHTS-RESERVED) | Proprietary / Internal License | For proprietary lab web apps, internal services, and confidential research portals. |
 
 ---
 
@@ -19,7 +19,7 @@ This directory provides standardized templates for new repositories generated fr
 When you generate a new repository from this template:
 
 ### 1. Setup README
-Copy [`README.template.md`](file:///templates/README.template.md) to the root `README.md`:
+Copy [`README.template.md`](README.template.md) to the root `README.md`:
 ```bash
 cp templates/README.template.md README.md
 ```

@@ -6,7 +6,7 @@
 
 A modern, responsive, configurable, and lightweight web template tailored for Enterprise Infrastructure Management (EIM) Research Laboratory projects, pre-launch initiatives, and scheduled maintenance pages.
 
-This template provides zero-build static hosting, centralized zero-code configuration via [config.js](file:///config.js), bilingual support (English & Indonesian) with instant language toggle, light and dark mode support, optional live countdown / ETA timer, and automated CI/CD deployment to Cloudflare Pages via the [LABEIM Shared CI/CD](https://github.com/LABEIM/shared-ci-cd) workflow.
+This template provides zero-build static hosting, centralized zero-code configuration via [config.js](config.js), bilingual support (English & Indonesian) with instant language toggle, light and dark mode support, optional live countdown / ETA timer, and automated CI/CD deployment to Cloudflare Pages via the [LABEIM Shared CI/CD](https://github.com/LABEIM/shared-ci-cd) workflow.
 
 [**Use this template**](https://github.com/LABEIM/ComingSoon-Web-Template/generate) · [**Setup Guide**](SETUP.md) · [**EIM Lab**](https://eimlab.org)
 
@@ -50,16 +50,16 @@ This template provides zero-build static hosting, centralized zero-code configur
 
 ## Setup and Getting Started
 
-For the complete step-by-step setup guide for new projects, see [SETUP.md](file:///home/arukast/Projects/comingsoon-eim/SETUP.md).
+For the complete step-by-step setup guide for new projects, see [SETUP.md](SETUP.md).
 
 ### Quick Summary
 
 1. Select **Use this template** on GitHub to create a new repository.
-2. Update `cloudflare_project_name` in [.github/workflows/ci-cd.yml](file:///home/arukast/Projects/comingsoon-eim/.github/workflows/ci-cd.yml).
-3. Customize title, logo, languages, headings, links, and footer in [config.js](file:///home/arukast/Projects/comingsoon-eim/config.js).
-4. Apply the project README & choose a License (MIT or All Rights Reserved) from [`templates/`](file:///home/arukast/Projects/comingsoon-eim/templates/).
+2. Update `cloudflare_project_name` in [.github/workflows/ci-cd.yml](.github/workflows/ci-cd.yml).
+3. Customize title, logo, languages, headings, links, and footer in [config.js](config.js).
+4. Apply the project README & choose a License (MIT or All Rights Reserved) from [`templates/`](templates/).
 5. Push to `main` to trigger automated deployment to Cloudflare Pages.
-6. Connect custom domain in Cloudflare (see [SETUP.md](file:///home/arukast/Projects/comingsoon-eim/SETUP.md#7-connect-custom-domain-in-cloudflare)).
+6. Connect custom domain in Cloudflare (see [SETUP.md](SETUP.md#7-connect-custom-domain-in-cloudflare)).
 
 ---
 
@@ -75,7 +75,7 @@ python3 -m http.server 8000
 npx serve .
 ```
 
-Alternatively, open [index.html](file:///home/arukast/Projects/comingsoon-eim/index.html) directly in any modern web browser or use an IDE extension such as VS Code Live Server.
+Alternatively, open [index.html](index.html) directly in any modern web browser or use an IDE extension such as VS Code Live Server.
 
 ---
 

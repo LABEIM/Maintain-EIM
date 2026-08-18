@@ -18,7 +18,7 @@ Step-by-step instructions for configuring and deploying the Coming Soon web temp
 
 ## 2. Configure CI/CD Pipeline
 
-Edit [.github/workflows/ci-cd.yml](file:///.github/workflows/ci-cd.yml):
+Edit [.github/workflows/ci-cd.yml](.github/workflows/ci-cd.yml):
 
 Update `cloudflare_project_name` with the target Cloudflare Pages project name:
 
@@ -42,9 +42,9 @@ jobs:
 
 ## 3. Customize Content (config.js)
 
-All content, logos, branding, links, languages, and text are managed in [config.js](file:///config.js). **You do not need to modify [index.html](file:///index.html)!**
+All content, logos, branding, links, languages, and text are managed in [config.js](config.js). **You do not need to modify [index.html](index.html)!**
 
-Open [config.js](file:///config.js) and follow the checklist:
+Open [config.js](config.js) and follow the checklist:
 
 ### Bilingual & Plain String Formats
 
@@ -121,7 +121,7 @@ cp templates/LICENSE.ALL-RIGHTS-RESERVED LICENSE
 Preview the landing page locally:
 
 ### Option A: VS Code Live Server
-Right-click [index.html](file:///index.html) and select **Open with Live Server**.
+Right-click [index.html](index.html) and select **Open with Live Server**.
 
 ### Option B: Python HTTP Server
 ```bash
@@ -135,7 +135,7 @@ npx serve .
 ```
 
 ### Option D: Direct Browser
-Open [index.html](file:///index.html) directly in any web browser (`file:///...`).
+Open [index.html](index.html) directly in any web browser (`file:///...`).
 
 ---
 
