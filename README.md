@@ -21,7 +21,7 @@ For complete setup instructions, deployment workflows, and Cloudflare Worker con
   - **Coming Soon Mode:** Emits `200 OK` for early Google search indexing and preview cards.
   - **Maintenance Mode:** Emits `503 Service Unavailable` with `Retry-After: 3600` to preserve SEO during maintenance windows.
   - **Live App Pass-Through:** Instant cutover to the real application on launch day.
-- **Automated PR Preview Support:** Fully integrated with `LABEIM/shared-ci-cd` to generate isolated preview URLs commented directly on GitHub Pull Requests.
+- **Automated PR Preview Support:** Fully integrated with `LABEIM/Shared-CICD` to generate isolated preview URLs commented directly on GitHub Pull Requests.
 - **Optional Countdown / ETA Indicator:** Live ticking countdown timer with localized units (Days, Hours, Minutes, Seconds) and completion fallback text.
 - **Bilingual & Multi-Language (i18n):** Native support for English (`EN`) and Indonesian (`ID`) with instant toggle switch, auto-browser detection, URL param override (`?lang=id`), and `localStorage` persistence.
 - **Theme Switching:** Dark and light mode toggle with system preference detection.

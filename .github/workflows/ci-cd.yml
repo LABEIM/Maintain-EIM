@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   deploy:
-    uses: LABEIM/shared-ci-cd/.github/workflows/deploy-app.yml@main
+    uses: LABEIM/Shared-CICD/.github/workflows/deploy-app.yml@main
     with:
       enable_cloudflare: true
       # [REQUIRED] Update with target Cloudflare Pages project name (e.g., 'project-comingsoon')
