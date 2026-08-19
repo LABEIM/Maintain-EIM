@@ -1,26 +1,17 @@
 /**
  * =========================================================================
- * Coming Soon / Maintenance Web Template - Configuration
+ * Coming Soon & Maintenance Web Hub - Configuration
  * =========================================================================
  *
- * Customize all settings, texts, links, logos, and branding for your project here.
- * You DO NOT need to edit index.html or CSS!
+ * This configuration file powers the Central Coming Soon & Maintenance Hub
+ * for Enterprise Infrastructure Management (EIM) Research Laboratory.
  *
- * All text fields support either:
- * - Bilingual Object: { en: "English text", id: "Teks Bahasa Indonesia" }
- * - Plain String: "Text in single language" (used for all languages)
+ * Features Supported:
+ * 1. Global / Standalone default configuration (used when no site query is given).
+ * 2. Per-Site Custom Profiles (CONFIG.sites) selected via `?site=<slug>` or subdomain.
+ * 3. Mode Presets (CONFIG.modes) selected via `?mode=maintenance` or `?mode=comingsoon`.
+ * 4. Bilingual ({ en, id }) or plain string format for all text fields.
  *
- * -------------------------------------------------------------------------
- * NEW PROJECT SETUP CHECKLIST:
- * -------------------------------------------------------------------------
- * 1. [REQUIRED] Update `meta.title` and `meta.description` with project name.
- * 2. [REQUIRED] Update `branding.logo` (logo image URLs, alt text, homepage link).
- * 3. [OPTIONAL] Update or enable/disable `headerLinks` (e.g., project GitHub repository link).
- * 4. [REQUIRED] Update `content.headline` and `content.description` (for Coming Soon or Maintenance).
- * 5. [OPTIONAL] Enable `content.countdown` (countdown timer / estimated launch or downtime ETA).
- * 6. [OPTIONAL] Configure `i18n` (default language, switcher visibility).
- * 7. [OPTIONAL] Enable `content.cta` (call-to-action button).
- * 8. [OPTIONAL] Update `footer` contact email (`Hubungi Kami`) and social links.
  * =========================================================================
  */
 
@@ -46,25 +37,25 @@ const CONFIG = {
     },
 
     // ---------------------------------------------------------------------
-    // 2. Meta & SEO Settings
+    // 2. Default Meta & SEO Settings
     // ---------------------------------------------------------------------
     meta: {
-        // [REQUIRED] Browser tab title (e.g., "Project Name — Coming Soon")
+        // Browser tab title
         title: {
-            en: "EIM Lab — Coming Soon Template",
-            id: "EIM Lab — Template Segera Hadir"
+            en: "EIM Lab — Coming Soon",
+            id: "EIM Lab — Segera Hadir"
         },
 
-        // [REQUIRED] Search engine description shown on Google / preview cards
+        // Search engine description shown on Google / preview cards
         description: {
-            en: "Enterprise Infrastructure Management Research Laboratory - New web experience coming soon template.",
-            id: "Laboratorium Riset Enterprise Infrastructure Management - Template pengalaman web baru segera hadir."
+            en: "Enterprise Infrastructure Management Research Laboratory - New web experience coming soon.",
+            id: "Laboratorium Riset Enterprise Infrastructure Management - Pengalaman web baru segera hadir."
         },
 
-        // [OPTIONAL] Browser tab icon (URL or relative path like "assets/favicon.png")
+        // Browser tab icon (URL or relative path)
         favicon: "https://eimlab.org/assets/brand/eim-favicon.png",
 
-        // [OPTIONAL] Social media link preview image (Open Graph & Twitter card)
+        // Social media link preview image (Open Graph & Twitter card)
         ogImage: "https://eimlab.org/assets/brand/eim-logo-horizontal.png",
     },
 
@@ -73,36 +64,36 @@ const CONFIG = {
     // ---------------------------------------------------------------------
     branding: {
         logo: {
-            // [REQUIRED] Main logo image URL or relative path
+            // Main logo image URL or relative path
             src: "https://eimlab.org/assets/brand/eim-logo-horizontal.png",
 
-            // [OPTIONAL] Dark-mode specific logo (used when dark mode is active)
+            // Dark-mode specific logo
             srcDark: "https://eimlab.org/assets/email/logo-white.png",
 
-            // [OPTIONAL] Light-mode specific logo (used when light mode is active)
+            // Light-mode specific logo
             srcLight: "https://eimlab.org/assets/brand/eim-logo-horizontal.png",
 
-            // [REQUIRED] Accessible description for screen readers and SEO
+            // Accessible description for screen readers and SEO
             alt: {
                 en: "EIM Lab Logo",
                 id: "Logo EIM Lab"
             },
 
-            // [REQUIRED] URL when user clicks the logo (e.g. "https://eimlab.org")
+            // URL when user clicks the logo
             href: "https://eimlab.org",
 
-            // [CONFIG] Set to true for square icon box (w-10 h-10), or false for wide horizontal logos
+            // Set to true for square icon box (w-10 h-10), or false for wide horizontal logos
             useContainer: false,
 
-            // [FALLBACK] SVG markup rendered if the logo image fails to load
+            // SVG markup rendered if the logo image fails to load
             fallbackSvg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>`,
         },
 
         theme: {
-            // [CONFIG] Initial theme for first-time visitors: "system" | "dark" | "light"
+            // Initial theme for first-time visitors: "system" | "dark" | "light"
             defaultMode: "system",
 
-            // [CONFIG] Show (true) or hide (false) the Sun/Moon toggle button in header
+            // Show (true) or hide (false) the Sun/Moon toggle button in header
             showThemeToggle: true,
         }
     },
@@ -111,15 +102,12 @@ const CONFIG = {
     // 4. Header Action Links (Top-Right Controls)
     // ---------------------------------------------------------------------
     headerLinks: {
-        // [CONFIG] Show (true) or hide (false) header action links (e.g., set false for private repos)
         enabled: true,
-
-        // [OPTIONAL] Update links to match your project repository or docs
         items: [
             {
-                enabled: true, // [OPTIONAL] Individual link toggle
+                enabled: true,
                 label: "GitHub",
-                href: "https://github.com/LABEIM", // Update to your project repo e.g. "https://github.com/LABEIM/project-name"
+                href: "https://github.com/LABEIM",
                 icon: "fa-brands fa-github",
                 external: true
             }
@@ -130,22 +118,22 @@ const CONFIG = {
     // 5. Hero / Main Content
     // ---------------------------------------------------------------------
     content: {
-        // [REQUIRED] Main headline
+        // Main headline
         headline: {
             en: "Something new is coming soon.",
             id: "Sesuatu yang baru akan segera hadir."
         },
 
-        // [REQUIRED] Subheading description
+        // Subheading description
         description: {
-            en: "Coming Soon Web Template for EIM Lab research.",
-            id: "Template Web Segera Hadir untuk riset EIM Lab."
+            en: "We are currently crafting a new web experience for EIM Lab research. Stay tuned for updates.",
+            id: "Kami sedang membangun pengalaman web baru untuk riset EIM Lab. Nantikan pembaruan selanjutnya."
         },
 
-        // [OPTIONAL] Countdown / Estimated Time Indicator (for launch date or maintenance downtime ETA)
+        // Optional Countdown / Estimated Time Indicator
         countdown: {
-            enabled: false,                      // Set to true to show the countdown timer
-            targetDate: "2026-09-01T00:00:00+07:00", // Target date in ISO-8601 format (YYYY-MM-DDTHH:mm:ss+HH:mm)
+            enabled: false,
+            targetDate: "2026-09-01T00:00:00+07:00", // ISO-8601 format
             label: {
                 en: "Estimated Launch",
                 id: "Estimasi Peluncuran"
@@ -162,16 +150,16 @@ const CONFIG = {
             }
         },
 
-        // [OPTIONAL] Call-to-Action button below description
+        // Optional Call-to-Action button
         cta: {
-            enabled: false,                      // Set to true to show the CTA button
+            enabled: false,
             text: {
                 en: "Get in Touch",
                 id: "Hubungi Kami"
             },
-            href: "mailto:lab@eimlab.org", // Target link (mailto:, URL, etc.)
-            icon: "fa-solid fa-arrow-right",     // Button icon
-            external: false                      // Open in new tab (true/false)
+            href: "mailto:lab@eimlab.org",
+            icon: "fa-solid fa-arrow-right",
+            external: false
         }
     },
 
@@ -179,19 +167,14 @@ const CONFIG = {
     // 6. Footer Information
     // ---------------------------------------------------------------------
     footer: {
-        // [OPTIONAL] Copyright notice
         copyright: {
             en: "Copyright © 2026 Enterprise Infrastructure Management Research Laboratory.",
             id: "Hak Cipta © 2026 Enterprise Infrastructure Management Research Laboratory."
         },
-
-        // [OPTIONAL] Physical address / laboratory location
         address: {
             en: "TULT Building 8th Floor, Room TULT.08.09, Telkom University, Bandung, Indonesia",
             id: "Gedung TULT Lantai 8, Ruang TULT.08.09, Telkom University, Bandung, Indonesia"
         },
-
-        // [OPTIONAL] Quick navigation links (separated by |)
         quickLinks: [
             {
                 label: {
@@ -206,12 +189,10 @@ const CONFIG = {
                     en: "Contact Us",
                     id: "Hubungi Kami"
                 },
-                href: "mailto:lab@eimlab.org", // Update with project contact email
+                href: "mailto:lab@eimlab.org",
                 external: false
             }
         ],
-
-        // [OPTIONAL] Social media profile links at the bottom
         socialLinks: [
             {
                 platform: "GitHub",
@@ -229,10 +210,255 @@ const CONFIG = {
                 icon: "fa-brands fa-linkedin"
             }
         ]
+    },
+
+    // ---------------------------------------------------------------------
+    // 7. Mode Presets (Coming Soon vs Maintenance Mode)
+    // ---------------------------------------------------------------------
+    modes: {
+        maintenance: {
+            meta: {
+                title: {
+                    en: "Scheduled Maintenance — EIM Lab",
+                    id: "Pemeliharaan Terjadwal — EIM Lab"
+                },
+                description: {
+                    en: "Our systems are undergoing scheduled maintenance. Services will be restored shortly.",
+                    id: "Sistem kami sedang dalam pemeliharaan terjadwal. Layanan akan segera dipulihkan."
+                }
+            },
+            content: {
+                headline: {
+                    en: "Scheduled Maintenance in Progress",
+                    id: "Pemeliharaan Sistem Sedang Berlangsung"
+                },
+                description: {
+                    en: "We are currently performing routine upgrades, performance optimizations, and security updates.",
+                    id: "Kami sedang melakukan pembaruan rutin, peningkatan performa, dan pembaruan keamanan."
+                },
+                countdown: {
+                    label: {
+                        en: "Estimated Completion",
+                        id: "Estimasi Selesai"
+                    }
+                }
+            }
+        },
+        comingsoon: {
+            // Default coming soon settings match the base CONFIG
+        }
+    },
+
+    // ---------------------------------------------------------------------
+    // 8. Per-Site Custom Profiles Registry
+    // ---------------------------------------------------------------------
+    // Define project-specific overrides here.
+    // Matched dynamically via URL query parameter `?site=<slug>` or subdomain.
+    // Each profile only needs to specify what is UNIQUE to that project.
+    // ---------------------------------------------------------------------
+    sites: {
+        "smart-campus": {
+            meta: {
+                title: {
+                    en: "Smart Campus Platform — Coming Soon",
+                    id: "Platform Smart Campus — Segera Hadir"
+                },
+                description: {
+                    en: "Real-time campus IoT, energy analytics, and automated facility management platform.",
+                    id: "Platform IoT kampus real-time, analitik energi, dan manajemen fasilitas otomatis."
+                }
+            },
+            content: {
+                headline: {
+                    en: "Smart Campus IoT is Coming Soon",
+                    id: "Smart Campus IoT Segera Hadir"
+                },
+                description: {
+                    en: "A next-generation enterprise IoT platform engineered by EIM Lab for smart university infrastructure.",
+                    id: "Platform IoT enterprise generasi berikutnya yang dikembangkan oleh EIM Lab untuk infrastruktur kampus cerdas."
+                },
+                countdown: {
+                    enabled: true,
+                    targetDate: "2026-10-01T00:00:00+07:00",
+                    label: {
+                        en: "Target Launch Date",
+                        id: "Target Tanggal Peluncuran"
+                    }
+                },
+                cta: {
+                    enabled: true,
+                    text: {
+                        en: "Inquire about Project",
+                        id: "Pelajari Proyek"
+                    },
+                    href: "mailto:lab@eimlab.org?subject=Inquiry%20Smart%20Campus%20Platform"
+                }
+            },
+            headerLinks: {
+                enabled: true,
+                items: [
+                    {
+                        enabled: true,
+                        label: "EIM Lab",
+                        href: "https://eimlab.org",
+                        icon: "fa-solid fa-building-columns",
+                        external: true
+                    },
+                    {
+                        enabled: true,
+                        label: "GitHub",
+                        href: "https://github.com/LABEIM",
+                        icon: "fa-brands fa-github",
+                        external: true
+                    }
+                ]
+            }
+        },
+
+        "sensor-net": {
+            meta: {
+                title: {
+                    en: "Sensor Network Monitor — Coming Soon",
+                    id: "Sensor Network Monitor — Segera Hadir"
+                }
+            },
+            content: {
+                headline: {
+                    en: "Sensor Network Monitor",
+                    id: "Monitoring Jaringan Sensor"
+                },
+                description: {
+                    en: "Distributed sensor telemetry, environmental metrics, and automated alert infrastructure.",
+                    id: "Telemetri sensor terdistribusi, metrik lingkungan, dan infrastruktur notifikasi otomatis."
+                },
+                countdown: {
+                    enabled: false
+                }
+            }
+        },
+
+        "portal": {
+            meta: {
+                title: {
+                    en: "EIM Research Portal — Under Construction",
+                    id: "Portal Riset EIM — Sedang Dibangun"
+                }
+            },
+            content: {
+                headline: {
+                    en: "EIM Research Portal",
+                    id: "Portal Riset EIM Lab"
+                },
+                description: {
+                    en: "Centralized workspace for lab members, publication repositories, and computing clusters.",
+                    id: "Ruang kerja terpusat untuk anggota lab, repositori publikasi, dan kluster komputasi."
+                }
+            }
+        }
+    },
+
+    // ---------------------------------------------------------------------
+    // 9. Dynamic Resolver Helper
+    // ---------------------------------------------------------------------
+    /**
+     * Resolves the active configuration by deeply merging:
+     * 1. Global Default Config
+     * 2. Active Mode Overrides (?mode=maintenance or ?mode=comingsoon)
+     * 3. Active Site Profile (?site=<slug> or matched hostname)
+     *
+     * @param {string|URLSearchParams} [search] Optional search string or URLSearchParams
+     * @returns {object} Fully merged configuration object
+     */
+    getResolvedConfig: function (search) {
+        // Deep clone helper
+        function deepClone(obj) {
+            if (obj === null || typeof obj !== "object") return obj;
+            if (Array.isArray(obj)) return obj.map(deepClone);
+            const copy = {};
+            for (const key of Object.keys(obj)) {
+                if (key !== "sites" && key !== "modes" && key !== "getResolvedConfig") {
+                    copy[key] = deepClone(obj[key]);
+                }
+            }
+            return copy;
+        }
+
+        // Deep merge helper (source into target)
+        function deepMerge(target, source) {
+            if (!source || typeof source !== "object") return target;
+            for (const key of Object.keys(source)) {
+                const sVal = source[key];
+                if (sVal === undefined) continue;
+
+                if (sVal !== null && typeof sVal === "object" && !Array.isArray(sVal)) {
+                    if (!target[key] || typeof target[key] !== "object" || Array.isArray(target[key])) {
+                        target[key] = {};
+                    }
+                    deepMerge(target[key], sVal);
+                } else if (Array.isArray(sVal)) {
+                    target[key] = deepClone(sVal);
+                } else {
+                    target[key] = sVal;
+                }
+            }
+            return target;
+        }
+
+        // 1. Start with base clone
+        const resolved = deepClone(this);
+
+        // 2. Parse search parameters & hostname
+        let params = null;
+        let hostname = "";
+        if (typeof window !== "undefined") {
+            params = search instanceof URLSearchParams ? search : new URLSearchParams(search !== undefined ? search : window.location.search);
+            hostname = (window.location.hostname || "").toLowerCase();
+        } else if (search) {
+            params = search instanceof URLSearchParams ? search : new URLSearchParams(search);
+        }
+
+        const siteParam = params ? (params.get("site") || "").toLowerCase().trim() : "";
+        const modeParam = params ? (params.get("mode") || "").toLowerCase().trim() : "";
+
+        // 3. Apply mode overrides (e.g. maintenance)
+        if (modeParam && this.modes && this.modes[modeParam]) {
+            deepMerge(resolved, this.modes[modeParam]);
+            resolved._activeMode = modeParam;
+        } else {
+            resolved._activeMode = "comingsoon";
+        }
+
+        // 4. Determine matching site profile
+        let matchedSiteSlug = "";
+        if (siteParam && this.sites && this.sites[siteParam]) {
+            matchedSiteSlug = siteParam;
+        } else if (hostname && this.sites) {
+            const subdomain = hostname.split(".")[0];
+            if (this.sites[subdomain]) {
+                matchedSiteSlug = subdomain;
+            } else if (this.sites[hostname]) {
+                matchedSiteSlug = hostname;
+            }
+        }
+
+        // 5. Apply site profile overrides
+        if (matchedSiteSlug && this.sites[matchedSiteSlug]) {
+            deepMerge(resolved, this.sites[matchedSiteSlug]);
+            resolved._activeSite = matchedSiteSlug;
+        } else {
+            resolved._activeSite = siteParam || "default";
+        }
+
+        return resolved;
     }
 };
 
-// Expose CONFIG globally to window
+// Expose CONFIG globally
 if (typeof window !== "undefined") {
     window.CONFIG = CONFIG;
+}
+
+// Support CommonJS export for testing/Node environments
+if (typeof module !== "undefined" && module.exports) {
+    module.exports = CONFIG;
 }

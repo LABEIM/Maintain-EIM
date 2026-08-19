@@ -1,28 +1,32 @@
-# Coming Soon & Maintenance Web Template
+# Coming Soon & Maintenance Hub
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub Template](https://img.shields.io/badge/GitHub-Template_Repository-2ea44f.svg)](https://github.com/LABEIM/ComingSoon-Web-Template/generate)
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red.svg)](LICENSE)
 [![CI/CD](https://github.com/LABEIM/ComingSoon-Web-Template/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/LABEIM/ComingSoon-Web-Template/actions)
+[![EIM Lab](https://img.shields.io/badge/EIM-Research_Laboratory-blue.svg)](https://eimlab.org)
 
-A modern, responsive, configurable, and lightweight web template tailored for Enterprise Infrastructure Management (EIM) Research Laboratory projects, pre-launch initiatives, and scheduled maintenance pages.
+A modern, responsive, and lightweight web hub tailored for **Enterprise Infrastructure Management (EIM) Research Laboratory** pre-launch projects, upcoming initiatives, and scheduled maintenance windows across all `*.eimlab.org` domains.
 
-This template provides zero-build static hosting, centralized zero-code configuration via [config.js](config.js), bilingual support (English & Indonesian) with instant language toggle, light and dark mode support, optional live countdown / ETA timer, and automated CI/CD deployment to Cloudflare Pages via the [LABEIM Shared CI/CD](https://github.com/LABEIM/shared-ci-cd) workflow.
+This repository serves two interconnected purposes:
+1. **Central Coming Soon & Maintenance Hub:** Deployed once to Cloudflare Pages (`maintenance-eim`) to dynamically serve custom pre-launch and maintenance landing pages for any lab subdomain via the Central Edge Router Worker (`eim-edge-router`).
+2. **Template Repository for New Web Projects:** Provides standardized CI/CD pipelines, starter READMEs, and laboratory licensing templates in [`templates/`](templates/) for bootstrapping new repositories.
 
-[**Use this template**](https://github.com/LABEIM/ComingSoon-Web-Template/generate) · [**Setup Guide**](SETUP.md) · [**EIM Lab**](https://eimlab.org)
+For complete setup instructions, deployment workflows, and Cloudflare Worker configuration, refer to the [**Setup Guide (SETUP.md)**](SETUP.md).
 
 ---
 
 ## Features
 
-- **Dual-Purpose Architecture:** Perfect for pre-launch **Coming Soon** landing pages (HTTP 200) and temporary **Scheduled Maintenance** pages (HTTP 503).
-- **Optional Countdown / ETA Indicator:** Built-in live ticking countdown timer with localized units (Days, Hours, Minutes, Seconds) and completion fallback message.
-- **Bilingual & Multi-Language (i18n):** Native support for English (`EN`) and Indonesian (`ID`) with a sleek language toggle switch, automated browser language detection, and `localStorage` persistence.
-- **Centralized Configuration:** Customize logo, navigation, SEO meta tags, hero headline, description, countdown, CTA, footer, and social links in `config.js` without touching HTML code.
-- **Zero-Build Static Architecture:** Pure HTML5 and Tailwind CSS (via CDN) with no compilation step required.
-- **Theme Switching:** Dark and light mode toggle with `localStorage` persistence and automatic system preference detection.
-- **Fully Responsive:** Layout optimized for mobile, tablet, and desktop viewports.
-- **Minimal Design:** Typography powered by Inter font, subtle glowing background gradients, and FontAwesome icons.
-- **Automated CI/CD:** Integrated with Cloudflare Pages deployment and Lighthouse CI performance auditing.
+- **Multi-Site Dynamic Profiles (`config.js`):** Centralized registry supporting unique per-project branding, headlines, descriptions, countdowns, and CTA buttons resolved dynamically via URL query parameter (`?site=<slug>`) or subdomain.
+- **Edge Gateway Integration (`eim-edge-router`):** Cloudflare Worker routes traffic dynamically across `*.eimlab.org/*`:
+  - **Coming Soon Mode:** Emits `200 OK` for early Google search indexing and preview cards.
+  - **Maintenance Mode:** Emits `503 Service Unavailable` with `Retry-After: 3600` to preserve SEO during maintenance windows.
+  - **Live App Pass-Through:** Instant cutover to the real application on launch day.
+- **Automated PR Preview Support:** Fully integrated with `LABEIM/shared-ci-cd` to generate isolated preview URLs commented directly on GitHub Pull Requests.
+- **Optional Countdown / ETA Indicator:** Live ticking countdown timer with localized units (Days, Hours, Minutes, Seconds) and completion fallback text.
+- **Bilingual & Multi-Language (i18n):** Native support for English (`EN`) and Indonesian (`ID`) with instant toggle switch, auto-browser detection, URL param override (`?lang=id`), and `localStorage` persistence.
+- **Theme Switching:** Dark and light mode toggle with system preference detection.
+- **Zero-Build Static Architecture:** Pure HTML5 and Tailwind CSS with no compilation step required.
+- **Starter Templates (`templates/`):** Ready-to-use project README template (`README.template.md`) and laboratory license templates (`LICENSE.MIT`, `LICENSE.ALL-RIGHTS-RESERVED`).
 
 ---
 
@@ -32,54 +36,40 @@ This template provides zero-build static hosting, centralized zero-code configur
 .
 ├── .github/
 │   └── workflows/
-│       └── ci-cd.yml      # CI/CD pipeline using LABEIM shared workflows
-├── .gitignore             # Standard OS, IDE, and log file ignore rules
-├── LICENSE                # MIT License (for this template repository)
-├── README.md              # Project overview (for this template repository)
-├── SETUP.md               # Setup and customization guide
-├── config.js              # Central configuration file (customize content & languages here)
-├── index.html             # Main Coming Soon / Maintenance landing page
-└── templates/             # Starter templates for new projects
-    ├── LICENSE.ALL-RIGHTS-RESERVED # Proprietary / Internal license template
-    ├── LICENSE.MIT        # Open Source MIT license template
-    ├── README.md          # Templates guide & license selection instructions
-    └── README.template.md # Standardized project README template
+│       └── ci-cd.yml          # CI/CD pipeline using LABEIM shared workflows
+├── .gitignore                 # Standard OS, IDE, and log ignore rules
+├── LICENSE                    # EIM Lab Proprietary License
+├── README.md                  # Project overview
+├── SETUP.md                   # Complete Architecture, Setup, and SOP Guide
+├── config.js                  # Central configuration & per-site profiles registry
+├── index.html                 # Dynamic Coming Soon / Maintenance landing page
+└── templates/                 # Starter templates for new web project repositories
+    ├── LICENSE.ALL-RIGHTS-RESERVED # Proprietary license template
+    ├── LICENSE.MIT            # Open Source MIT license template
+    ├── README.md              # Template usage instructions
+    └── README.template.md     # Standardized project README template
 ```
 
 ---
 
-## Setup and Getting Started
+## Local Development & Testing
 
-For the complete step-by-step setup guide for new projects, see [SETUP.md](SETUP.md).
-
-### Quick Summary
-
-1. Select **Use this template** on GitHub to create a new repository.
-2. Update `cloudflare_project_name` in [.github/workflows/ci-cd.yml](.github/workflows/ci-cd.yml).
-3. Customize title, logo, languages, headings, links, and footer in [config.js](config.js).
-4. Apply the project README & choose a License (MIT or All Rights Reserved) from [`templates/`](templates/).
-5. Push to `main` to trigger automated deployment to Cloudflare Pages.
-6. Connect custom domain in Cloudflare (see [SETUP.md](SETUP.md#7-connect-custom-domain-in-cloudflare)).
-
----
-
-## Local Development
-
-Preview the landing page locally:
+Preview the landing page with different profiles locally:
 
 ```bash
-# Using Python HTTP server
+# Start local HTTP server
 python3 -m http.server 8000
-
-# Using Node.js serve
-npx serve .
 ```
 
-Alternatively, open [index.html](index.html) directly in any modern web browser or use an IDE extension such as VS Code Live Server.
+- **Default view:** `http://localhost:8000/`
+- **Smart Campus profile:** `http://localhost:8000/?site=smart-campus`
+- **Sensor Network profile:** `http://localhost:8000/?site=sensor-net`
+- **Maintenance mode:** `http://localhost:8000/?mode=maintenance`
+- **Indonesian language:** `http://localhost:8000/?site=smart-campus&lang=id`
 
 ---
 
 ## License and Credits
 
-Maintained by **[EIM Lab (Enterprise Infrastructure Management Research Laboratory)](https://eimlab.org)**.  
-Licensed under the [MIT License](LICENSE).
+Maintained by **[EIM Lab (Enterprise Infrastructure Management Research Laboratory)](https://eimlab.org)**, Telkom University.  
+All Rights Reserved.
