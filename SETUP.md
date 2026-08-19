@@ -111,7 +111,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const hostname = url.hostname.toLowerCase();
-    const subdomain = hostname.split(".")[0]; // e.g. "smart-campus" from "smart-campus.eimlab.org"
+    const subdomain = hostname.split(".")[0]; // e.g. "link" from "link.eimlab.org"
 
     // 1. Developer Preview Bypass (Query param or Cookie)
     const bypassSecret = env.PREVIEW_BYPASS_SECRET || "eim-preview-secret";
@@ -138,40 +138,41 @@ export default {
     const isMaintenance = isMatch(maintenanceSites);
     const isComingSoon = isMatch(comingSoonSites);
 
-    const hubUrl = env.TEMPLATE_URL || "https://maintenance-eim.pages.dev";
+    const hubUrl = (env.TEMPLATE_URL || "https://maintenance.eimlab.org").replace(/\/$/, "");
 
-    // 3. Serve Maintenance (HTTP 503)
-    if (isMaintenance) {
-      const targetUrl = `${hubUrl}/?mode=maintenance&site=${subdomain}`;
-      const templateRes = await fetch(targetUrl);
+    // 3. Serve Coming Soon or Maintenance from Central Hub
+    if (isMaintenance || isComingSoon) {
+      const mode = isMaintenance ? "maintenance" : "comingsoon";
+      const status = isMaintenance ? 503 : 200;
+      const statusText = isMaintenance ? "Service Unavailable" : "OK";
 
-      return new Response(templateRes.body, {
-        status: 503,
-        statusText: "Service Unavailable",
-        headers: {
-          "Content-Type": "text/html; charset=utf-8",
-          "Retry-After": "3600",
-          "Cache-Control": "no-store, no-cache, must-revalidate",
-        },
-      });
+      // If requesting root page or HTML, serve the dynamic profile landing page
+      if (url.pathname === "/" || url.pathname === "/index.html") {
+        const targetUrl = `${hubUrl}/?mode=${mode}&site=${subdomain}`;
+        const templateRes = await fetch(targetUrl);
+
+        const headers = new Headers(templateRes.headers);
+        headers.set("Content-Type", "text/html; charset=utf-8");
+        if (isMaintenance) {
+          headers.set("Retry-After", "3600");
+          headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
+        } else {
+          headers.set("Cache-Control", "public, max-age=300");
+        }
+
+        return new Response(templateRes.body, {
+          status,
+          statusText,
+          headers,
+        });
+      }
+
+      // If requesting assets (e.g. /config.js, favicon, images), proxy from Central Hub
+      const assetUrl = `${hubUrl}${url.pathname}${url.search}`;
+      return fetch(assetUrl);
     }
 
-    // 4. Serve Coming Soon (HTTP 200 OK)
-    if (isComingSoon) {
-      const targetUrl = `${hubUrl}/?mode=comingsoon&site=${subdomain}`;
-      const templateRes = await fetch(targetUrl);
-
-      return new Response(templateRes.body, {
-        status: 200,
-        statusText: "OK",
-        headers: {
-          "Content-Type": "text/html; charset=utf-8",
-          "Cache-Control": "public, max-age=300",
-        },
-      });
-    }
-
-    // 5. Live Application Traffic Pass-Through
+    // 4. Live Application Traffic Pass-Through
     return fetch(request);
   },
 };
