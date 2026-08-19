@@ -219,17 +219,17 @@ const CONFIG = {
         maintenance: {
             meta: {
                 title: {
-                    en: "Scheduled Maintenance — EIM Lab",
-                    id: "Pemeliharaan Terjadwal — EIM Lab"
+                    en: "Maintenance — EIM Lab",
+                    id: "Pemeliharaan — EIM Lab"
                 },
                 description: {
-                    en: "Our systems are undergoing scheduled maintenance. Services will be restored shortly.",
-                    id: "Sistem kami sedang dalam pemeliharaan terjadwal. Layanan akan segera dipulihkan."
+                    en: "Our systems are undergoing maintenance. Services will be restored shortly.",
+                    id: "Sistem kami sedang dalam pemeliharaan. Layanan akan segera dipulihkan."
                 }
             },
             content: {
                 headline: {
-                    en: "Scheduled Maintenance in Progress",
+                    en: "Maintenance in Progress",
                     id: "Pemeliharaan Sistem Sedang Berlangsung"
                 },
                 description: {
@@ -257,41 +257,31 @@ const CONFIG = {
     // Each profile only needs to specify what is UNIQUE to that project.
     // ---------------------------------------------------------------------
     sites: {
-        "smart-campus": {
+        "studygroup": {
             meta: {
                 title: {
-                    en: "Smart Campus Platform — Coming Soon",
-                    id: "Platform Smart Campus — Segera Hadir"
+                    en: "EIM Lab — Study Group | Coming Soon",
+                    id: "EIM Lab — Study Group | Segera Hadir"
                 },
                 description: {
-                    en: "Real-time campus IoT, energy analytics, and automated facility management platform.",
-                    id: "Platform IoT kampus real-time, analitik energi, dan manajemen fasilitas otomatis."
+                    en: "Enterprise Infrastructure Management Research Laboratory - Study Group coming soon.",
+                    id: "Laboratorium Riset Enterprise Infrastructure Management - Study Group Segera Hadir."
                 }
             },
             content: {
                 headline: {
-                    en: "Smart Campus IoT is Coming Soon",
-                    id: "Smart Campus IoT Segera Hadir"
+                    en: "Study Group is coming soon",
+                    id: "Study Group Segera Hadir"
                 },
                 description: {
-                    en: "A next-generation enterprise IoT platform engineered by EIM Lab for smart university infrastructure.",
-                    id: "Platform IoT enterprise generasi berikutnya yang dikembangkan oleh EIM Lab untuk infrastruktur kampus cerdas."
+                    en: "Study Group for Enterprise Infrastructure Management Research Laboratory.",
+                    id: "Study Group untuk Laboratorium Riset Enterprise Infrastructure Management."
                 },
                 countdown: {
-                    enabled: true,
-                    targetDate: "2026-10-01T00:00:00+07:00",
-                    label: {
-                        en: "Target Launch Date",
-                        id: "Target Tanggal Peluncuran"
-                    }
+                    enabled: false
                 },
                 cta: {
-                    enabled: true,
-                    text: {
-                        en: "Inquire about Project",
-                        id: "Pelajari Proyek"
-                    },
-                    href: "mailto:lab@eimlab.org?subject=Inquiry%20Smart%20Campus%20Platform"
+                    enabled: false
                 }
             },
             headerLinks: {
@@ -299,15 +289,8 @@ const CONFIG = {
                 items: [
                     {
                         enabled: true,
-                        label: "EIM Lab",
-                        href: "https://eimlab.org",
-                        icon: "fa-solid fa-building-columns",
-                        external: true
-                    },
-                    {
-                        enabled: true,
                         label: "GitHub",
-                        href: "https://github.com/LABEIM",
+                        href: "https://github.com/LABEIM/SG-EIM",
                         icon: "fa-brands fa-github",
                         external: true
                     }
@@ -315,44 +298,85 @@ const CONFIG = {
             }
         },
 
-        "sensor-net": {
+        "link": {
             meta: {
                 title: {
-                    en: "Sensor Network Monitor — Coming Soon",
-                    id: "Sensor Network Monitor — Segera Hadir"
+                    en: "EIM Lab — Links | Coming Soon",
+                    id: "EIM Lab — Portal Link | Segera Hadir"
+                },
+                description: {
+                    en: "Enterprise Infrastructure Management Research Laboratory — Official Links Coming Soon.",
+                    id: "Laboratorium Riset Enterprise Infrastructure Management — Portal Link Segera Hadir."
                 }
             },
             content: {
                 headline: {
-                    en: "Sensor Network Monitor",
-                    id: "Monitoring Jaringan Sensor"
+                    en: "Official Links is coming soon",
+                    id: "Portal Link Segera Hadir"
                 },
                 description: {
-                    en: "Distributed sensor telemetry, environmental metrics, and automated alert infrastructure.",
-                    id: "Telemetri sensor terdistribusi, metrik lingkungan, dan infrastruktur notifikasi otomatis."
+                    en: "Official Links for Enterprise Infrastructure Management Research Laboratory.",
+                    id: "Portal Link untuk Laboratorium Riset Enterprise Infrastructure Management."
                 },
                 countdown: {
                     enabled: false
+                },
+                cta: {
+                    enabled: false
                 }
+            },
+            headerLinks: {
+                enabled: true,
+                items: [
+                    {
+                        enabled: true,
+                        label: "GitHub",
+                        href: "https://github.com/LABEIM/LINK-EIM",
+                        icon: "fa-brands fa-github",
+                        external: true
+                    }
+                ]
             }
         },
 
-        "portal": {
+        "kuliahumum": {
             meta: {
                 title: {
-                    en: "EIM Research Portal — Under Construction",
-                    id: "Portal Riset EIM — Sedang Dibangun"
+                    en: "EIM Lab — Public Lecture | Coming Soon",
+                    id: "EIM Lab — Kuliah Umum | Segera Hadir"
+                },
+                description: {
+                    en: "Enterprise Infrastructure Management Research Laboratory - Public Lecture coming soon.",
+                    id: "Laboratorium Riset Enterprise Infrastructure Management - Kuliah Umum Segera Hadir."
                 }
             },
             content: {
                 headline: {
-                    en: "EIM Research Portal",
-                    id: "Portal Riset EIM Lab"
+                    en: "Public Lecture is coming soon",
+                    id: "Kuliah Umum Segera Hadir"
                 },
                 description: {
-                    en: "Centralized workspace for lab members, publication repositories, and computing clusters.",
-                    id: "Ruang kerja terpusat untuk anggota lab, repositori publikasi, dan kluster komputasi."
+                    en: "Public Lecture for Enterprise Infrastructure Management Research Laboratory.",
+                    id: "Kuliah Umum untuk Laboratorium Riset Enterprise Infrastructure Management."
+                },
+                countdown: {
+                    enabled: false
+                },
+                cta: {
+                    enabled: false
                 }
+            },
+            headerLinks: {
+                enabled: true,
+                items: [
+                    {
+                        enabled: true,
+                        label: "GitHub",
+                        href: "https://github.com/LABEIM/KU-EIM",
+                        icon: "fa-brands fa-github",
+                        external: true
+                    }
+                ]
             }
         }
     },
