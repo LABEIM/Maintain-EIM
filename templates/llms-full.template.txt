@@ -26,7 +26,7 @@
 - **Styling:** [e.g. Tailwind CSS / Vanilla CSS]
 - **Authentication:** [e.g. NextAuth.js / Supabase Auth / OAuth 2.0]
 - **Hosting / Edge Platform:** [e.g. Cloudflare Pages / Workers]
-- **CI/CD:** LABEIM Shared CI/CD (`LABEIM/Shared-CICD/.github/workflows/deploy-app.yml@main`)
+- **CI/CD:** [e.g LABEIM Shared CI/CD (`LABEIM/Shared-CICD/.github/workflows/deploy-app.yml@main`)]
 
 ### Architectural Overview
 ```
