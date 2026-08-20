@@ -39,6 +39,8 @@ For complete setup instructions, deployment workflows, and Cloudflare Worker con
 ├── .github/
 │   └── workflows/
 │       └── ci-cd.yml          # CI/CD pipeline using LABEIM shared workflows
+├── .well-known/
+│   └── security.txt           # RFC 9116 security disclosure declaration
 ├── .gitignore                 # Standard OS, IDE, and log ignore rules
 ├── AGENTS.md                  # Standardized AI Agent operating guidelines template
 ├── CLAUDE.md                  # Claude Code operational guidelines & overrides
@@ -51,6 +53,11 @@ For complete setup instructions, deployment workflows, and Cloudflare Worker con
 ├── SETUP.md                   # Complete Architecture, Setup, and SOP Guide
 ├── config.js                  # Central configuration & per-site profiles registry
 ├── index.html                 # Dynamic Coming Soon / Maintenance landing page
+├── llms.txt                   # Standard AI context summary for LLMs and coding agents
+├── llms-full.txt              # Comprehensive technical context & architecture for LLMs
+├── manifest.webmanifest       # PWA web app manifest
+├── robots.txt                 # Search engine & AI crawler directive
+├── sitemap.xml                # Canonical XML sitemap with bilingual hreflang support
 └── templates/                 # Starter templates for new web project repositories
     ├── AGENTS.template.md     # AI Agent instructions template for new projects
     ├── CLAUDE.template.md     # Claude Code instructions template
@@ -61,7 +68,13 @@ For complete setup instructions, deployment workflows, and Cloudflare Worker con
     ├── LICENSE.MIT            # Open Source MIT license template
     ├── README.md              # Template usage instructions
     ├── README.template.md     # Standardized project README template
-    └── SECURITY.template.md   # Standardized Security Policy template
+    ├── SECURITY.template.md   # Standardized Security Policy template
+    ├── llms.template.txt      # Starter llms.txt summary template for child projects
+    ├── llms-full.template.txt # Starter comprehensive llms-full.txt context template
+    ├── manifest.template.webmanifest # Starter PWA manifest template
+    ├── robots.template.txt    # Starter robots.txt template
+    ├── security.template.txt  # Starter RFC 9116 security.txt template
+    └── sitemap.template.xml   # Starter XML sitemap template
 ```
 
 ---

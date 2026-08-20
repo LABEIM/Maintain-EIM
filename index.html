@@ -8,9 +8,23 @@
     <meta id="meta-description" name="description"
         content="Enterprise Infrastructure Management Research Laboratory - New web experience coming soon.">
     <link id="meta-favicon" rel="icon" type="image/png" href="https://eimlab.org/assets/logo.png">
+    <link id="meta-apple-touch-icon" rel="apple-touch-icon" href="https://eimlab.org/assets/brand/eim-favicon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#0B0F19">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical & Multilingual Alternate Links -->
+    <link id="meta-canonical" rel="canonical" href="https://maintenance-eim.pages.dev/">
+    <link rel="alternate" hreflang="en" href="https://maintenance-eim.pages.dev/?lang=en">
+    <link rel="alternate" hreflang="id" href="https://maintenance-eim.pages.dev/?lang=id">
+    <link rel="alternate" hreflang="x-default" href="https://maintenance-eim.pages.dev/">
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Enterprise Infrastructure Management (EIM) Research Laboratory">
+    <meta id="meta-og-url" property="og:url" content="https://maintenance-eim.pages.dev/">
+    <meta id="meta-og-locale" property="og:locale" content="en_US">
+    <meta id="meta-og-locale-alt" property="og:locale:alternate" content="id_ID">
     <meta id="meta-og-title" property="og:title" content="EIM Lab — Coming Soon">
     <meta id="meta-og-description" property="og:description"
         content="Enterprise Infrastructure Management Research Laboratory - New web experience coming soon.">
@@ -22,6 +36,40 @@
     <meta id="meta-twitter-description" name="twitter:description"
         content="Enterprise Infrastructure Management Research Laboratory - New web experience coming soon.">
     <meta id="meta-twitter-image" name="twitter:image" content="https://eimlab.org/assets/brand/eim-logo-horizontal.png">
+
+    <!-- Schema.org JSON-LD Structured Data for Search Engine Rich Snippets -->
+    <script id="schema-org-data" type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://eimlab.org/#organization",
+                "name": "Enterprise Infrastructure Management Research Laboratory",
+                "alternateName": "EIM Lab",
+                "url": "https://eimlab.org",
+                "logo": "https://eimlab.org/assets/brand/eim-logo-horizontal.png",
+                "email": "lab@eimlab.org",
+                "sameAs": [
+                    "https://github.com/LABEIM",
+                    "https://www.instagram.com/eimresearchlab/",
+                    "https://www.linkedin.com/company/keprofesian-enterprise-infrastructure-management-eim/"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://maintenance-eim.pages.dev/#website",
+                "url": "https://maintenance-eim.pages.dev/",
+                "name": "EIM Lab Central Coming Soon & Maintenance Hub",
+                "description": "Central pre-launch and scheduled maintenance gateway for EIM Research Laboratory services.",
+                "publisher": {
+                    "@id": "https://eimlab.org/#organization"
+                },
+                "inLanguage": ["en", "id"]
+            }
+        ]
+    }
+    </script>
 
     <!-- Load Site Configuration -->
     <script src="config.js"></script>
@@ -382,6 +430,22 @@
                     if (ogImg) ogImg.setAttribute('content', config.meta.ogImage);
                     const twImg = document.getElementById('meta-twitter-image');
                     if (twImg) twImg.setAttribute('content', config.meta.ogImage);
+                }
+
+                // Dynamic HTML lang and Open Graph locale synchronization
+                document.documentElement.lang = lang;
+                const ogLocale = document.getElementById('meta-og-locale');
+                if (ogLocale) ogLocale.setAttribute('content', lang === 'id' ? 'id_ID' : 'en_US');
+                const ogLocaleAlt = document.getElementById('meta-og-locale-alt');
+                if (ogLocaleAlt) ogLocaleAlt.setAttribute('content', lang === 'id' ? 'en_US' : 'id_ID');
+
+                // Dynamic Canonical and OG URL
+                const canonicalLink = document.getElementById('meta-canonical');
+                const ogUrl = document.getElementById('meta-og-url');
+                if (window.location && (canonicalLink || ogUrl)) {
+                    const currentHref = window.location.href;
+                    if (canonicalLink) canonicalLink.setAttribute('href', currentHref);
+                    if (ogUrl) ogUrl.setAttribute('content', currentHref);
                 }
             }
 

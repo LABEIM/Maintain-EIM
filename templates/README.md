@@ -15,6 +15,12 @@ This directory provides standardized starter files and templates for new reposit
 | [`CODE_OF_CONDUCT.template.md`](CODE_OF_CONDUCT.template.md) | Contributor Code of Conduct | Standardized community pledge and enforcement rules for contributors. |
 | [`CONTRIBUTING.template.md`](CONTRIBUTING.template.md) | Contributing Guidelines | Standardized contribution workflows, git branching, commit standards, and PR lifecycle. |
 | [`SECURITY.template.md`](SECURITY.template.md) | Security Policy | Standardized vulnerability reporting, disclosure SLOs, and CVD practices. |
+| [`robots.template.txt`](robots.template.txt) | Search & AI Crawler Rules | Crawler guidance for Google, Bing, GPTBot, ClaudeBot, and sitemap reference. |
+| [`sitemap.template.xml`](sitemap.template.xml) | XML Sitemap | Standardized bilingual XML sitemap for SEO discovery and canonical URLs. |
+| [`llms.template.txt`](llms.template.txt) | LLM / AI Summary | Standard markdown document providing AI coding assistants structured project context. |
+| [`llms-full.template.txt`](llms-full.template.txt) | Comprehensive LLM Context | Extended technical specifications, architecture diagrams, and full context for AI agents. |
+| [`security.template.txt`](security.template.txt) | RFC 9116 Security Disclosure | Canonical `.well-known/security.txt` file for vulnerability contact declarations. |
+| [`manifest.template.webmanifest`](manifest.template.webmanifest) | Web App Manifest | PWA manifest defining project branding, theme colors, and icons. |
 | [`LICENSE.MIT`](LICENSE.MIT) | Open Source MIT License | For open-source tools, public templates, and reusable libraries. |
 | [`LICENSE.ALL-RIGHTS-RESERVED`](LICENSE.ALL-RIGHTS-RESERVED) | Proprietary / Internal License | For proprietary lab web apps, internal services, and confidential research portals. |
 
@@ -108,6 +114,28 @@ Open `SECURITY.md` and configure:
 - `[MAIN_BRANCH]` (default: `main`)
 - `[CONTACT_EMAIL]` (default: `lab@eimlab.org`)
 
+---
 
+### 7. Apply Web Discovery, SEO & AI Standards
+For web apps and public-facing services, copy the standard discovery and metadata templates into your public/static root:
 
+```bash
+# Web search and AI bot directives
+cp templates/robots.template.txt robots.txt
 
+# Canonical XML sitemap
+cp templates/sitemap.template.xml sitemap.xml
+
+# AI coding assistants & agent context
+cp templates/llms.template.txt llms.txt
+cp templates/llms-full.template.txt llms-full.txt
+
+# RFC 9116 security declaration
+mkdir -p .well-known
+cp templates/security.template.txt .well-known/security.txt
+
+# Progressive Web App manifest
+cp templates/manifest.template.webmanifest manifest.webmanifest
+```
+
+Configure placeholders (`[YOUR_DOMAIN]`, `[PROJECT_NAME]`, `[PROJECT_DESCRIPTION]`, `[REPOSITORY-NAME]`) in each file to match your project.

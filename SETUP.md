@@ -138,7 +138,7 @@ export default {
     const isMaintenance = isMatch(maintenanceSites);
     const isComingSoon = isMatch(comingSoonSites);
 
-    const hubUrl = (env.TEMPLATE_URL || "https://maintenance.eimlab.org").replace(/\/$/, "");
+    const hubUrl = (env.TEMPLATE_URL || "https://maintenance-eim.pages.dev").replace(/\/$/, "");
 
     // 3. Serve Coming Soon or Maintenance from Central Hub
     if (isMaintenance || isComingSoon) {
@@ -167,7 +167,7 @@ export default {
         });
       }
 
-      // If requesting assets (e.g. /config.js, favicon, images), proxy from Central Hub
+      // If requesting static assets (e.g. /config.js, /robots.txt, /sitemap.xml, /llms.txt, /.well-known/security.txt, images), proxy from Central Hub
       const assetUrl = `${hubUrl}${url.pathname}${url.search}`;
       return fetch(assetUrl);
     }
