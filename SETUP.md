@@ -10,7 +10,7 @@ To eliminate repository pollution, messy git branch management, and template con
 
 ```mermaid
 flowchart TD
-    subgraph Central_Hub ["Central Hub Repository (This Repo: 'comingsoon-eim')"]
+    subgraph Central_Hub ["Central Hub Repository (This Repo: 'Maintain-EIM')"]
         CONFIG["config.js (Per-Site Profiles & Global Defaults)"]
         HTML["index.html (Tailwind, i18n, Dark Mode)"]
         TEMPLATES["templates/ (Starter README, AGENTS, Contributing, Code of Conduct & Licenses)"]
@@ -48,7 +48,7 @@ flowchart TD
 
 ## 2. Deploying the Central Hub to Cloudflare Pages
 
-This repository (`comingsoon-eim`) is deployed once centrally to Cloudflare Pages.
+This repository (`Maintain-EIM`) is deployed once centrally to Cloudflare Pages.
 
 ### Step 1: Verify CI/CD Pipeline
 Check [.github/workflows/ci-cd.yml](.github/workflows/ci-cd.yml):

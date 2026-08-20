@@ -1,6 +1,6 @@
-# Contributing to Coming Soon & Maintenance Hub
+# Contributing to Maintain-EIM
 
-Thank you for your interest in contributing to the **Coming Soon & Maintenance Hub** (`comingsoon-eim`), an initiative by the **Enterprise Infrastructure Management (EIM) Research Laboratory**, Telkom University.
+Thank you for your interest in contributing to **Maintain-EIM** (Central Coming Soon & Maintenance Hub, `Maintain-EIM`), an initiative by the **Enterprise Infrastructure Management (EIM) Research Laboratory**, Telkom University.
 
 We welcome contributions from researchers, lab members, students, and external collaborators. Whether you are adding new site profiles, improving performance, refining accessibility, fixing a bug, or expanding multilingual support, this guide outlines the workflow and standards to make your contribution smooth and effective.
 
@@ -55,7 +55,7 @@ We welcome contributions from external collaborators, researchers, and students.
 ### Reporting Bugs
 
 If you find a visual glitch, routing discrepancy, broken link, or JavaScript exception:
-1. Search existing [GitHub Issues](https://github.com/LABEIM/ComingSoon-Web-Template/issues) to verify if the issue has already been reported.
+1. Search existing [GitHub Issues](https://github.com/LABEIM/Maintain-EIM/issues) to verify if the issue has already been reported.
 2. If not, open a new issue using a descriptive title.
 3. Include:
    - Steps to reproduce the issue
@@ -108,8 +108,8 @@ This repository uses a **zero-build static web architecture**. You do not need N
 
 1. **Fork and clone the repository:**
    ```bash
-   git clone https://github.com/LABEIM/ComingSoon-Web-Template.git
-   cd ComingSoon-Web-Template
+   git clone https://github.com/LABEIM/Maintain-EIM.git
+   cd Maintain-EIM
    ```
 
 2. **Start the local HTTP server:**
@@ -220,6 +220,6 @@ Before submitting your Pull Request, verify that:
 ## Getting Help
 
 Have questions or need guidance on contributing?
-- Open a topic on [GitHub Discussions / Issues](https://github.com/LABEIM/ComingSoon-Web-Template/issues)
+- Open a topic on [GitHub Discussions / Issues](https://github.com/LABEIM/Maintain-EIM/issues)
 - Email the laboratory team: [lab@eimlab.org](mailto:lab@eimlab.org)
 - Visit our organization portal: [https://eimlab.org](https://eimlab.org)

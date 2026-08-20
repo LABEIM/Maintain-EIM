@@ -1,7 +1,7 @@
 # Coming Soon & Maintenance Hub
 
 [![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red.svg)](LICENSE)
-[![CI/CD](https://github.com/LABEIM/ComingSoon-Web-Template/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/LABEIM/ComingSoon-Web-Template/actions)
+[![CI/CD](https://github.com/LABEIM/Maintain-EIM/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/LABEIM/Maintain-EIM/actions)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 [![EIM Lab](https://img.shields.io/badge/EIM-Research_Laboratory-blue.svg)](https://eimlab.org)
 
