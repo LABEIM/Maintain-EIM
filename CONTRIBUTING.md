@@ -1,4 +1,4 @@
-# Contributing to Maintain-EIM
+# Contributing Guidelines
 
 Thank you for your interest in contributing to **Maintain-EIM** (Central Coming Soon & Maintenance Hub, `Maintain-EIM`), an initiative by the **Enterprise Infrastructure Management (EIM) Research Laboratory**, Telkom University.
 
