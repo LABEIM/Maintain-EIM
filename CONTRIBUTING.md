@@ -28,6 +28,7 @@ We welcome contributions from researchers, lab members, students, and external c
   - [CI/CD & Automated PR Previews](#cicd--automated-pr-previews)
   - [Review & Merge Process](#review--merge-process)
 - [Coding Standards & Guidelines](#coding-standards--guidelines)
+- [Security Vulnerability Disclosures](#security-vulnerability-disclosures)
 - [Getting Help](#getting-help)
 
 ---
@@ -214,6 +215,15 @@ Before submitting your Pull Request, verify that:
 - **Accessibility (a11y):** Ensure interactive elements have accessible labels (`aria-label`), readable color contrast, and keyboard navigation support.
 - **SEO Optimization:** Dynamic meta tags (`title`, `meta description`, `og:image`, `twitter:card`) must be dynamically populated by `config.js` during profile resolution.
 - **Performance:** Keep asset sizes small and avoid introducing heavy external libraries unless strictly required.
+
+---
+
+## Security Vulnerability Disclosures
+
+If you discover a security vulnerability, sensitive bug, or routing loophole:
+- **Do not report security issues via public GitHub issues, discussions, or PRs.**
+- Report the vulnerability privately according to our [Security Policy](SECURITY.md).
+- Contact our security team at [lab@eimlab.org](mailto:lab@eimlab.org).
 
 ---
 

@@ -3,6 +3,7 @@
 [![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red.svg)](LICENSE)
 [![CI/CD](https://github.com/LABEIM/Maintain-EIM/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/LABEIM/Maintain-EIM/actions)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![Security Policy](https://img.shields.io/badge/Security-Policy-brightgreen.svg)](SECURITY.md)
 [![EIM Lab](https://img.shields.io/badge/EIM-Research_Laboratory-blue.svg)](https://eimlab.org)
 
 A modern, responsive, and lightweight web hub tailored for **Enterprise Infrastructure Management (EIM) Research Laboratory** pre-launch projects, upcoming initiatives, and scheduled maintenance windows across all `*.eimlab.org` domains.
@@ -27,7 +28,7 @@ For complete setup instructions, deployment workflows, and Cloudflare Worker con
 - **Bilingual & Multi-Language (i18n):** Native support for English (`EN`) and Indonesian (`ID`) with instant toggle switch, auto-browser detection, URL param override (`?lang=id`), and `localStorage` persistence.
 - **Theme Switching:** Dark and light mode toggle with system preference detection.
 - **Zero-Build Static Architecture:** Pure HTML5 and Tailwind CSS with no compilation step required.
-- **Starter Templates (`templates/`):** Ready-to-use project README template (`README.template.md`), AI agent guidelines (`AGENTS.template.md`, `CLAUDE.template.md`), Contributor Code of Conduct (`CODE_OF_CONDUCT.template.md`), Contributing Guidelines (`CONTRIBUTING.template.md`), and laboratory license templates (`LICENSE.MIT`, `LICENSE.ALL-RIGHTS-RESERVED`).
+- **Starter Templates (`templates/`):** Ready-to-use project README template (`README.template.md`), AI agent guidelines (`AGENTS.template.md`, `CLAUDE.template.md`), Contributor Code of Conduct (`CODE_OF_CONDUCT.template.md`), Contributing Guidelines (`CONTRIBUTING.template.md`), Security Policy (`SECURITY.template.md`), and laboratory license templates (`LICENSE.MIT`, `LICENSE.ALL-RIGHTS-RESERVED`).
 
 ---
 
@@ -45,6 +46,7 @@ For complete setup instructions, deployment workflows, and Cloudflare Worker con
 ├── CONTRIBUTING.md            # Contributing guidelines & workflow standards
 ├── LICENSE                    # EIM Lab Proprietary License
 ├── README.md                  # Project overview
+├── SECURITY.md                # Vulnerability reporting & responsible disclosure policy
 ├── SETUP.md                   # Complete Architecture, Setup, and SOP Guide
 ├── config.js                  # Central configuration & per-site profiles registry
 ├── index.html                 # Dynamic Coming Soon / Maintenance landing page
@@ -56,7 +58,8 @@ For complete setup instructions, deployment workflows, and Cloudflare Worker con
     ├── LICENSE.ALL-RIGHTS-RESERVED # Proprietary license template
     ├── LICENSE.MIT            # Open Source MIT license template
     ├── README.md              # Template usage instructions
-    └── README.template.md     # Standardized project README template
+    ├── README.template.md     # Standardized project README template
+    └── SECURITY.template.md   # Standardized Security Policy template
 ```
 
 ---
@@ -84,6 +87,7 @@ We are dedicated to building a welcoming, inclusive, and harassment-free communi
 
 - **Code of Conduct:** All contributors and participants are expected to uphold our [Code of Conduct](CODE_OF_CONDUCT.md).
 - **Contributing Guide:** For branching conventions, commit rules, and Pull Request workflows, please see our [Contributing Guide](CONTRIBUTING.md).
+- **Security Policy:** To report vulnerabilities responsibly, review our [Security Policy](SECURITY.md).
 
 ---
 

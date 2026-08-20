@@ -13,6 +13,7 @@ This directory provides standardized starter files and templates for new reposit
 | [`CLAUDE.template.md`](CLAUDE.template.md) | Claude Code Instructions Pointer | Pointer instructing Claude Code to adhere to `AGENTS.md`. |
 | [`CODE_OF_CONDUCT.template.md`](CODE_OF_CONDUCT.template.md) | Contributor Code of Conduct | Standardized community pledge and enforcement rules for contributors. |
 | [`CONTRIBUTING.template.md`](CONTRIBUTING.template.md) | Contributing Guidelines | Standardized contribution workflows, git branching, commit standards, and PR lifecycle. |
+| [`SECURITY.template.md`](SECURITY.template.md) | Security Policy | Standardized vulnerability reporting, disclosure SLOs, and CVD practices. |
 | [`LICENSE.MIT`](LICENSE.MIT) | Open Source MIT License | For open-source tools, public templates, and reusable libraries. |
 | [`LICENSE.ALL-RIGHTS-RESERVED`](LICENSE.ALL-RIGHTS-RESERVED) | Proprietary / Internal License | For proprietary lab web apps, internal services, and confidential research portals. |
 
@@ -88,6 +89,20 @@ Open `CONTRIBUTING.md` and configure:
 - `[INSTALL_COMMAND]`, `[DEV_SERVER_COMMAND]`, `[BUILD_COMMAND]`, `[LINT_COMMAND]`, `[TEST_COMMAND]`
 - `[CONTACT_EMAIL]` (default: `lab@eimlab.org`)
 - Under **Intellectual Property & Licensing**, uncomment **Option A** (for MIT projects) or **Option B** (for All Rights Reserved projects) matching your chosen `LICENSE`.
+
+---
+
+### 6. Apply Security Policy
+Copy [`SECURITY.template.md`](SECURITY.template.md) to the root directory:
+```bash
+cp templates/SECURITY.template.md SECURITY.md
+```
+Open `SECURITY.md` and configure:
+- `[PROJECT_NAME]` (e.g. `Smart Campus IoT`)
+- `[REPOSITORY-NAME]` (e.g. `smart-campus-web`)
+- `[MAIN_BRANCH]` (default: `main`)
+- `[CONTACT_EMAIL]` (default: `lab@eimlab.org`)
+
 
 
 

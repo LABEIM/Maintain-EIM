@@ -239,9 +239,10 @@ Once your PR is opened:
 ## Security Vulnerability Disclosures
 
 If you discover a security vulnerability or sensitive exploit:
-- **Do not open a public GitHub issue.**
-- Report the vulnerability privately via email to: [`[CONTACT_EMAIL / lab@eimlab.org]`](mailto:[CONTACT_EMAIL]) or `security@eimlab.org`.
-- Include full details and steps to reproduce. We will coordinate a patched release promptly.
+- **Do not open a public GitHub issue, discussion, or PR.**
+- Review our [Security Policy](SECURITY.md) for full reporting procedures and response guidelines.
+- Report the vulnerability privately via email to: [`[CONTACT_EMAIL / lab@eimlab.org]`](mailto:[CONTACT_EMAIL]).
+- Include full technical details and steps to reproduce. We will coordinate a patched release promptly.
 
 ---
 
