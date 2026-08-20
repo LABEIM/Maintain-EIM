@@ -229,7 +229,7 @@ Every text field in `config.js` accepts either:
 | **Branding** | `branding.logo.alt` & `href` | Object / String | Accessible logo alt text and click destination URL |
 | **Branding** | `branding.logo.useContainer` | Boolean | `false` for wide logos, `true` for icon boxes |
 | **Branding** | `branding.theme.defaultMode` | String | `"system"`, `"dark"`, or `"light"` |
-| **Header Links** | `headerLinks.enabled` & `items` | Array | Top-right links (e.g. `{ label: "GitHub", href: "...", icon: "fa-brands fa-github" }`) |
+| **Header Links** | `headerLinks.enabled` & `items` | Array | Top-right links (e.g. `{ label: "GitHub", ariaLabel: { en: "...", id: "..." }, href: "...", icon: "fa-brands fa-github" }`) |
 | **Content** | `content.headline` | Object / String | Main hero heading |
 | **Content** | `content.description` | Object / String | Main hero subheading |
 | **Countdown** | `content.countdown.enabled` | Boolean | `true` or `false` to show live countdown timer |
@@ -238,7 +238,7 @@ Every text field in `config.js` accepts either:
 | **CTA** | `content.cta.enabled` | Boolean | `true` or `false` to show Call-to-Action button |
 | **CTA** | `content.cta.text` & `href` | Object / String | Button label and destination URL/mailto |
 | **Footer** | `footer.copyright` & `address` | Object / String | Footer copyright text and physical lab address |
-| **Footer** | `footer.quickLinks` & `socialLinks` | Array | Footer text links and social media icons |
+| **Footer** | `footer.quickLinks` & `socialLinks` | Array | Footer text links and social media icons with bilingual `ariaLabel` support |
 
 ---
 

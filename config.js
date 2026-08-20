@@ -107,6 +107,10 @@ const CONFIG = {
             {
                 enabled: true,
                 label: "GitHub",
+                ariaLabel: {
+                    en: "EIM Lab GitHub Organization",
+                    id: "Organisasi GitHub EIM Lab"
+                },
                 href: "https://github.com/LABEIM",
                 icon: "fa-brands fa-github",
                 external: true
@@ -196,16 +200,28 @@ const CONFIG = {
         socialLinks: [
             {
                 platform: "GitHub",
+                ariaLabel: {
+                    en: "EIM Lab GitHub Organization",
+                    id: "Organisasi GitHub EIM Lab"
+                },
                 href: "https://github.com/LABEIM",
                 icon: "fa-brands fa-github"
             },
             {
                 platform: "Instagram",
+                ariaLabel: {
+                    en: "EIM Lab Instagram Profile",
+                    id: "Profil Instagram EIM Lab"
+                },
                 href: "https://www.instagram.com/eimresearchlab/",
                 icon: "fa-brands fa-instagram"
             },
             {
                 platform: "LinkedIn",
+                ariaLabel: {
+                    en: "EIM Lab LinkedIn Company Page",
+                    id: "Halaman LinkedIn EIM Lab"
+                },
                 href: "https://www.linkedin.com/company/keprofesian-enterprise-infrastructure-management-eim/",
                 icon: "fa-brands fa-linkedin"
             }
@@ -290,6 +306,10 @@ const CONFIG = {
                     {
                         enabled: true,
                         label: "GitHub",
+                        ariaLabel: {
+                            en: "Study Group GitHub Repository",
+                            id: "Repositori GitHub Study Group"
+                        },
                         href: "https://github.com/LABEIM/SG-EIM",
                         icon: "fa-brands fa-github",
                         external: true
@@ -331,6 +351,10 @@ const CONFIG = {
                     {
                         enabled: true,
                         label: "GitHub",
+                        ariaLabel: {
+                            en: "LINK-EIM GitHub Repository",
+                            id: "Repositori GitHub LINK-EIM"
+                        },
                         href: "https://github.com/LABEIM/LINK-EIM",
                         icon: "fa-brands fa-github",
                         external: true
@@ -372,6 +396,10 @@ const CONFIG = {
                     {
                         enabled: true,
                         label: "GitHub",
+                        ariaLabel: {
+                            en: "Public Lecture GitHub Repository",
+                            id: "Repositori GitHub Kuliah Umum"
+                        },
                         href: "https://github.com/LABEIM/KU-EIM",
                         icon: "fa-brands fa-github",
                         external: true
@@ -420,6 +448,10 @@ const CONFIG = {
                     {
                         enabled: true,
                         label: "GitHub",
+                        ariaLabel: {
+                            en: "Smart Campus GitHub Repository",
+                            id: "Repositori GitHub Smart Campus"
+                        },
                         href: "https://github.com/LABEIM/SmartCampus",
                         icon: "fa-brands fa-github",
                         external: true
@@ -461,6 +493,10 @@ const CONFIG = {
                     {
                         enabled: true,
                         label: "GitHub",
+                        ariaLabel: {
+                            en: "Sensor Network GitHub Repository",
+                            id: "Repositori GitHub Jaringan Sensor"
+                        },
                         href: "https://github.com/LABEIM/SensorNet",
                         icon: "fa-brands fa-github",
                         external: true

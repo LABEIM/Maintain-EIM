@@ -207,7 +207,7 @@
 
       <!-- Light / Dark Mode Toggle Button -->
       <button id="theme-toggle" type="button" aria-label="Toggle theme"
-        class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors flex items-center justify-center focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none">
+        class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors flex items-center justify-center focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none">
         <svg id="theme-toggle-dark-icon" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
         </svg>
@@ -236,26 +236,26 @@
 
       <!-- Optional Countdown / Estimated Time Indicator -->
       <div id="hero-countdown-container" class="hidden space-y-2.5 sm:space-y-3 pt-1 w-full max-w-xs xs:max-w-sm sm:max-w-md mx-auto">
-        <p id="countdown-label" class="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400"></p>
+        <p id="countdown-label" class="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300"></p>
         <div id="countdown-timer-grid" role="timer" aria-atomic="true" class="flex items-center justify-center gap-1 xs:gap-1.5 sm:gap-2 select-none w-full">
           <div class="flex-1 flex flex-col items-center justify-center py-2.5 px-1 xs:py-3 xs:px-2 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm min-w-[54px] xs:min-w-[62px] sm:min-w-[76px] max-w-[84px]">
             <span id="countdown-days" class="text-xl xs:text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums tracking-tight">00</span>
-            <span id="countdown-days-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wider mt-0.5">Days</span>
+            <span id="countdown-days-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-600 dark:text-slate-300 uppercase tracking-wider mt-0.5">Days</span>
           </div>
           <span class="text-slate-300 dark:text-slate-700 font-bold text-xs xs:text-sm sm:text-lg -mt-2.5 sm:-mt-3 select-none shrink-0" aria-hidden="true">:</span>
           <div class="flex-1 flex flex-col items-center justify-center py-2.5 px-1 xs:py-3 xs:px-2 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm min-w-[54px] xs:min-w-[62px] sm:min-w-[76px] max-w-[84px]">
             <span id="countdown-hours" class="text-xl xs:text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums tracking-tight">00</span>
-            <span id="countdown-hours-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wider mt-0.5">Hours</span>
+            <span id="countdown-hours-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-600 dark:text-slate-300 uppercase tracking-wider mt-0.5">Hours</span>
           </div>
           <span class="text-slate-300 dark:text-slate-700 font-bold text-xs xs:text-sm sm:text-lg -mt-2.5 sm:-mt-3 select-none shrink-0" aria-hidden="true">:</span>
           <div class="flex-1 flex flex-col items-center justify-center py-2.5 px-1 xs:py-3 xs:px-2 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm min-w-[54px] xs:min-w-[62px] sm:min-w-[76px] max-w-[84px]">
             <span id="countdown-minutes" class="text-xl xs:text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums tracking-tight">00</span>
-            <span id="countdown-minutes-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wider mt-0.5">Minutes</span>
+            <span id="countdown-minutes-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-600 dark:text-slate-300 uppercase tracking-wider mt-0.5">Minutes</span>
           </div>
           <span class="text-slate-300 dark:text-slate-700 font-bold text-xs xs:text-sm sm:text-lg -mt-2.5 sm:-mt-3 select-none shrink-0" aria-hidden="true">:</span>
           <div class="flex-1 flex flex-col items-center justify-center py-2.5 px-1 xs:py-3 xs:px-2 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm min-w-[54px] xs:min-w-[62px] sm:min-w-[76px] max-w-[84px]">
             <span id="countdown-seconds" class="text-xl xs:text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums tracking-tight">00</span>
-            <span id="countdown-seconds-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wider mt-0.5">Seconds</span>
+            <span id="countdown-seconds-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-600 dark:text-slate-300 uppercase tracking-wider mt-0.5">Seconds</span>
           </div>
         </div>
         <p id="countdown-expired-text" class="hidden text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-300 max-w-md mx-auto py-2"></p>
@@ -279,23 +279,23 @@
 
   <!-- Minimal Footer -->
   <footer
-    class="w-full max-w-3xl mx-auto px-4 py-6 sm:px-6 sm:py-10 text-center text-xs text-slate-500 dark:text-slate-400 border-t border-slate-200/60 dark:border-slate-800/80 space-y-3 sm:space-y-4">
+    class="w-full max-w-3xl mx-auto px-4 py-6 sm:px-6 sm:py-10 text-center text-xs text-slate-600 dark:text-slate-300 border-t border-slate-200/60 dark:border-slate-800/80 space-y-3 sm:space-y-4">
     <!-- Copyright & Location -->
     <div class="space-y-1 leading-relaxed">
-      <p id="footer-copyright" class="font-medium text-slate-700 dark:text-slate-300 text-xs">
+      <p id="footer-copyright" class="font-medium text-slate-700 dark:text-slate-200 text-xs">
         Copyright © 2026 Enterprise Infrastructure Management Research Laboratory.
       </p>
-      <p id="footer-address" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 max-w-md sm:max-w-lg mx-auto leading-relaxed">
+      <p id="footer-address" class="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 max-w-md sm:max-w-lg mx-auto leading-relaxed">
         Gedung TULT Lantai 8, Ruang TULT.08.09, Telkom University, Bandung, Indonesia
       </p>
     </div>
 
     <!-- Quick Links -->
-    <div id="footer-quick-links" class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 pt-0.5 text-xs text-slate-500 dark:text-slate-400"></div>
+    <div id="footer-quick-links" class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 pt-0.5 text-xs text-slate-600 dark:text-slate-300"></div>
 
     <!-- Social & Contact Links -->
     <div id="footer-social-links"
-      class="flex items-center justify-center gap-2 sm:gap-3 text-slate-500 dark:text-slate-400 pt-1"></div>
+      class="flex items-center justify-center gap-2 sm:gap-3 text-slate-600 dark:text-slate-300 pt-1"></div>
   </footer>
 
   <!-- Load Site Configuration (Non-blocking at body end) -->
@@ -612,17 +612,21 @@
               a.target = '_blank';
               a.rel = 'noopener noreferrer';
             }
-            a.className = 'text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center space-x-1.5 p-1.5 sm:px-2 sm:py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 min-w-[32px] min-h-[32px] sm:min-w-0 sm:min-h-0 focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
+            a.className = 'text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center space-x-1.5 p-1.5 sm:px-2 sm:py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 min-w-[32px] min-h-[32px] sm:min-w-0 sm:min-h-0 focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
 
             let innerHtml = '';
             if (link.icon) {
               innerHtml += renderIconHtml(link.icon, 'w-3.5 h-3.5 sm:w-4 sm:h-4');
             }
             const linkText = resolveI18n(link.label, lang);
+            const linkAria = resolveI18n(link.ariaLabel, lang);
             if (linkText) {
               innerHtml += `<span class="hidden sm:inline">${linkText}</span>`;
-              a.setAttribute('aria-label', linkText);
-              a.setAttribute('title', linkText);
+            }
+            const accessibleName = linkAria || (linkText ? (link.href && link.href.includes('/LABEIM/') && link.href !== 'https://github.com/LABEIM' ? `${linkText} Repository` : linkText) : '');
+            if (accessibleName) {
+              a.setAttribute('aria-label', accessibleName);
+              a.setAttribute('title', accessibleName);
             }
             a.innerHTML = innerHtml;
             headerLinksContainer.appendChild(a);
@@ -702,7 +706,7 @@
               const a = document.createElement('a');
               a.href = link.href || '#';
               a.textContent = resolveI18n(link.label, lang) || '';
-              a.className = 'hover:text-slate-700 dark:hover:text-slate-200 transition-colors py-0.5 px-1 rounded focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
+              a.className = 'hover:text-slate-900 dark:hover:text-white transition-colors py-0.5 px-1 rounded focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
               if (link.external) {
                 a.target = '_blank';
                 a.rel = 'noopener noreferrer';
@@ -724,10 +728,10 @@
                 a.target = '_blank';
                 a.rel = 'noopener noreferrer';
               }
-              const platformTitle = item.platform || 'Social Link';
+              const platformTitle = resolveI18n(item.ariaLabel, lang) || (item.platform ? `EIM Lab on ${item.platform}` : 'Social Link');
               a.title = platformTitle;
               a.setAttribute('aria-label', platformTitle);
-              a.className = 'w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 active:scale-95 transition-all text-base sm:text-lg focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
+              a.className = 'w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 active:scale-95 transition-all text-base sm:text-lg focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
               a.innerHTML = renderIconHtml(item.icon || 'fa-solid fa-link', 'w-4 h-4 sm:w-4.5 sm:h-4.5');
               socialContainer.appendChild(a);
             });
@@ -767,7 +771,7 @@
           btn.className = 'lang-btn px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-bold bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm border border-slate-200/90 dark:border-slate-600 transition-all duration-150 cursor-default select-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
           btn.setAttribute('aria-pressed', 'true');
         } else {
-          btn.className = 'lang-btn px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-700/50 transition-all duration-150 cursor-pointer select-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
+          btn.className = 'lang-btn px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/70 dark:hover:bg-slate-700/60 transition-all duration-150 cursor-pointer select-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
           btn.setAttribute('aria-pressed', 'false');
         }
       });
@@ -805,7 +809,7 @@
           switcher.classList.remove('hidden');
           switcher.classList.add('flex');
           switcher.innerHTML = `
-            <span class="pl-1 pr-0.5 text-slate-400 dark:text-slate-500 flex items-center select-none" aria-hidden="true">
+            <span class="pl-1 pr-0.5 text-slate-500 dark:text-slate-400 flex items-center select-none" aria-hidden="true">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.6 9h16.8M3.6 15h16.8"></path>
