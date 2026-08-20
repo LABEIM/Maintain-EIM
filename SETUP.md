@@ -354,7 +354,10 @@ jobs:
 Copy standard starter files from [`templates/`](templates/README.md) to your repository root and public static assets directory:
 
 ```bash
-# 1. Base README & AI Assistant Rules
+# 1. Create public & public/.well-known directory
+mkdir -p public/.well-known
+
+# 2. Base README & AI Assistant Rules
 cp templates/README.template.md README.md
 cp templates/AGENTS.template.md AGENTS.md
 cp templates/CLAUDE.template.md CLAUDE.md
@@ -374,7 +377,6 @@ cp templates/robots.template.txt public/robots.txt
 cp templates/sitemap.template.xml public/sitemap.xml
 cp templates/llms.template.txt public/llms.txt
 cp templates/llms-full.template.txt public/llms-full.txt
-mkdir -p public/.well-known
 cp templates/security.template.txt public/.well-known/security.txt
 cp templates/manifest.template.webmanifest public/manifest.webmanifest
 ```

@@ -138,7 +138,7 @@ Open `SECURITY.md` and configure:
 For web apps and public-facing services, copy the standard discovery and metadata templates into your public/static root (or `public/` folder):
 
 ```bash
-# Create Public and Public/.well-known Directory
+# Create public and public/.well-known Directory
 mkdir -p public/.well-known
 
 # Web search and AI bot directives
