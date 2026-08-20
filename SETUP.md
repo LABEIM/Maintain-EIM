@@ -347,37 +347,26 @@ jobs:
     secrets: inherit
 ```
 
-### Step 4: Apply Project README, AI Agent Guidelines, License & Governance
-1. Copy [`templates/README.template.md`](templates/README.template.md) to replace `README.md`:
-   ```bash
-   cp templates/README.template.md README.md
-   ```
-2. Copy and configure AI Agent guidelines:
-   ```bash
-   cp templates/AGENTS.template.md AGENTS.md
-   cp templates/CLAUDE.template.md CLAUDE.md
-   cp templates/GEMINI.template.md GEMINI.md
-   ```
-3. Choose and apply the appropriate license:
-   - **Open Source Projects:** `cp templates/LICENSE.MIT LICENSE`
-   - **Internal / Proprietary Lab Systems:** `cp templates/LICENSE.ALL-RIGHTS-RESERVED LICENSE`
-4. Apply the Contributor Code of Conduct:
-   ```bash
-   cp templates/CODE_OF_CONDUCT.template.md CODE_OF_CONDUCT.md
-   ```
-5. Apply the Contributing Guidelines:
-   ```bash
-   cp templates/CONTRIBUTING.template.md CONTRIBUTING.md
-   ```
-6. Apply the Security Policy:
-   ```bash
-   cp templates/SECURITY.template.md SECURITY.md
-   ```
+### Step 4: Apply Starter Templates, Governance & Discovery Metadata
+Copy standard starter files from [`templates/`](templates/README.md) to your repository root and public static assets directory:
 
-### Step 5: Apply Discovery, SEO & Web Metadata (Optional / Recommended)
-Copy standard discovery and crawler metadata to your public static assets directory (e.g. `public/`):
 ```bash
-# For frameworks with a public directory (e.g. Vite, Next.js, Astro):
+# 1. Base README & AI Assistant Rules
+cp templates/README.template.md README.md
+cp templates/AGENTS.template.md AGENTS.md
+cp templates/CLAUDE.template.md CLAUDE.md
+cp templates/GEMINI.template.md GEMINI.md
+
+# 2. Project License (choose one)
+cp templates/LICENSE.MIT LICENSE                   # For Open Source projects
+# cp templates/LICENSE.ALL-RIGHTS-RESERVED LICENSE # For Proprietary / Internal Lab systems
+
+# 3. Governance Policies
+cp templates/CODE_OF_CONDUCT.template.md CODE_OF_CONDUCT.md
+cp templates/CONTRIBUTING.template.md CONTRIBUTING.md
+cp templates/SECURITY.template.md SECURITY.md
+
+# 4. Web Discovery & Metadata (to public/ directory)
 cp templates/robots.template.txt public/robots.txt
 cp templates/sitemap.template.xml public/sitemap.xml
 cp templates/llms.template.txt public/llms.txt
@@ -388,12 +377,9 @@ cp templates/manifest.template.webmanifest public/manifest.webmanifest
 ```
 
 > [!TIP]
-> Once you have copied all necessary template files, you can delete the `templates/` directory to keep your repository clean:
-> ```bash
-> rm -rf templates
-> ```
+> Refer to [**`templates/README.md`**](templates/README.md) for the complete template catalog, detailed descriptions, and placeholder configuration checklists. Once files are copied, you can delete the `templates/` folder (`rm -rf templates`).
 
-### Step 6: First Push & Custom Domain Connection
+### Step 5: First Push & Custom Domain Connection
 1. Push the initial commit to `main`:
    ```bash
    git add .
