@@ -229,6 +229,7 @@ Once your PR is opened:
 
 ## Coding Standards & Quality Assurance
 
+- **Code Formatting & Style:** Maintain consistent formatting by adhering to [`.editorconfig`](.editorconfig) (UTF-8, LF line endings, 2-space indentation).
 - **Readability & Modularity:** Write clear, self-documenting code with descriptive naming and minimal cognitive complexity.
 - **Type Safety:** Ensure strong typing (e.g. TypeScript, Zod, Python type hints) across data boundaries and API interfaces.
 - **Error Handling:** Gracefully catch and handle unexpected exceptions with helpful diagnostic log context.

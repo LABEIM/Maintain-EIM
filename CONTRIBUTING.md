@@ -210,6 +210,7 @@ Before submitting your Pull Request, verify that:
 
 ## Coding Standards & Guidelines
 
+- **Code Formatting & EditorConfig:** Maintain consistent styling by adhering to [`.editorconfig`](.editorconfig) (UTF-8 encoding, LF line endings, 2-space indentation, trimmed whitespace).
 - **Zero-Build Compatibility:** Keep `index.html` and `config.js` pure and static without requiring bundling tools or transpilers.
 - **Tailwind CSS Utility Design:** Use Tailwind CSS utility classes and semantic variables for dark/light theming. Avoid hardcoded hex colors when Tailwind palette tokens are available.
 - **Accessibility (a11y):** Ensure interactive elements have accessible labels (`aria-label`), readable color contrast, and keyboard navigation support.

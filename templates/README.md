@@ -21,6 +21,7 @@ This directory provides standardized starter files and templates for new reposit
 | [`llms-full.template.txt`](llms-full.template.txt) | Comprehensive LLM Context | Extended technical specifications, architecture diagrams, and full context for AI agents. |
 | [`security.template.txt`](security.template.txt) | RFC 9116 Security Disclosure | Canonical `.well-known/security.txt` file for vulnerability contact declarations. |
 | [`manifest.template.webmanifest`](manifest.template.webmanifest) | Web App Manifest | PWA manifest defining project branding, theme colors, and icons. |
+| [`.editorconfig.template`](.editorconfig.template) | EditorConfig Code Style Rules | Standardized cross-editor formatting rules (indentation, line endings, trim trailing whitespace). |
 | [`LICENSE.MIT`](LICENSE.MIT) | Open Source MIT License | For open-source tools, public templates, and reusable libraries. |
 | [`LICENSE.ALL-RIGHTS-RESERVED`](LICENSE.ALL-RIGHTS-RESERVED) | Proprietary / Internal License | For proprietary lab web apps, internal services, and confidential research portals. |
 
@@ -159,7 +160,16 @@ Configure placeholders (`[YOUR_DOMAIN]`, `[PROJECT_NAME]`, `[PROJECT_DESCRIPTION
 
 ---
 
-### 9. Clean Up Starter Templates Directory (Optional)
+### 9. Apply EditorConfig Code Style Rules
+Copy [`.editorconfig.template`](.editorconfig.template) to standardize indentation, line endings, and whitespace across team editors:
+
+```bash
+cp templates/.editorconfig.template .editorconfig
+```
+
+---
+
+### 10. Clean Up Starter Templates Directory (Optional)
 Once all starter files and guidelines have been copied to their final locations, you can remove the `templates/` folder to keep the repository root clean:
 ```bash
 rm -rf templates
