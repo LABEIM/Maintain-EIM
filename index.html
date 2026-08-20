@@ -104,18 +104,10 @@
 
   <!-- Pre-compiled Standalone Minified Tailwind CSS -->
   <link rel="stylesheet" href="css/style.min.css">
-
-  <noscript>
-    <style>
-      .page-cloak {
-        opacity: 1 !important;
-      }
-    </style>
-  </noscript>
 </head>
 
 <body
-  class="page-cloak bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen min-h-[100dvh] flex flex-col justify-between bg-subtle-glow selection:bg-slate-900 selection:text-white dark:selection:bg-slate-100 dark:selection:text-slate-900 transition-colors duration-300 overflow-x-hidden">
+  class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen min-h-[100dvh] flex flex-col justify-between bg-subtle-glow selection:bg-slate-900 selection:text-white dark:selection:bg-slate-100 dark:selection:text-slate-900 transition-colors duration-300 overflow-x-hidden">
 
   <!-- Simple Header -->
   <header class="w-full max-w-5xl mx-auto px-4 py-4 xs:py-5 sm:px-6 sm:py-8 flex items-center justify-between gap-3">
@@ -843,11 +835,6 @@
     initI18n();
     applySiteConfig(currentLanguage);
     initTheme();
-
-    // Reveal page smoothly once initial configuration and DOM are populated
-    if (document.body) {
-      document.body.classList.add('page-ready');
-    }
   </script>
 </body>
 

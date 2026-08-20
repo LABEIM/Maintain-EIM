@@ -53,15 +53,6 @@
 }
 
 @layer utilities {
-  .page-cloak {
-    opacity: 0;
-    transition: opacity 0.2s ease-out;
-  }
-
-  .page-cloak.page-ready {
-    opacity: 1;
-  }
-
   .svg-icon {
     display: inline-flex;
     align-items: center;
