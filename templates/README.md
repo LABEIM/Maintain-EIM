@@ -138,6 +138,9 @@ Open `SECURITY.md` and configure:
 For web apps and public-facing services, copy the standard discovery and metadata templates into your public/static root (or `public/` folder):
 
 ```bash
+# Create Public and Public/.well-known Directory
+mkdir -p public/.well-known
+
 # Web search and AI bot directives
 cp templates/robots.template.txt public/robots.txt
 
@@ -149,7 +152,6 @@ cp templates/llms.template.txt public/llms.txt
 cp templates/llms-full.template.txt public/llms-full.txt
 
 # RFC 9116 security declaration
-mkdir -p public/.well-known
 cp templates/security.template.txt public/.well-known/security.txt
 
 # Progressive Web App manifest
