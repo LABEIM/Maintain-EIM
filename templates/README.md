@@ -30,7 +30,24 @@ This directory provides standardized starter files and templates for new reposit
 
 When creating a new repository using **Use this template**:
 
-### 1. Apply Project README
+### 1. Remove Central Hub Files & Initialize Web Framework
+> [!NOTE]
+> In EIM's centralized edge gateway architecture, the **Coming Soon** landing page is handled centrally by the Cloudflare Edge Worker (`eim-edge-router`) from `maintenance-eim.pages.dev`. New project repositories contain only their actual application code and governance files.
+
+Remove the centralized hub files and initialize your application framework:
+```bash
+# 1. Remove hub landing page files
+rm index.html config.js
+
+# 2. Scaffold your web framework (or copy your application code)
+# Example (Vite): npm create vite@latest . -- --template react-ts
+# Example (Next.js): npx create-next-app@latest .
+# Example (Astro): npm create astro@latest .
+```
+
+---
+
+### 2. Apply Project README
 Copy [`README.template.md`](README.template.md) to replace the root `README.md`:
 ```bash
 cp templates/README.template.md README.md
@@ -44,7 +61,7 @@ Open `README.md` and fill in:
 
 ---
 
-### 2. Apply Agent Workflow Guidelines (AGENTS, CLAUDE & GEMINI)
+### 3. Apply Agent Workflow Guidelines (AGENTS, CLAUDE & GEMINI)
 Copy [`AGENTS.template.md`](AGENTS.template.md), [`CLAUDE.template.md`](CLAUDE.template.md), and [`GEMINI.template.md`](GEMINI.template.md) to the root directory:
 ```bash
 cp templates/AGENTS.template.md AGENTS.md
@@ -62,7 +79,7 @@ Open `CLAUDE.md` and configure:
 
 ---
 
-### 3. Choose and Apply Project License
+### 4. Choose and Apply Project License
 
 #### Option A: MIT License (Open Source Projects)
 ```bash
@@ -78,7 +95,7 @@ Replace `[YEAR]` with the current year (e.g. `2026`).
 
 ---
 
-### 4. Apply Contributor Code of Conduct
+### 5. Apply Contributor Code of Conduct
 Copy [`CODE_OF_CONDUCT.template.md`](CODE_OF_CONDUCT.template.md) to the root directory:
 ```bash
 cp templates/CODE_OF_CONDUCT.template.md CODE_OF_CONDUCT.md
@@ -89,7 +106,7 @@ Open `CODE_OF_CONDUCT.md` and configure:
 
 ---
 
-### 5. Apply Contributing Guidelines
+### 6. Apply Contributing Guidelines
 Copy [`CONTRIBUTING.template.md`](CONTRIBUTING.template.md) to the root directory:
 ```bash
 cp templates/CONTRIBUTING.template.md CONTRIBUTING.md
@@ -103,7 +120,7 @@ Open `CONTRIBUTING.md` and configure:
 
 ---
 
-### 6. Apply Security Policy
+### 7. Apply Security Policy
 Copy [`SECURITY.template.md`](SECURITY.template.md) to the root directory:
 ```bash
 cp templates/SECURITY.template.md SECURITY.md
@@ -116,26 +133,34 @@ Open `SECURITY.md` and configure:
 
 ---
 
-### 7. Apply Web Discovery, SEO & AI Standards
-For web apps and public-facing services, copy the standard discovery and metadata templates into your public/static root:
+### 8. Apply Web Discovery, SEO & AI Standards
+For web apps and public-facing services, copy the standard discovery and metadata templates into your public/static root (or `public/` folder):
 
 ```bash
 # Web search and AI bot directives
-cp templates/robots.template.txt robots.txt
+cp templates/robots.template.txt public/robots.txt
 
 # Canonical XML sitemap
-cp templates/sitemap.template.xml sitemap.xml
+cp templates/sitemap.template.xml public/sitemap.xml
 
 # AI coding assistants & agent context
-cp templates/llms.template.txt llms.txt
-cp templates/llms-full.template.txt llms-full.txt
+cp templates/llms.template.txt public/llms.txt
+cp templates/llms-full.template.txt public/llms-full.txt
 
 # RFC 9116 security declaration
-mkdir -p .well-known
-cp templates/security.template.txt .well-known/security.txt
+mkdir -p public/.well-known
+cp templates/security.template.txt public/.well-known/security.txt
 
 # Progressive Web App manifest
-cp templates/manifest.template.webmanifest manifest.webmanifest
+cp templates/manifest.template.webmanifest public/manifest.webmanifest
 ```
 
 Configure placeholders (`[YOUR_DOMAIN]`, `[PROJECT_NAME]`, `[PROJECT_DESCRIPTION]`, `[REPOSITORY-NAME]`) in each file to match your project.
+
+---
+
+### 9. Clean Up Starter Templates Directory (Optional)
+Once all starter files and guidelines have been copied to their final locations, you can remove the `templates/` folder to keep the repository root clean:
+```bash
+rm -rf templates
+```

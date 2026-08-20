@@ -296,7 +296,7 @@ If this repository is cloned/used as a standalone template for a single project:
 
 ## 5. Bootstrapping a New Web App Repository
 
-When developers start building a new application (e.g. Next.js, Vite, Django, Python):
+When developers start building a new application (e.g. Next.js, Vite, Astro, Django, FastAPI):
 
 ### Step 1: Initialize New Repository
 1. Select **Use this template** > **Create a new repository** on GitHub (or create a new repo under `LABEIM`).
@@ -307,8 +307,32 @@ When developers start building a new application (e.g. Next.js, Vite, Django, Py
    cd smart-campus
    ```
 
-### Step 2: Configure CI/CD Pipeline
-Edit [.github/workflows/ci-cd.yml](.github/workflows/ci-cd.yml) in your new repo and set `cloudflare_project_name`:
+### Step 2: Remove Central Hub Files & Initialize Web Framework
+> [!NOTE]
+> **Why remove `index.html` and `config.js`?**  
+> In EIM's centralized edge gateway architecture, the **Coming Soon** landing page is rendered centrally by the Cloudflare Edge Worker (`eim-edge-router`) from the centralized hub (`maintenance-eim.pages.dev`). Child repositories do **not** host their own coming-soon HTML.
+> 
+> Therefore, remove the hub landing page files and scaffold your framework of choice directly in the repository root:
+
+1. Remove the Central Hub static files:
+   ```bash
+   rm index.html config.js
+   ```
+2. Initialize your application framework (or migrate your project code):
+   ```bash
+   # Example A: Vite React / Vue / Svelte app
+   npm create vite@latest . -- --template react-ts
+   npm install
+
+   # Example B: Next.js app
+   npx create-next-app@latest .
+
+   # Example C: Astro static / SSR site
+   npm create astro@latest .
+   ```
+
+### Step 3: Configure CI/CD Pipeline
+Edit [.github/workflows/ci-cd.yml](.github/workflows/ci-cd.yml) in your new repo and set `cloudflare_project_name` to your project slug:
 ```yaml
 jobs:
   deploy:
@@ -323,7 +347,7 @@ jobs:
     secrets: inherit
 ```
 
-### Step 3: Apply Project README, AI Agent Guidelines, License, Code of Conduct, Contributing & Security Policy
+### Step 4: Apply Project README, AI Agent Guidelines, License & Governance
 1. Copy [`templates/README.template.md`](templates/README.template.md) to replace `README.md`:
    ```bash
    cp templates/README.template.md README.md
@@ -350,14 +374,33 @@ jobs:
    cp templates/SECURITY.template.md SECURITY.md
    ```
 
-### Step 4: First Push & Custom Domain Connection
+### Step 5: Apply Discovery, SEO & Web Metadata (Optional / Recommended)
+Copy standard discovery and crawler metadata to your public static assets directory (e.g. `public/`):
+```bash
+# For frameworks with a public directory (e.g. Vite, Next.js, Astro):
+cp templates/robots.template.txt public/robots.txt
+cp templates/sitemap.template.xml public/sitemap.xml
+cp templates/llms.template.txt public/llms.txt
+cp templates/llms-full.template.txt public/llms-full.txt
+mkdir -p public/.well-known
+cp templates/security.template.txt public/.well-known/security.txt
+cp templates/manifest.template.webmanifest public/manifest.webmanifest
+```
+
+> [!TIP]
+> Once you have copied all necessary template files, you can delete the `templates/` directory to keep your repository clean:
+> ```bash
+> rm -rf templates
+> ```
+
+### Step 6: First Push & Custom Domain Connection
 1. Push the initial commit to `main`:
    ```bash
    git add .
    git commit -m "feat: project initialization with shared CI/CD"
    git push origin main
    ```
-2. The CI/CD run **creates the `smart-campus` project in your Cloudflare Pages dashboard**.
+2. The CI/CD run triggers the shared workflow and **automatically creates the `smart-campus` project in your Cloudflare Pages dashboard**.
 3. Open **Cloudflare Dashboard** > **Workers & Pages** > `smart-campus` > **Custom domains** > **Set up a custom domain**.
 4. Enter `smart-campus.eimlab.org` and click **Activate domain**.
 
