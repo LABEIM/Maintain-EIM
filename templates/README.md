@@ -11,6 +11,7 @@ This directory provides standardized starter files and templates for new reposit
 | [`README.template.md`](README.template.md) | Standardized Project README | Base README template for every new project / repository. |
 | [`AGENTS.template.md`](AGENTS.template.md) | AI Agent Guidelines & Workflow | Standardized rules, architecture, and operational guidelines for AI coding agents. |
 | [`CLAUDE.template.md`](CLAUDE.template.md) | Claude Code Instructions Pointer | Pointer instructing Claude Code to adhere to `AGENTS.md`. |
+| [`CODE_OF_CONDUCT.template.md`](CODE_OF_CONDUCT.template.md) | Contributor Code of Conduct | Standardized community pledge and enforcement rules for contributors. |
 | [`LICENSE.MIT`](LICENSE.MIT) | Open Source MIT License | For open-source tools, public templates, and reusable libraries. |
 | [`LICENSE.ALL-RIGHTS-RESERVED`](LICENSE.ALL-RIGHTS-RESERVED) | Proprietary / Internal License | For proprietary lab web apps, internal services, and confidential research portals. |
 
@@ -61,3 +62,15 @@ Replace `[YEAR]` with the current year (e.g. `2026`).
 cp templates/LICENSE.ALL-RIGHTS-RESERVED LICENSE
 ```
 Replace `[YEAR]` with the current year (e.g. `2026`).
+
+---
+
+### 4. Apply Contributor Code of Conduct
+Copy [`CODE_OF_CONDUCT.template.md`](CODE_OF_CONDUCT.template.md) to the root directory:
+```bash
+cp templates/CODE_OF_CONDUCT.template.md CODE_OF_CONDUCT.md
+```
+Open `CODE_OF_CONDUCT.md` and configure:
+- `[PROJECT_NAME]` (e.g. `Smart Campus IoT`)
+- `[INSERT CONTACT EMAIL]` (default: `lab@eimlab.org`)
+
