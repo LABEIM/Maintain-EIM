@@ -1,4 +1,4 @@
-# Security Policy — Maintain-EIM
+# Security Policy
 
 The **Enterprise Infrastructure Management (EIM) Research Laboratory** takes the security of our infrastructure, research portals, pre-launch hubs, and open systems seriously. This Security Policy applies to **Maintain-EIM** (Central Coming Soon & Maintenance Hub) and outlines our supported versions, vulnerability reporting process, response timelines, and disclosure standards.
 

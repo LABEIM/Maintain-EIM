@@ -1,4 +1,4 @@
-# Security Policy Template
+# Security Policy
 
 > [!NOTE]
 > **Instructions for New Projects:**  

@@ -1,4 +1,4 @@
-# Contributor Covenant Code of Conduct Template
+# Contributor Covenant Code of Conduct
 
 > [!NOTE]
 > **Instructions for New Projects:**  
