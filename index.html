@@ -7,7 +7,7 @@
     <title id="meta-title">EIM Lab — Coming Soon</title>
     <meta id="meta-description" name="description"
         content="Enterprise Infrastructure Management Research Laboratory - New web experience coming soon.">
-    <link id="meta-favicon" rel="icon" type="image/png" href="https://eimlab.org/assets/logo.png">
+    <link id="meta-favicon" rel="icon" type="image/png" href="https://eimlab.org/assets/brand/eim-favicon.png">
     <link id="meta-apple-touch-icon" rel="apple-touch-icon" href="https://eimlab.org/assets/brand/eim-favicon.png">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#0B0F19">
@@ -74,6 +74,35 @@
     <!-- Load Site Configuration -->
     <script src="config.js"></script>
 
+    <!-- Pre-check Theme Immediately (Prevents Flash of Unstyled Theme - FOUC) -->
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('color-theme');
+                var isDark = false;
+                if (stored === 'dark') {
+                    isDark = true;
+                } else if (stored === 'light') {
+                    isDark = false;
+                } else {
+                    var defaultMode = (window.CONFIG && window.CONFIG.branding && window.CONFIG.branding.theme && window.CONFIG.branding.theme.defaultMode) || 'system';
+                    if (defaultMode === 'dark') {
+                        isDark = true;
+                    } else if (defaultMode === 'light') {
+                        isDark = false;
+                    } else {
+                        isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    }
+                }
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -100,9 +129,11 @@
         }
     </script>
 
-    <!-- Google Fonts & FontAwesome Icons -->
+    <!-- Google Fonts & FontAwesome Icons CDN with Preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -136,10 +167,10 @@
     <!-- Simple Header -->
     <header class="w-full max-w-5xl mx-auto px-4 py-4 xs:py-5 sm:px-6 sm:py-8 flex items-center justify-between gap-3">
         <!-- Logo Link -->
-        <a id="header-logo-link" href="https://eimlab.org" class="group flex items-center shrink-0 min-w-0" aria-label="Home">
+        <a id="header-logo-link" href="https://eimlab.org" class="group flex items-center shrink-0 min-w-0 rounded-lg focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none" aria-label="Home">
             <div id="logo-container"
-                class="flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
-                <img id="lab-logo" src="https://eimlab.org/assets/logo.png" alt="Logo"
+                class="flex items-center justify-center transition-transform duration-200 group-hover:scale-105 min-h-[28px] xs:min-h-[32px] sm:min-h-[36px]">
+                <img id="lab-logo" src="https://eimlab.org/assets/brand/eim-logo-horizontal.png" alt="Logo" width="200" height="36"
                     class="h-7 xs:h-8 sm:h-9 w-auto max-w-[130px] xs:max-w-[170px] sm:max-w-[200px] object-contain" onerror="handleLogoError(this)">
             </div>
         </a>
@@ -156,7 +187,7 @@
 
             <!-- Light / Dark Mode Toggle Button -->
             <button id="theme-toggle" type="button" aria-label="Toggle theme"
-                class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors flex items-center justify-center">
+                class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors flex items-center justify-center focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none">
                 <i id="theme-toggle-dark-icon" class="fa-solid fa-moon text-xs sm:text-sm hidden"></i>
                 <i id="theme-toggle-light-icon" class="fa-solid fa-sun text-xs sm:text-sm hidden"></i>
             </button>
@@ -174,33 +205,33 @@
                     Something new is coming soon.
                 </h1>
                 <p id="hero-description"
-                    class="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-md mx-auto px-1 sm:px-0">
+                    class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-md mx-auto px-1 sm:px-0">
                     We are currently crafting a new web experience for EIM Lab research. Stay tuned for updates.
                 </p>
             </div>
 
             <!-- Optional Countdown / Estimated Time Indicator -->
             <div id="hero-countdown-container" class="hidden space-y-2.5 sm:space-y-3 pt-1 w-full max-w-xs xs:max-w-sm sm:max-w-md mx-auto">
-                <p id="countdown-label" class="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500"></p>
-                <div id="countdown-timer-grid" class="flex items-center justify-center gap-1 xs:gap-1.5 sm:gap-2 select-none w-full">
+                <p id="countdown-label" class="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400"></p>
+                <div id="countdown-timer-grid" role="timer" aria-atomic="true" class="flex items-center justify-center gap-1 xs:gap-1.5 sm:gap-2 select-none w-full">
                     <div class="flex-1 flex flex-col items-center justify-center py-2.5 px-1 xs:py-3 xs:px-2 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm min-w-[54px] xs:min-w-[62px] sm:min-w-[76px] max-w-[84px]">
                         <span id="countdown-days" class="text-xl xs:text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums tracking-tight">00</span>
-                        <span id="countdown-days-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">Days</span>
+                        <span id="countdown-days-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wider mt-0.5">Days</span>
                     </div>
-                    <span class="text-slate-300 dark:text-slate-700 font-bold text-xs xs:text-sm sm:text-lg -mt-2.5 sm:-mt-3 select-none shrink-0">:</span>
+                    <span class="text-slate-300 dark:text-slate-700 font-bold text-xs xs:text-sm sm:text-lg -mt-2.5 sm:-mt-3 select-none shrink-0" aria-hidden="true">:</span>
                     <div class="flex-1 flex flex-col items-center justify-center py-2.5 px-1 xs:py-3 xs:px-2 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm min-w-[54px] xs:min-w-[62px] sm:min-w-[76px] max-w-[84px]">
                         <span id="countdown-hours" class="text-xl xs:text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums tracking-tight">00</span>
-                        <span id="countdown-hours-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">Hours</span>
+                        <span id="countdown-hours-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wider mt-0.5">Hours</span>
                     </div>
-                    <span class="text-slate-300 dark:text-slate-700 font-bold text-xs xs:text-sm sm:text-lg -mt-2.5 sm:-mt-3 select-none shrink-0">:</span>
+                    <span class="text-slate-300 dark:text-slate-700 font-bold text-xs xs:text-sm sm:text-lg -mt-2.5 sm:-mt-3 select-none shrink-0" aria-hidden="true">:</span>
                     <div class="flex-1 flex flex-col items-center justify-center py-2.5 px-1 xs:py-3 xs:px-2 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm min-w-[54px] xs:min-w-[62px] sm:min-w-[76px] max-w-[84px]">
                         <span id="countdown-minutes" class="text-xl xs:text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums tracking-tight">00</span>
-                        <span id="countdown-minutes-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">Minutes</span>
+                        <span id="countdown-minutes-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wider mt-0.5">Minutes</span>
                     </div>
-                    <span class="text-slate-300 dark:text-slate-700 font-bold text-xs xs:text-sm sm:text-lg -mt-2.5 sm:-mt-3 select-none shrink-0">:</span>
+                    <span class="text-slate-300 dark:text-slate-700 font-bold text-xs xs:text-sm sm:text-lg -mt-2.5 sm:-mt-3 select-none shrink-0" aria-hidden="true">:</span>
                     <div class="flex-1 flex flex-col items-center justify-center py-2.5 px-1 xs:py-3 xs:px-2 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 shadow-sm min-w-[54px] xs:min-w-[62px] sm:min-w-[76px] max-w-[84px]">
                         <span id="countdown-seconds" class="text-xl xs:text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tabular-nums tracking-tight">00</span>
-                        <span id="countdown-seconds-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">Seconds</span>
+                        <span id="countdown-seconds-label" class="text-[9px] xs:text-[10px] sm:text-xs font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wider mt-0.5">Seconds</span>
                     </div>
                 </div>
                 <p id="countdown-expired-text" class="hidden text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-300 max-w-md mx-auto py-2"></p>
@@ -209,7 +240,7 @@
             <!-- Optional CTA Button -->
             <div id="hero-cta-container" class="hidden pt-2">
                 <a id="hero-cta-button" href="#"
-                    class="w-full xs:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl font-semibold text-xs sm:text-sm text-white bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white shadow-sm hover:shadow active:scale-[0.98] transition-all duration-200">
+                    class="w-full xs:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl font-semibold text-xs sm:text-sm text-white bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white shadow-sm hover:shadow active:scale-[0.98] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none">
                     <span id="hero-cta-text">Get in Touch</span>
                     <i id="hero-cta-icon" class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
@@ -226,17 +257,17 @@
             <p id="footer-copyright" class="font-medium text-slate-700 dark:text-slate-300 text-xs">
                 Copyright © 2026 Enterprise Infrastructure Management Research Laboratory.
             </p>
-            <p id="footer-address" class="text-[11px] sm:text-xs text-slate-400 dark:text-slate-500 max-w-md sm:max-w-lg mx-auto leading-relaxed">
+            <p id="footer-address" class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 max-w-md sm:max-w-lg mx-auto leading-relaxed">
                 Gedung TULT Lantai 8, Ruang TULT.08.09, Telkom University, Bandung, Indonesia
             </p>
         </div>
 
         <!-- Quick Links -->
-        <div id="footer-quick-links" class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 pt-0.5 text-xs text-slate-400 dark:text-slate-500"></div>
+        <div id="footer-quick-links" class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 pt-0.5 text-xs text-slate-500 dark:text-slate-400"></div>
 
         <!-- Social & Contact Links -->
         <div id="footer-social-links"
-            class="flex items-center justify-center gap-2 sm:gap-3 text-slate-400 dark:text-slate-500 pt-1"></div>
+            class="flex items-center justify-center gap-2 sm:gap-3 text-slate-500 dark:text-slate-400 pt-1"></div>
     </footer>
 
     <script>
@@ -447,6 +478,23 @@
                     if (canonicalLink) canonicalLink.setAttribute('href', currentHref);
                     if (ogUrl) ogUrl.setAttribute('content', currentHref);
                 }
+
+                // Dynamic Schema.org JSON-LD Structured Data Synchronization
+                const schemaEl = document.getElementById('schema-org-data');
+                if (schemaEl) {
+                    try {
+                        const schemaData = JSON.parse(schemaEl.textContent);
+                        if (schemaData && Array.isArray(schemaData['@graph'])) {
+                            const websiteNode = schemaData['@graph'].find(node => node['@type'] === 'WebSite');
+                            if (websiteNode) {
+                                if (resolvedTitle) websiteNode.name = resolvedTitle;
+                                if (resolvedDesc) websiteNode.description = resolvedDesc;
+                                if (window.location && window.location.href) websiteNode.url = window.location.href;
+                                schemaEl.textContent = JSON.stringify(schemaData, null, 4);
+                            }
+                        }
+                    } catch (e) {}
+                }
             }
 
             // 2. Branding & Logo
@@ -471,7 +519,7 @@
                         }
                     } else {
                         if (logoContainer) {
-                            logoContainer.className = 'flex items-center justify-center transition-transform duration-200 group-hover:scale-105 shrink-0';
+                            logoContainer.className = 'flex items-center justify-center transition-transform duration-200 group-hover:scale-105 min-h-[28px] xs:min-h-[32px] sm:min-h-[36px] shrink-0';
                         }
                         if (logoImg) {
                             logoImg.className = 'h-7 xs:h-8 sm:h-9 w-auto max-w-[130px] xs:max-w-[170px] sm:max-w-[200px] object-contain';
@@ -509,7 +557,7 @@
                             a.target = '_blank';
                             a.rel = 'noopener noreferrer';
                         }
-                        a.className = 'text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center space-x-1.5 p-1.5 sm:px-2 sm:py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 min-w-[32px] min-h-[32px] sm:min-w-0 sm:min-h-0';
+                        a.className = 'text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center space-x-1.5 p-1.5 sm:px-2 sm:py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 min-w-[32px] min-h-[32px] sm:min-w-0 sm:min-h-0 focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
 
                         let innerHtml = '';
                         if (link.icon) {
@@ -599,7 +647,7 @@
                             const a = document.createElement('a');
                             a.href = link.href || '#';
                             a.textContent = resolveI18n(link.label, lang) || '';
-                            a.className = 'hover:text-slate-700 dark:hover:text-slate-200 transition-colors py-0.5 px-1';
+                            a.className = 'hover:text-slate-700 dark:hover:text-slate-200 transition-colors py-0.5 px-1 rounded focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
                             if (link.external) {
                                 a.target = '_blank';
                                 a.rel = 'noopener noreferrer';
@@ -624,7 +672,7 @@
                             const platformTitle = item.platform || 'Social Link';
                             a.title = platformTitle;
                             a.setAttribute('aria-label', platformTitle);
-                            a.className = 'w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 active:scale-95 transition-all text-base sm:text-lg';
+                            a.className = 'w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 active:scale-95 transition-all text-base sm:text-lg focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
                             a.innerHTML = `<i class="${item.icon || 'fa-solid fa-link'}"></i>`;
                             socialContainer.appendChild(a);
                         });
@@ -638,6 +686,18 @@
             currentLanguage = lang;
             document.documentElement.lang = lang;
             localStorage.setItem('preferred-lang', lang);
+
+            // Update URL query parameter ?lang= cleanly without full reload
+            if (window.history && window.history.replaceState && typeof window.location !== 'undefined') {
+                try {
+                    const url = new URL(window.location.href);
+                    if (url.searchParams.get('lang') !== lang) {
+                        url.searchParams.set('lang', lang);
+                        window.history.replaceState({}, '', url.toString());
+                    }
+                } catch (e) {}
+            }
+
             updateLanguageSwitcherUI(lang);
             applySiteConfig(lang);
         }
@@ -649,10 +709,10 @@
             buttons.forEach(btn => {
                 const btnLang = btn.getAttribute('data-lang');
                 if (btnLang === activeLang) {
-                    btn.className = 'lang-btn px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-bold bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm border border-slate-200/90 dark:border-slate-600 transition-all duration-150 cursor-default select-none';
+                    btn.className = 'lang-btn px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-bold bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm border border-slate-200/90 dark:border-slate-600 transition-all duration-150 cursor-default select-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
                     btn.setAttribute('aria-pressed', 'true');
                 } else {
-                    btn.className = 'lang-btn px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-700/50 transition-all duration-150 cursor-pointer select-none';
+                    btn.className = 'lang-btn px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-700/50 transition-all duration-150 cursor-pointer select-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500 focus-visible:outline-none';
                     btn.setAttribute('aria-pressed', 'false');
                 }
             });

@@ -46,4 +46,31 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://maintenance-eim.pages.dev/?site=kuliahumum" />
     </url>
 
+    <!-- ================================================================= -->
+    <!-- EXAMPLE / TEST PROFILES                                           -->
+    <!-- Standard fixtures used in documentation, SOPs, and testing.       -->
+    <!-- ================================================================= -->
+
+    <!-- Smart Campus Pre-Launch Portal -->
+    <url>
+        <loc>https://maintenance-eim.pages.dev/?site=smart-campus</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://maintenance-eim.pages.dev/?site=smart-campus&amp;lang=en" />
+        <xhtml:link rel="alternate" hreflang="id" href="https://maintenance-eim.pages.dev/?site=smart-campus&amp;lang=id" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://maintenance-eim.pages.dev/?site=smart-campus" />
+    </url>
+
+    <!-- Sensor Network Pre-Launch Portal -->
+    <url>
+        <loc>https://maintenance-eim.pages.dev/?site=sensor-net</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://maintenance-eim.pages.dev/?site=sensor-net&amp;lang=en" />
+        <xhtml:link rel="alternate" hreflang="id" href="https://maintenance-eim.pages.dev/?site=sensor-net&amp;lang=id" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://maintenance-eim.pages.dev/?site=sensor-net" />
+    </url>
+
 </urlset>

@@ -148,7 +148,10 @@ export default {
 
       // If requesting root page or HTML, serve the dynamic profile landing page
       if (url.pathname === "/" || url.pathname === "/index.html") {
-        const targetUrl = `${hubUrl}/?mode=${mode}&site=${subdomain}`;
+        const searchParams = new URLSearchParams(url.search);
+        searchParams.set("mode", mode);
+        searchParams.set("site", subdomain);
+        const targetUrl = `${hubUrl}/?${searchParams.toString()}`;
         const templateRes = await fetch(targetUrl);
 
         const headers = new Headers(templateRes.headers);

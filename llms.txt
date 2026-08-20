@@ -28,6 +28,8 @@ Maintain-EIM is the central pre-launch ("Coming Soon") and scheduled maintenance
 - [Study Group Portal](https://github.com/LABEIM/SG-EIM): EIM Lab study groups and collaborative learning curriculum (`?site=studygroup`).
 - [Official Links Directory](https://github.com/LABEIM/LINK-EIM): Verified directory of official EIM Lab social and academic resources (`?site=link`).
 - [Public Lecture Series](https://github.com/LABEIM/KU-EIM): Industry tech talks, academic seminars, and public workshops (`?site=kuliahumum`).
+- [Smart Campus IoT](https://github.com/LABEIM/SmartCampus): Next-generation IoT campus infrastructure and smart telemetry (`?site=smart-campus`).
+- [Sensor Network Research](https://github.com/LABEIM/SensorNet): High-density wireless mesh network and environmental sensing (`?site=sensor-net`).
 
 ## Developer & Agent Resources
 - [Full Context & Architecture (llms-full.txt)](https://maintenance-eim.pages.dev/llms-full.txt): Comprehensive technical specifications, edge worker templates, and operational runbooks.

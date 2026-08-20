@@ -44,7 +44,7 @@ The EIM Lab architecture isolates pre-launch and maintenance states entirely fro
 ## 3. Configuration & Profile Reference (`config.js`)
 
 The hub adapts dynamically based on query parameters:
-- `?site=<slug>` : Selects a project profile (`studygroup`, `link`, `kuliahumum`).
+- `?site=<slug>` : Selects a project profile (`studygroup`, `link`, `kuliahumum`, `smart-campus`, `sensor-net`).
 - `?mode=maintenance` : Switches headline and countdown to Maintenance mode.
 - `?mode=comingsoon` : Switches headline and countdown to Coming Soon mode.
 - `?lang=en` or `?lang=id` : Forces explicit language selection.
@@ -53,6 +53,8 @@ The hub adapts dynamically based on query parameters:
 1. `studygroup`: Study Group pre-launch portal (`https://github.com/LABEIM/SG-EIM`)
 2. `link`: Official Links directory portal (`https://github.com/LABEIM/LINK-EIM`)
 3. `kuliahumum`: Public Lecture pre-launch portal (`https://github.com/LABEIM/KU-EIM`)
+4. `smart-campus`: Smart Campus IoT platform pre-launch portal (`https://github.com/LABEIM/SmartCampus`)
+5. `sensor-net`: Wireless Sensor Network research pre-launch portal (`https://github.com/LABEIM/SensorNet`)
 
 ---
 

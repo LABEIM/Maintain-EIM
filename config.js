@@ -378,6 +378,95 @@ const CONFIG = {
                     }
                 ]
             }
+        },
+
+        // -----------------------------------------------------------------
+        // [EXAMPLE / TEST PROFILES]
+        // The profiles below ('smart-campus', 'sensor-net') are standard
+        // example and test fixtures referenced across SETUP.md, README.md,
+        // AGENTS.md, and local verification tests (?site=smart-campus).
+        // DO NOT DELETE to prevent broken test links or documentation drift.
+        // -----------------------------------------------------------------
+        "smart-campus": {
+            meta: {
+                title: {
+                    en: "EIM Lab — Smart Campus | Coming Soon",
+                    id: "EIM Lab — Smart Campus | Segera Hadir"
+                },
+                description: {
+                    en: "Enterprise Infrastructure Management Research Laboratory - Smart Campus IoT platform coming soon.",
+                    id: "Laboratorium Riset Enterprise Infrastructure Management - Platform Smart Campus IoT Segera Hadir."
+                }
+            },
+            content: {
+                headline: {
+                    en: "Smart Campus IoT is coming soon",
+                    id: "Smart Campus IoT Segera Hadir"
+                },
+                description: {
+                    en: "Next-generation IoT infrastructure and smart telemetry management for Telkom University campus.",
+                    id: "Infrastruktur IoT generasi berikutnya dan manajemen telemetri cerdas untuk kampus Telkom University."
+                },
+                countdown: {
+                    enabled: false
+                },
+                cta: {
+                    enabled: false
+                }
+            },
+            headerLinks: {
+                enabled: true,
+                items: [
+                    {
+                        enabled: true,
+                        label: "GitHub",
+                        href: "https://github.com/LABEIM/SmartCampus",
+                        icon: "fa-brands fa-github",
+                        external: true
+                    }
+                ]
+            }
+        },
+
+        "sensor-net": {
+            meta: {
+                title: {
+                    en: "EIM Lab — Sensor Network | Coming Soon",
+                    id: "EIM Lab — Jaringan Sensor | Segera Hadir"
+                },
+                description: {
+                    en: "Enterprise Infrastructure Management Research Laboratory - Wireless Sensor Network coming soon.",
+                    id: "Laboratorium Riset Enterprise Infrastructure Management - Jaringan Sensor Nirkabel Segera Hadir."
+                }
+            },
+            content: {
+                headline: {
+                    en: "Sensor Network is coming soon",
+                    id: "Jaringan Sensor Segera Hadir"
+                },
+                description: {
+                    en: "High-density wireless sensor mesh network research and real-time environmental telemetry.",
+                    id: "Riset jaringan sensor nirkabel berdensitas tinggi dan telemetri lingkungan waktu nyata."
+                },
+                countdown: {
+                    enabled: false
+                },
+                cta: {
+                    enabled: false
+                }
+            },
+            headerLinks: {
+                enabled: true,
+                items: [
+                    {
+                        enabled: true,
+                        label: "GitHub",
+                        href: "https://github.com/LABEIM/SensorNet",
+                        icon: "fa-brands fa-github",
+                        external: true
+                    }
+                ]
+            }
         }
     },
 
