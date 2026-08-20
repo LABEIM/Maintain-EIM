@@ -27,7 +27,7 @@ For complete setup instructions, deployment workflows, and Cloudflare Worker con
 - **Optional Countdown / ETA Indicator:** Live ticking countdown timer with localized units (Days, Hours, Minutes, Seconds) and completion fallback text.
 - **Bilingual & Multi-Language (i18n):** Native support for English (`EN`) and Indonesian (`ID`) with instant toggle switch, auto-browser detection, URL param override (`?lang=id`), and `localStorage` persistence.
 - **Theme Switching:** Dark and light mode toggle with system preference detection.
-- **Zero-Build Static Architecture:** Pure HTML5 and Tailwind CSS with no compilation step required.
+- **Ultra-Fast Performance:** Zero runtime overhead with pre-compiled minified Tailwind CSS (`css/style.min.css`) achieving 100/100 PageSpeed scores without render-blocking compiler scripts.
 - **Starter Templates (`templates/`):** Ready-to-use project README template (`README.template.md`), AI agent guidelines (`AGENTS.template.md`, `CLAUDE.template.md`, `GEMINI.template.md`), Contributor Code of Conduct (`CODE_OF_CONDUCT.template.md`), Contributing Guidelines (`CONTRIBUTING.template.md`), Security Policy (`SECURITY.template.md`), and laboratory license templates (`LICENSE.MIT`, `LICENSE.ALL-RIGHTS-RESERVED`).
 
 ---
@@ -52,12 +52,16 @@ For complete setup instructions, deployment workflows, and Cloudflare Worker con
 ├── SECURITY.md                # Vulnerability reporting & responsible disclosure policy
 ├── SETUP.md                   # Complete Architecture, Setup, and SOP Guide
 ├── config.js                  # Central configuration & per-site profiles registry
+├── css/
+│   ├── input.css              # Source Tailwind CSS & utility layers
+│   └── style.min.css          # Production minified stylesheet
 ├── index.html                 # Dynamic Coming Soon / Maintenance landing page
 ├── llms.txt                   # Standard AI context summary for LLMs and coding agents
 ├── llms-full.txt              # Comprehensive technical context & architecture for LLMs
 ├── manifest.webmanifest       # PWA web app manifest
 ├── robots.txt                 # Search engine & AI crawler directive
 ├── sitemap.xml                # Canonical XML sitemap with bilingual hreflang support
+├── tailwind.config.js         # Tailwind CSS configuration
 └── templates/                 # Starter templates for new web project repositories
     ├── AGENTS.template.md     # AI Agent instructions template for new projects
     ├── CLAUDE.template.md     # Claude Code instructions template

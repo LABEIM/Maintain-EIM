@@ -37,13 +37,13 @@ When creating a new repository using **Use this template**:
 
 Remove the centralized hub files and initialize your application framework:
 ```bash
-# 1. Remove hub landing page files
-rm index.html config.js
+# 1. Remove Central Hub static files & configuration
+rm -rf index.html config.js css tailwind.config.js SETUP.md robots.txt sitemap.xml manifest.webmanifest llms.txt llms-full.txt .well-known
 
 # 2. Scaffold your web framework (or copy your application code)
-# Example (Vite): npm create vite@latest . -- --template react-ts
-# Example (Next.js): npx create-next-app@latest .
-# Example (Astro): npm create astro@latest .
+# Example A (Vite): npm create vite@latest . -- --template react-ts
+# Example B (Next.js): npx create-next-app@latest .
+# Example C (Astro): npm create astro@latest .
 ```
 
 ---

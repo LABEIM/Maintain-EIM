@@ -19,7 +19,7 @@ Before writing any code, the agent must complete these steps:
 
 ### 1.3 Required Artifacts & Key Files
 1. `config.js`: Central configuration registry containing `GLOBAL_CONFIG`, `SITE_PROFILES`, and `I18N_DICTIONARY`.
-2. `index.html`: Dynamic single-page application with Tailwind CSS CDN, Countdown Timer, Profile Resolver, and Language Switcher.
+2. `index.html`: Dynamic single-page application with Pre-compiled Tailwind CSS (`css/style.min.css`), Countdown Timer, Profile Resolver, and Language Switcher.
 3. `SETUP.md`: Complete Architectural SOP & Edge Gateway configuration guide.
 4. `.editorconfig`: Cross-editor formatting specifications.
 5. `templates/`: Base starter templates for bootstrapping new EIM lab web projects.
@@ -42,8 +42,8 @@ A feature achieves the status of completed only when all of the following condit
 
 ### 2.1 Framework & Core Stack
 - **Architecture**: Zero-build static web hub
-- **Styling**: Tailwind CSS (via CDN) + Custom responsive utility animations
+- **Styling**: Pre-compiled Standalone Tailwind CSS (`css/style.min.css`) + Custom responsive utility animations
 - **Scripting**: Pure Vanilla JavaScript (ES6+)
 - **Internationalization**: Client-side dictionary engine (`EN` / `ID`)
 - **Hosting / CDN**: Cloudflare Pages (`maintenance-eim`) + Cloudflare Worker (`eim-edge-router`)
-- **Icons**: Lucide Icons CDN / SVG icons
+- **Icons**: Inline SVG icons registry (`SVG_ICONS`)

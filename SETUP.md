@@ -312,14 +312,14 @@ When developers start building a new application (e.g. Next.js, Vite, Astro, Dja
 
 ### Step 2: Remove Central Hub Files & Initialize Web Framework
 > [!NOTE]
-> **Why remove `index.html` and `config.js`?**  
+> **Why remove Central Hub files (`index.html`, `config.js`, `css/`, `tailwind.config.js`, etc.)?**  
 > In EIM's centralized edge gateway architecture, the **Coming Soon** landing page is rendered centrally by the Cloudflare Edge Worker (`eim-edge-router`) from the centralized hub (`maintenance-eim.pages.dev`). Child repositories do **not** host their own coming-soon HTML.
 > 
-> Therefore, remove the hub landing page files and scaffold your framework of choice directly in the repository root:
+> Therefore, remove the hub landing page, styles, configuration, and root metadata files before scaffolding your framework of choice:
 
-1. Remove the Central Hub static files:
+1. Remove Central Hub static files & configuration:
    ```bash
-   rm index.html config.js
+   rm -rf index.html config.js css tailwind.config.js SETUP.md robots.txt sitemap.xml manifest.webmanifest llms.txt llms-full.txt .well-known
    ```
 2. Initialize your application framework (or migrate your project code):
    ```bash
