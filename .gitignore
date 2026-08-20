@@ -34,3 +34,7 @@ pnpm-debug.log*
 node_modules/
 dist/
 .cache/
+
+# Agent Scratch & Task Repositories
+_artifacts/
+_tasks/

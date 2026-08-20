@@ -332,6 +332,7 @@ jobs:
    ```bash
    cp templates/AGENTS.template.md AGENTS.md
    cp templates/CLAUDE.template.md CLAUDE.md
+   cp templates/GEMINI.template.md GEMINI.md
    ```
 3. Choose and apply the appropriate license:
    - **Open Source Projects:** `cp templates/LICENSE.MIT LICENSE`

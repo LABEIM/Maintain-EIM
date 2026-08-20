@@ -1,4 +1,4 @@
-# AGENTS.md — Maintain-EIM (Coming Soon & Maintenance Hub)
+# AGENTS.md
 
 ## Section 1: Agent Operational Workflow
 
