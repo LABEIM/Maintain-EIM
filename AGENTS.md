@@ -12,15 +12,17 @@ Before writing any code, the agent must complete these steps:
 ### 1.2 Working Rules
 1. Focus entirely on one feature or task at a time.
 2. Ensure valid HTML5, responsive Tailwind styling, proper multilingual i18n key parity, and dark/light mode compatibility.
-3. Keep all changes within scope.
-4. When making configuration changes in `config.js` or UI adjustments in `index.html`, keep `SETUP.md` and `README.md` updated.
-5. All templates inside `templates/` must be kept clean, robust, and well-documented.
+3. Adhere to `.editorconfig` formatting standards (2 spaces, UTF-8, LF line endings, trimmed whitespace).
+4. Keep all changes within scope.
+5. When making configuration changes in `config.js` or UI adjustments in `index.html`, keep `SETUP.md` and `README.md` updated.
+6. All templates inside `templates/` must be kept clean, robust, and well-documented.
 
 ### 1.3 Required Artifacts & Key Files
 1. `config.js`: Central configuration registry containing `GLOBAL_CONFIG`, `SITE_PROFILES`, and `I18N_DICTIONARY`.
 2. `index.html`: Dynamic single-page application with Tailwind CSS CDN, Countdown Timer, Profile Resolver, and Language Switcher.
 3. `SETUP.md`: Complete Architectural SOP & Edge Gateway configuration guide.
-4. `templates/`: Base starter templates for bootstrapping new EIM lab web projects.
+4. `.editorconfig`: Cross-editor formatting specifications.
+5. `templates/`: Base starter templates for bootstrapping new EIM lab web projects.
 
 ### 1.4 Definition Of Done
 A feature achieves the status of completed only when all of the following conditions are met:

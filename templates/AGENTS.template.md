@@ -22,10 +22,11 @@ Before writing any code, the agent must complete these steps:
 ### 1.2 Working Rules
 1. Focus entirely on one feature or task at a time.
 2. Do not mark a task or feature complete just because code was added. Ensure it compiles, passes linting/tests, and is verified.
-3. Keep all changes within the selected task scope unless a critical blocker forces a narrow supporting fix.
-4. Do not silently alter verification rules or relax tests during implementation.
-5. Prefer durable repository artifacts and updated documentation over transient chat summaries.
-6. When making structural updates, dependency version bumps, framework configuration changes, schema updates, or directory layout shifts, the agent must update corresponding repository documentation (`AGENTS.md`, `README.md`, `DEPLOYMENT.md`) and TypeScript interfaces / data models (`[TYPES_FILE]`) to reflect the new state.
+3. Adhere to `.editorconfig` and project linter/formatter conventions.
+4. Keep all changes within the selected task scope unless a critical blocker forces a narrow supporting fix.
+5. Do not silently alter verification rules or relax tests during implementation.
+6. Prefer durable repository artifacts and updated documentation over transient chat summaries.
+7. When making structural updates, dependency version bumps, framework configuration changes, schema updates, or directory layout shifts, the agent must update corresponding repository documentation (`AGENTS.md`, `README.md`, `DEPLOYMENT.md`) and TypeScript interfaces / data models (`[TYPES_FILE]`) to reflect the new state.
 
 ### 1.3 Required Artifacts & Key Files
 <!-- List the core architectural files, configuration files, and schemas that define this project -->
