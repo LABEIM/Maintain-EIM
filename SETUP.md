@@ -13,7 +13,7 @@ flowchart TD
     subgraph Central_Hub ["Central Hub Repository (This Repo: 'comingsoon-eim')"]
         CONFIG["config.js (Per-Site Profiles & Global Defaults)"]
         HTML["index.html (Tailwind, i18n, Dark Mode)"]
-        TEMPLATES["templates/ (Starter README, AGENTS, Code of Conduct & Licenses)"]
+        TEMPLATES["templates/ (Starter README, AGENTS, Contributing, Code of Conduct & Licenses)"]
     end
 
     subgraph Edge_Gateway ["Cloudflare Worker Router: 'eim-edge-router' (*.eimlab.org/*)"]
@@ -323,7 +323,7 @@ jobs:
     secrets: inherit
 ```
 
-### Step 3: Apply Project README, AI Agent Guidelines, License & Code of Conduct
+### Step 3: Apply Project README, AI Agent Guidelines, License, Code of Conduct & Contributing
 1. Copy [`templates/README.template.md`](templates/README.template.md) to replace `README.md`:
    ```bash
    cp templates/README.template.md README.md
@@ -339,6 +339,10 @@ jobs:
 4. Apply the Contributor Code of Conduct:
    ```bash
    cp templates/CODE_OF_CONDUCT.template.md CODE_OF_CONDUCT.md
+   ```
+5. Apply the Contributing Guidelines:
+   ```bash
+   cp templates/CONTRIBUTING.template.md CONTRIBUTING.md
    ```
 
 ### Step 4: First Push & Custom Domain Connection

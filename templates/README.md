@@ -12,6 +12,7 @@ This directory provides standardized starter files and templates for new reposit
 | [`AGENTS.template.md`](AGENTS.template.md) | AI Agent Guidelines & Workflow | Standardized rules, architecture, and operational guidelines for AI coding agents. |
 | [`CLAUDE.template.md`](CLAUDE.template.md) | Claude Code Instructions Pointer | Pointer instructing Claude Code to adhere to `AGENTS.md`. |
 | [`CODE_OF_CONDUCT.template.md`](CODE_OF_CONDUCT.template.md) | Contributor Code of Conduct | Standardized community pledge and enforcement rules for contributors. |
+| [`CONTRIBUTING.template.md`](CONTRIBUTING.template.md) | Contributing Guidelines | Standardized contribution workflows, git branching, commit standards, and PR lifecycle. |
 | [`LICENSE.MIT`](LICENSE.MIT) | Open Source MIT License | For open-source tools, public templates, and reusable libraries. |
 | [`LICENSE.ALL-RIGHTS-RESERVED`](LICENSE.ALL-RIGHTS-RESERVED) | Proprietary / Internal License | For proprietary lab web apps, internal services, and confidential research portals. |
 
@@ -73,4 +74,20 @@ cp templates/CODE_OF_CONDUCT.template.md CODE_OF_CONDUCT.md
 Open `CODE_OF_CONDUCT.md` and configure:
 - `[PROJECT_NAME]` (e.g. `Smart Campus IoT`)
 - `[INSERT CONTACT EMAIL]` (default: `lab@eimlab.org`)
+
+---
+
+### 5. Apply Contributing Guidelines
+Copy [`CONTRIBUTING.template.md`](CONTRIBUTING.template.md) to the root directory:
+```bash
+cp templates/CONTRIBUTING.template.md CONTRIBUTING.md
+```
+Open `CONTRIBUTING.md` and configure:
+- `[PROJECT_NAME]` (e.g. `Smart Campus IoT`)
+- `[REPOSITORY-NAME]` (e.g. `smart-campus-web`)
+- `[INSTALL_COMMAND]`, `[DEV_SERVER_COMMAND]`, `[BUILD_COMMAND]`, `[LINT_COMMAND]`, `[TEST_COMMAND]`
+- `[CONTACT_EMAIL]` (default: `lab@eimlab.org`)
+- Under **Intellectual Property & Licensing**, uncomment **Option A** (for MIT projects) or **Option B** (for All Rights Reserved projects) matching your chosen `LICENSE`.
+
+
 

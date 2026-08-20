@@ -29,9 +29,11 @@
 
 ---
 
-## Community & Code of Conduct
+## Community & Contributing
 
 We are committed to fostering an open, welcoming, and harassment-free environment for all researchers, developers, and contributors. All participants and team members are expected to adhere to our [Code of Conduct](CODE_OF_CONDUCT.md).
+
+For contribution workflows, git branching standards, and Pull Request guidelines, please refer to our [Contributing Guide](CONTRIBUTING.md).
 
 For concerns or incident reports, please contact the project team or laboratory administration at [`[INSERT CONTACT EMAIL]`](mailto:lab@eimlab.org) (default: `lab@eimlab.org`).
 
