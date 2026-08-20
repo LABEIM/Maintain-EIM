@@ -11,7 +11,7 @@ Before writing any code, the agent must complete these steps:
 
 ### 1.2 Working Rules
 1. Focus entirely on one feature or task at a time.
-2. Ensure valid HTML5, responsive Tailwind styling, proper multilingual i18n key parity, and dark/light mode compatibility.
+2. Ensure valid HTML5, responsive Tailwind styling, proper multilingual i18n key parity, dark/light mode compatibility, and high PageSpeed/Lighthouse score compliance (Performance, Accessibility, Best Practices, SEO).
 3. Adhere to `.editorconfig` formatting standards (2 spaces, UTF-8, LF line endings, trimmed whitespace).
 4. Keep all changes within scope.
 5. When making configuration changes in `config.js` or UI adjustments in `index.html`, keep `SETUP.md` and `README.md` updated.
@@ -29,7 +29,8 @@ A feature achieves the status of completed only when all of the following condit
 1. The target behavior is fully implemented and tested.
 2. Verified locally across multiple test profiles (e.g. `?site=smart-campus`, `?mode=maintenance`, `?lang=id`).
 3. Zero console errors or unhandled DOM exceptions.
-4. Documentation in `README.md` and `SETUP.md` is updated if new configuration keys or templates are introduced.
+4. Web audit compliance: Assets, layout shifts, meta tags, and contrast meet Google Lighthouse / PageSpeed target scores (>= 90 across Mobile & Desktop).
+5. Documentation in `README.md` and `SETUP.md` is updated if new configuration keys or templates are introduced.
 
 ### 1.5 End Of Session Workflow
 1. Confirm clean code with no trailing debug statements.

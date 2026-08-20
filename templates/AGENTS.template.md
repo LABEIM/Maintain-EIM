@@ -42,6 +42,7 @@ A feature achieves the status of completed only when all of the following condit
 3. Diagnostics, linter, and type checks run successfully with zero errors using `[LINT_COMMAND]` (e.g. `npm run lint` or `npx tsc --noEmit`).
 4. Automated unit/integration tests pass using `[TEST_COMMAND]` (e.g. `npm test`).
 5. If testing dynamic logic, client UI, or API endpoints, manually verify correct DOM rendering, HTTP status codes, and fallback states.
+6. Web audit compliance: Client UI pages meet Google Lighthouse / PageSpeed audit benchmarks (Target: >= 90 across Performance, Accessibility, Best Practices, and SEO).
 
 ### 1.5 End Of Session Workflow
 Before ending a session, the agent must perform these tasks:
@@ -112,13 +113,15 @@ Before ending a session, the agent must perform these tasks:
    - DRY & Single Responsibility: Keep components and helper functions modular, readable, and focused on a single responsibility.
    - Clear naming: Use descriptive, self-documenting names for variables, functions, and components.
    - Defensive coding & error handling: Handle edge cases, network timeouts, and missing data gracefully. Never swallow exceptions silently without logging or fallback UI.
-3. **Performance & Resource Optimization**:
-   - Asset optimization: Optimize and lazy-load non-critical media assets (images, fonts, third-party libraries).
-   - Island architecture / Minimal JS: Minimize client-side JavaScript execution; prefer static rendering where dynamic interactivity is not required.
+3. **Performance & Core Web Vitals (PageSpeed / Lighthouse)**:
+   - Asset optimization: Optimize and lazy-load non-critical media assets (images, fonts, third-party libraries); specify explicit `width`/`height` on images to prevent Cumulative Layout Shift (CLS).
+   - Core Web Vitals: Optimize for fast Largest Contentful Paint (LCP), minimal CLS, and low Interaction to Next Paint (INP).
+   - Island architecture / Minimal JS: Minimize client-side JavaScript execution; prefer static rendering where dynamic interactivity is not required. Defer non-critical scripts.
 4. **Accessibility (a11y) & SEO**:
    - Semantic HTML: Enforce HTML5 semantic tags (`<main>`, `<header>`, `<footer>`, `<nav>`, `<article>`, `<section>`).
-   - Accessible UI: Ensure all interactive elements have accessible labels (`aria-label`), keyboard navigation support, and meaningful `alt` text for images.
-   - Heading hierarchy: Maintain a single `<h1>` per page and structured heading levels (`<h2>` -> `<h3>`).
+   - Accessible UI: Ensure all interactive elements have accessible labels (`aria-label`), keyboard navigation support, and meaningful `alt` text for images. Maintain minimum 48x48px touch target sizes on mobile.
+   - Color contrast: Maintain WCAG AA compliant contrast ratios in both light and dark themes.
+   - Heading hierarchy & Meta: Maintain a single `<h1>` per page, structured heading levels (`<h2>` -> `<h3>`), valid OpenGraph/Twitter cards, and canonical links.
 5. **Modular CSS & Styling**:
    - Component styles: Keep styles scoped or organized cleanly in dedicated component stylesheets or Tailwind utility classes.
    - Design system tokens: Use consistent CSS variables / theme tokens for colors, spacing, and typography instead of magic numbers or raw hex values.
