@@ -26,7 +26,7 @@ For complete setup instructions, deployment workflows, and Cloudflare Worker con
 - **Bilingual & Multi-Language (i18n):** Native support for English (`EN`) and Indonesian (`ID`) with instant toggle switch, auto-browser detection, URL param override (`?lang=id`), and `localStorage` persistence.
 - **Theme Switching:** Dark and light mode toggle with system preference detection.
 - **Zero-Build Static Architecture:** Pure HTML5 and Tailwind CSS with no compilation step required.
-- **Starter Templates (`templates/`):** Ready-to-use project README template (`README.template.md`) and laboratory license templates (`LICENSE.MIT`, `LICENSE.ALL-RIGHTS-RESERVED`).
+- **Starter Templates (`templates/`):** Ready-to-use project README template (`README.template.md`), AI agent guidelines (`AGENTS.template.md`, `CLAUDE.template.md`), and laboratory license templates (`LICENSE.MIT`, `LICENSE.ALL-RIGHTS-RESERVED`).
 
 ---
 
@@ -38,12 +38,16 @@ For complete setup instructions, deployment workflows, and Cloudflare Worker con
 │   └── workflows/
 │       └── ci-cd.yml          # CI/CD pipeline using LABEIM shared workflows
 ├── .gitignore                 # Standard OS, IDE, and log ignore rules
+├── AGENTS.md                  # Standardized AI Agent operating guidelines template
+├── CLAUDE.md                  # Claude Code instructions pointer
 ├── LICENSE                    # EIM Lab Proprietary License
 ├── README.md                  # Project overview
 ├── SETUP.md                   # Complete Architecture, Setup, and SOP Guide
 ├── config.js                  # Central configuration & per-site profiles registry
 ├── index.html                 # Dynamic Coming Soon / Maintenance landing page
 └── templates/                 # Starter templates for new web project repositories
+    ├── AGENTS.template.md     # AI Agent instructions template for new projects
+    ├── CLAUDE.template.md     # Claude Code instructions template
     ├── LICENSE.ALL-RIGHTS-RESERVED # Proprietary license template
     ├── LICENSE.MIT            # Open Source MIT license template
     ├── README.md              # Template usage instructions

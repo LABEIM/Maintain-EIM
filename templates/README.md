@@ -9,6 +9,8 @@ This directory provides standardized starter files and templates for new reposit
 | File | Purpose | When to Use |
 | :--- | :--- | :--- |
 | [`README.template.md`](README.template.md) | Standardized Project README | Base README template for every new project / repository. |
+| [`AGENTS.template.md`](AGENTS.template.md) | AI Agent Guidelines & Workflow | Standardized rules, architecture, and operational guidelines for AI coding agents. |
+| [`CLAUDE.template.md`](CLAUDE.template.md) | Claude Code Instructions Pointer | Pointer instructing Claude Code to adhere to `AGENTS.md`. |
 | [`LICENSE.MIT`](LICENSE.MIT) | Open Source MIT License | For open-source tools, public templates, and reusable libraries. |
 | [`LICENSE.ALL-RIGHTS-RESERVED`](LICENSE.ALL-RIGHTS-RESERVED) | Proprietary / Internal License | For proprietary lab web apps, internal services, and confidential research portals. |
 
@@ -32,7 +34,21 @@ Open `README.md` and fill in:
 
 ---
 
-### 2. Choose and Apply Project License
+### 2. Apply Agent Workflow Guidelines (AGENTS & CLAUDE)
+Copy [`AGENTS.template.md`](AGENTS.template.md) and [`CLAUDE.template.md`](CLAUDE.template.md) to the root directory:
+```bash
+cp templates/AGENTS.template.md AGENTS.md
+cp templates/CLAUDE.template.md CLAUDE.md
+```
+Open `AGENTS.md` and configure:
+- `[PROJECT_NAME]`
+- `[FRAMEWORK_CONFIG]`, `[BUILD_COMMAND]`, `[LINT_COMMAND]`, `[TEST_COMMAND]`
+- Framework & Tech Stack in Section 2 (e.g. Next.js, Astro, Vite, Fastify, etc.)
+- Directory layout and component roles
+
+---
+
+### 3. Choose and Apply Project License
 
 #### Option A: MIT License (Open Source Projects)
 ```bash

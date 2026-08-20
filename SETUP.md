@@ -13,7 +13,7 @@ flowchart TD
     subgraph Central_Hub ["Central Hub Repository (This Repo: 'comingsoon-eim')"]
         CONFIG["config.js (Per-Site Profiles & Global Defaults)"]
         HTML["index.html (Tailwind, i18n, Dark Mode)"]
-        TEMPLATES["templates/ (Starter README & Licenses)"]
+        TEMPLATES["templates/ (Starter README, AGENTS & Licenses)"]
     end
 
     subgraph Edge_Gateway ["Cloudflare Worker Router: 'eim-edge-router' (*.eimlab.org/*)"]
@@ -323,12 +323,17 @@ jobs:
     secrets: inherit
 ```
 
-### Step 3: Apply Project README & License
+### Step 3: Apply Project README, AI Agent Guidelines & License
 1. Copy [`templates/README.template.md`](templates/README.template.md) to replace `README.md`:
    ```bash
    cp templates/README.template.md README.md
    ```
-2. Choose and apply the appropriate license:
+2. Copy and configure AI Agent guidelines:
+   ```bash
+   cp templates/AGENTS.template.md AGENTS.md
+   cp templates/CLAUDE.template.md CLAUDE.md
+   ```
+3. Choose and apply the appropriate license:
    - **Open Source Projects:** `cp templates/LICENSE.MIT LICENSE`
    - **Internal / Proprietary Lab Systems:** `cp templates/LICENSE.ALL-RIGHTS-RESERVED LICENSE`
 
